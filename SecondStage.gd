@@ -2,13 +2,26 @@ extends Control
 
 var LAST_TASK=5
 var TASK_HP_BONUS=2
-var TASKS_SOLVED="Поздравляем, ракета спроектирована!"
+var WIN="Победа."
+var COMPLETED="Поздравляем, ракета спроектирована."
+var FAILURE="Поражение"
+var NO_HP="Не осталось попыток"
+var PROCESSING=[
+	"Проектируем первый двигатель...",
+	"Проектируем второй двигатель...",
+	"Проектируем первую ступень ракеты...",
+	"Проектируем кабину...",
+	"Проектируем вторую ступень ракеты..."
+	]
+var TASK="Задача"
+var PROCESS="Проектирование"
 
 var hp = 2
 var currentTask = 1
 var currentTaskText = ""
 var userAnswer = ""
 var isTaskGenerated = true
+onready var taskHeaderLabel = get_node("TaskHeader")
 onready var taskLabel = get_node("TaskContainer/Task")
 onready var hpLabel = get_node("HpText")
 onready var rocket = get_node("rocket")
@@ -19,11 +32,9 @@ var tasks_dict = {
 	"Здесь будет условие задания. Ответ на задание равен 1.":"1",
 	"Здесь будет условие задания. Ответ на задание равен 2.":"2",
 	"Здесь будет условие задания. Ответ на задание равен 3.":"3",
-	"Здесь будет условие задания. Ответ на задание равен 4.":"4",
-
+	"Здесь будет условие задания. Ответ на задание равен 4.":"4"
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	UpdateHp(0)
 	GenerateNewTask()
@@ -41,9 +52,13 @@ func _on_rocket_animation_finished():
 func UpdateHp(changeValue):
 	hp=hp+changeValue
 	hpLabel.set_text(str(hp))
+	if hp==0:
+		taskHeaderLabel.set_text(FAILURE)
+		taskLabel.set_text(NO_HP)
 
 func FinishStage():
-	taskLabel.set_text("Поздравляем, ракета спроектирована.")
+	taskHeaderLabel.set_text(WIN)
+	taskLabel.set_text(COMPLETED)
 	#todo сделать кнопку "следующий этап" и сделать ее видимой
 
 func GenerateNewTask():
@@ -52,13 +67,18 @@ func GenerateNewTask():
 	# удаляем предыдущую задачу, чтобы они не повторялись
 	tasks_dict.erase(currentTaskText) 
 	currentTaskText = tasks_dict.keys()[randi()%tasks_dict.size()]
+	taskHeaderLabel.set_text(TASK)
 	taskLabel.set_text(currentTaskText)
 
 func NextTask():
+		get_node("Answer").set_text("")
 		get_node("task_"+str(currentTask)).play("complete")
 		get_node("task_"+str(currentTask)+"_line").play("complete")
+		taskLabel.set_text(PROCESSING[currentTask-1])
+		taskHeaderLabel.set_text(PROCESS)
 		if currentTask!=LAST_TASK:
 			isTaskGenerated=false
+			UpdateHp(TASK_HP_BONUS)
 			get_node("task_"+str(currentTask+1)).play("unlock")
 			get_node("task_"+str(currentTask+1)+"_line").play("unlock")
 		rocket.play("task_"+str(currentTask))
@@ -75,11 +95,9 @@ func SetError():
 	
 
 func CheckAnswer():
-	if currentTask!=LAST_TASK+1:
+	if isTaskGenerated and currentTask!=LAST_TASK+1 and hp>0:
 		if tasks_dict[currentTaskText] == userAnswer:
-			UpdateHp(TASK_HP_BONUS)
 			print("correct")
-			get_node("Answer").set_text("")
 			NextTask()
 		else:
 			UpdateHp(-1)
