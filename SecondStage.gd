@@ -39,7 +39,7 @@ func _on_rocket_animation_finished():
 		
 
 func FinishStage():
-	taskLabel.set_text("Поздравляем, задачи решены!")
+	taskLabel.set_text("Поздравляем, задачи решены.")
 	#todo сделать кнопку "следующий этап" и сделать ее видимой
 
 func GenerateNewTask():
