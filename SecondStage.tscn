@@ -357,16 +357,12 @@ __meta__ = {
 }
 
 [node name="Task" type="Label" parent="TaskContainer"]
-margin_right = 313.0
-margin_bottom = 357.0
+margin_right = 325.0
+margin_bottom = 42.0
 grow_horizontal = 0
 size_flags_horizontal = 7
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 4 )
-text = "tesdfsdfsdfsdfsdfsdfsdfsdfdsfsdfsdfsdffffffffffffffffffffffff
-sdf
-test
-test"
 valign = 1
 autowrap = true
 __meta__ = {
@@ -430,7 +426,7 @@ centered = false
 position = Vector2( 80, 190 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 10 )
-animation = "wrong"
+animation = "complete"
 centered = false
 
 [node name="txt_task_1" type="Label" parent="."]
@@ -458,7 +454,7 @@ centered = false
 position = Vector2( 160, 400 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 12 )
-animation = "wrong"
+animation = "unlock"
 centered = false
 
 [node name="txt_task_2" type="Label" parent="."]
@@ -486,7 +482,7 @@ centered = false
 position = Vector2( 275, 95 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 13 )
-animation = "wrong"
+animation = "unlock"
 centered = false
 
 [node name="txt_task_3" type="Label" parent="."]
@@ -514,7 +510,7 @@ centered = false
 position = Vector2( 375, 345 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 15 )
-animation = "wrong"
+animation = "unlock"
 centered = false
 
 [node name="txt_task_4" type="Label" parent="."]
@@ -542,7 +538,7 @@ centered = false
 position = Vector2( 435, 195 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 17 )
-animation = "wrong"
+animation = "unlock"
 centered = false
 
 [node name="txt_task_5" type="Label" parent="."]
