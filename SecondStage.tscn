@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://stage_2_task_current.png" type="Texture" id=1]
 [ext_resource path="res://stage_2_bg.png" type="Texture" id=2]
@@ -93,6 +93,15 @@
 [ext_resource path="res://stage_2_task_3_finished.png" type="Texture" id=91]
 [ext_resource path="res://stage_2_task_4_finished.png" type="Texture" id=92]
 [ext_resource path="res://stage_2_task_1_not_finished.png" type="Texture" id=93]
+[ext_resource path="res://stage_2_hp_bg.png" type="Texture" id=94]
+
+[sub_resource type="DynamicFontData" id=18]
+antialiased = false
+font_path = "res://10895.otf"
+
+[sub_resource type="DynamicFont" id=19]
+size = 52
+font_data = SubResource( 18 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 39
@@ -293,6 +302,7 @@ animations = [ {
 [node name="SecondStage" type="Control"]
 margin_right = 975.0
 margin_bottom = 550.0
+rect_min_size = Vector2( 975, 550 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -302,6 +312,26 @@ __meta__ = {
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="hp_background" type="Sprite" parent="."]
+position = Vector2( 40, 25 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 94 )
+centered = false
+
+[node name="HpText" type="Label" parent="."]
+margin_left = 115.0
+margin_top = 30.0
+margin_right = 170.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 19 )
+text = "0"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TaskHeader" type="Label" parent="."]
 margin_left = 609.528
