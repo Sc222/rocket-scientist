@@ -1,0 +1,533 @@
+[gd_scene load_steps=109 format=2]
+
+[ext_resource path="res://stage_2_task_current.png" type="Texture" id=1]
+[ext_resource path="res://stage_2_bg.png" type="Texture" id=2]
+[ext_resource path="res://stage_2_task_not_finished.png" type="Texture" id=3]
+[ext_resource path="res://10895.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://btn_ok_hover.png" type="Texture" id=5]
+[ext_resource path="res://btn_ok_pressed.png" type="Texture" id=6]
+[ext_resource path="res://btn_ok.png" type="Texture" id=7]
+[ext_resource path="res://stage_2_answer_bg.png" type="Texture" id=8]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_3.png" type="Texture" id=9]
+[ext_resource path="res://SecondStage.gd" type="Script" id=10]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_4.png" type="Texture" id=11]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_current.png" type="Texture" id=12]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_7.png" type="Texture" id=13]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_1.png" type="Texture" id=14]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_3.png" type="Texture" id=15]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_5.png" type="Texture" id=16]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_10.png" type="Texture" id=17]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_11.png" type="Texture" id=18]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_7.png" type="Texture" id=19]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_15.png" type="Texture" id=20]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_9.png" type="Texture" id=21]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_5.png" type="Texture" id=22]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_6.png" type="Texture" id=23]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_current.png" type="Texture" id=24]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_3.png" type="Texture" id=25]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_7.png" type="Texture" id=26]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_12.png" type="Texture" id=27]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_1.png" type="Texture" id=28]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_1.png" type="Texture" id=29]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_7.png" type="Texture" id=30]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_8.png" type="Texture" id=31]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_2.png" type="Texture" id=32]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_6.png" type="Texture" id=33]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_4.png" type="Texture" id=34]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_11.png" type="Texture" id=35]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_2.png" type="Texture" id=36]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_1.png" type="Texture" id=37]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_3.png" type="Texture" id=38]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_2.png" type="Texture" id=39]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_14.png" type="Texture" id=40]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_6.png" type="Texture" id=41]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_14.png" type="Texture" id=42]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_6.png" type="Texture" id=43]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_2.png" type="Texture" id=44]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_current.png" type="Texture" id=45]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_5.png" type="Texture" id=46]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_current.png" type="Texture" id=47]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_5.png" type="Texture" id=48]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_13.png" type="Texture" id=49]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_4.png" type="Texture" id=50]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_9.png" type="Texture" id=51]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_13.png" type="Texture" id=52]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_4.png" type="Texture" id=53]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_8.png" type="Texture" id=54]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_12.png" type="Texture" id=55]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_5.png" type="Texture" id=56]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_8.png" type="Texture" id=57]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_11.png" type="Texture" id=58]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_14.png" type="Texture" id=59]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_10.png" type="Texture" id=60]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_9.png" type="Texture" id=61]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_13.png" type="Texture" id=62]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_2.png" type="Texture" id=63]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_1.png" type="Texture" id=64]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_4.png" type="Texture" id=65]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_11.png" type="Texture" id=66]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_current.png" type="Texture" id=67]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_3.png" type="Texture" id=68]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_8.png" type="Texture" id=69]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_7.png" type="Texture" id=70]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_9.png" type="Texture" id=71]
+[ext_resource path="res://rocket/stage_2_rocket_task_4_make_8.png" type="Texture" id=72]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_10.png" type="Texture" id=73]
+[ext_resource path="res://rocket/stage_2_rocket_task_5_make_6.png" type="Texture" id=74]
+[ext_resource path="res://rocket/stage_2_rocket_task_1_make_10.png" type="Texture" id=75]
+[ext_resource path="res://rocket/stage_2_rocket_task_3_make_9.png" type="Texture" id=76]
+[ext_resource path="res://rocket/stage_2_rocket_task_2_make_12.png" type="Texture" id=77]
+[ext_resource path="res://stage_2_task_3_not_finished.png" type="Texture" id=78]
+[ext_resource path="res://stage_2_task_2_not_finished.png" type="Texture" id=79]
+[ext_resource path="res://stage_2_task_1_current.png" type="Texture" id=80]
+[ext_resource path="res://stage_2_task_2_finished.png" type="Texture" id=81]
+[ext_resource path="res://stage_2_task_4_not_finished.png" type="Texture" id=82]
+[ext_resource path="res://stage_2_task_1_finished.png" type="Texture" id=83]
+[ext_resource path="res://stage_2_task_2_current.png" type="Texture" id=84]
+[ext_resource path="res://stage_2_task_finished.png" type="Texture" id=85]
+[ext_resource path="res://stage_2_task_5_current.png" type="Texture" id=86]
+[ext_resource path="res://stage_2_task_3_current.png" type="Texture" id=87]
+[ext_resource path="res://stage_2_task_5_not_finished.png" type="Texture" id=88]
+[ext_resource path="res://stage_2_task_4_current.png" type="Texture" id=89]
+[ext_resource path="res://stage_2_task_5_finished.png" type="Texture" id=90]
+[ext_resource path="res://stage_2_task_3_finished.png" type="Texture" id=91]
+[ext_resource path="res://stage_2_task_4_finished.png" type="Texture" id=92]
+[ext_resource path="res://stage_2_task_1_not_finished.png" type="Texture" id=93]
+
+[sub_resource type="DynamicFont" id=3]
+size = 39
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 39
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=5]
+size = 39
+font_data = ExtResource( 4 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 47 ), ExtResource( 14 ), ExtResource( 39 ), ExtResource( 25 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 18 ), ExtResource( 77 ), ExtResource( 49 ), ExtResource( 40 ), ExtResource( 67 ) ],
+"loop": false,
+"name": "task_2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 32 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 17 ), ExtResource( 66 ), ExtResource( 27 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 20 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "task_3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 16 ), ExtResource( 41 ), ExtResource( 26 ), ExtResource( 69 ), ExtResource( 21 ), ExtResource( 75 ), ExtResource( 35 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
+"loop": false,
+"name": "task_1",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 29 ), ExtResource( 44 ), ExtResource( 15 ), ExtResource( 50 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 13 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "task_4",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 28 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "task_5",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 93 ), ExtResource( 80 ), ExtResource( 93 ), ExtResource( 80 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ), ExtResource( 83 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 0.63
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 79 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 0.63
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 84 ), ExtResource( 79 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 81 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 78 ), ExtResource( 87 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 0.63
+}, {
+"frames": [ ExtResource( 78 ), ExtResource( 87 ), ExtResource( 78 ), ExtResource( 87 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 87 ), ExtResource( 91 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 0.58
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 82 ), ExtResource( 89 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 0.58
+}, {
+"frames": [ ExtResource( 82 ), ExtResource( 89 ), ExtResource( 82 ), ExtResource( 89 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 88 ), ExtResource( 86 ) ],
+"loop": false,
+"name": "unlock",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 88 ), ExtResource( 86 ), ExtResource( 88 ), ExtResource( 86 ) ],
+"loop": false,
+"name": "wrong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 90 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
+} ]
+
+[node name="SecondStage" type="Control"]
+margin_right = 975.0
+margin_bottom = 550.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="."]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TaskHeader" type="Label" parent="."]
+margin_left = 609.528
+margin_top = 29.1237
+margin_right = 934.528
+margin_bottom = 71.1237
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
+text = "Задача:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TaskContainer" type="ScrollContainer" parent="."]
+margin_left = 610.0
+margin_top = 75.0
+margin_right = 935.0
+margin_bottom = 370.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Task" type="Label" parent="TaskContainer"]
+margin_right = 313.0
+margin_bottom = 357.0
+grow_horizontal = 0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 4 )
+text = "tesdfsdfsdfsdfsdfsdfsdfsdfdsfsdfsdfsdffffffffffffffffffffffff
+sdf
+test
+test"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerContainer" type="Sprite" parent="."]
+position = Vector2( 590, 440 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Answer" type="LineEdit" parent="."]
+margin_left = 595.0
+margin_top = 460.0
+margin_right = 867.0
+margin_bottom = 516.0
+rect_scale = Vector2( 0.9, 0.9 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+context_menu_enabled = false
+placeholder_text = "Введите ответ"
+placeholder_alpha = 0.55
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Apply" type="TextureButton" parent="."]
+margin_left = 865.0
+margin_top = 440.0
+margin_right = 883.0
+margin_bottom = 458.0
+rect_scale = Vector2( 5, 5 )
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rocket" type="AnimatedSprite" parent="."]
+position = Vector2( 95, 260 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 8 )
+animation = "task_1"
+centered = false
+
+[node name="task_1" type="AnimatedSprite" parent="."]
+position = Vector2( 20, 130 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 9 )
+animation = "complete"
+centered = false
+
+[node name="task_1_line" type="AnimatedSprite" parent="."]
+position = Vector2( 80, 190 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 10 )
+animation = "wrong"
+centered = false
+
+[node name="txt_task_1" type="Label" parent="."]
+margin_left = 47.8514
+margin_top = 147.636
+margin_right = 67.8514
+margin_bottom = 189.636
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0.196078 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="task_2" type="AnimatedSprite" parent="."]
+position = Vector2( 130, 455 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 11 )
+animation = "unlock"
+centered = false
+
+[node name="task_2_line" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 400 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 12 )
+animation = "wrong"
+centered = false
+
+[node name="txt_task_2" type="Label" parent="."]
+margin_left = 157.5
+margin_top = 472.5
+margin_right = 177.5
+margin_bottom = 514.5
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0.196078 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="task_3" type="AnimatedSprite" parent="."]
+position = Vector2( 240, 20 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 11 )
+animation = "unlock"
+centered = false
+
+[node name="task_3_line" type="AnimatedSprite" parent="."]
+position = Vector2( 275, 95 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 13 )
+animation = "wrong"
+centered = false
+
+[node name="txt_task_3" type="Label" parent="."]
+margin_left = 267.805
+margin_top = 37.1963
+margin_right = 287.805
+margin_bottom = 79.1963
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0.196078 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="task_4" type="AnimatedSprite" parent="."]
+position = Vector2( 350, 455 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 14 )
+animation = "unlock"
+centered = false
+
+[node name="task_4_line" type="AnimatedSprite" parent="."]
+position = Vector2( 375, 345 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 15 )
+animation = "wrong"
+centered = false
+
+[node name="txt_task_4" type="Label" parent="."]
+margin_left = 377.257
+margin_top = 473.908
+margin_right = 397.257
+margin_bottom = 515.908
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0.196078 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="task_5" type="AnimatedSprite" parent="."]
+position = Vector2( 460, 130 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 16 )
+animation = "unlock"
+centered = false
+
+[node name="task_5_line" type="AnimatedSprite" parent="."]
+position = Vector2( 435, 195 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 17 )
+animation = "wrong"
+centered = false
+
+[node name="txt_task_5" type="Label" parent="."]
+margin_left = 487.829
+margin_top = 147.962
+margin_right = 507.829
+margin_bottom = 189.962
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0.196078 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="Answer" to="." method="_on_Answer_text_changed"]
+[connection signal="pressed" from="Apply" to="." method="CheckAnswer"]
+[connection signal="animation_finished" from="rocket" to="." method="_on_rocket_animation_finished"]
