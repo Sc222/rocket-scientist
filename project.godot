@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="2 stage"
 run/main_scene="res://SecondStage.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/stage_2/icon.png"
 
 [display]
 
@@ -28,4 +28,4 @@ window/stretch/aspect="keep"
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/default_env.tres"
