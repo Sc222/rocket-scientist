@@ -1,40 +1,40 @@
 [gd_scene load_steps=112 format=2]
 
-[ext_resource path="res://assets/stage_design/stage_2_task_current.png" type="Texture" id=1]
-[ext_resource path="res://assets/stage_design/stage_2_bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/stage_design/stage_2_task_not_finished.png" type="Texture" id=3]
-[ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/stage_design/btn_ok_hover.png" type="Texture" id=5]
-[ext_resource path="res://assets/stage_design/btn_ok_pressed.png" type="Texture" id=6]
-[ext_resource path="res://assets/stage_design/btn_ok.png" type="Texture" id=7]
-[ext_resource path="res://assets/stage_design/stage_2_answer_bg.png" type="Texture" id=8]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_3.png" type="Texture" id=9]
-[ext_resource path="res://SecondStage.gd" type="Script" id=10]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_4.png" type="Texture" id=11]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_current.png" type="Texture" id=12]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_7.png" type="Texture" id=13]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_1.png" type="Texture" id=14]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_3.png" type="Texture" id=15]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_5.png" type="Texture" id=16]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_10.png" type="Texture" id=17]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_11.png" type="Texture" id=18]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_7.png" type="Texture" id=19]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_15.png" type="Texture" id=20]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_9.png" type="Texture" id=21]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_5.png" type="Texture" id=22]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_5.png" type="Texture" id=2]
+[ext_resource path="res://assets/stage_design/stage_2_task_current.png" type="Texture" id=3]
+[ext_resource path="res://StageDesign.gd" type="Script" id=4]
+[ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_11.png" type="Texture" id=11]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_5.png" type="Texture" id=12]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_current.png" type="Texture" id=14]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_4.png" type="Texture" id=15]
+[ext_resource path="res://assets/stage_design/btn_ok.png" type="Texture" id=16]
+[ext_resource path="res://assets/stage_design/btn_ok_pressed.png" type="Texture" id=17]
+[ext_resource path="res://assets/stage_design/btn_ok_hover.png" type="Texture" id=18]
+[ext_resource path="res://assets/stage_design/stage_2_task_not_finished.png" type="Texture" id=19]
+[ext_resource path="res://assets/stage_design/stage_2_answer_bg.png" type="Texture" id=20]
+[ext_resource path="res://assets/stage_design/stage_2_bg.png" type="Texture" id=21]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_9.png" type="Texture" id=22]
 [ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_6.png" type="Texture" id=23]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_current.png" type="Texture" id=24]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_2_make_3.png" type="Texture" id=25]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_7.png" type="Texture" id=26]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_12.png" type="Texture" id=27]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_1.png" type="Texture" id=28]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_1.png" type="Texture" id=29]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_7.png" type="Texture" id=30]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_8.png" type="Texture" id=31]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_2.png" type="Texture" id=32]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_7.png" type="Texture" id=24]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_8.png" type="Texture" id=25]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_12.png" type="Texture" id=26]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_4_make_7.png" type="Texture" id=27]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_7.png" type="Texture" id=28]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_5_make_7.png" type="Texture" id=29]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_current.png" type="Texture" id=30]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_15.png" type="Texture" id=31]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_11.png" type="Texture" id=32]
 [ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_6.png" type="Texture" id=33]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_4.png" type="Texture" id=34]
-[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_11.png" type="Texture" id=35]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_10.png" type="Texture" id=34]
+[ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_4.png" type="Texture" id=35]
 [ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_2.png" type="Texture" id=36]
 [ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_3_make_1.png" type="Texture" id=37]
 [ext_resource path="res://assets/stage_design/rocket/stage_2_rocket_task_1_make_3.png" type="Texture" id=38]
@@ -80,11 +80,11 @@
 [ext_resource path="res://assets/stage_design/stage_2_task_3_not_finished.png" type="Texture" id=78]
 [ext_resource path="res://assets/stage_design/stage_2_task_2_not_finished.png" type="Texture" id=79]
 [ext_resource path="res://assets/stage_design/stage_2_task_1_current.png" type="Texture" id=80]
-[ext_resource path="res://assets/stage_design/stage_2_task_2_finished.png" type="Texture" id=81]
-[ext_resource path="res://assets/stage_design/stage_2_task_4_not_finished.png" type="Texture" id=82]
+[ext_resource path="res://assets/stage_design/stage_2_task_4_not_finished.png" type="Texture" id=81]
+[ext_resource path="res://assets/stage_design/stage_2_task_2_finished.png" type="Texture" id=82]
 [ext_resource path="res://assets/stage_design/stage_2_task_1_finished.png" type="Texture" id=83]
-[ext_resource path="res://assets/stage_design/stage_2_task_2_current.png" type="Texture" id=84]
-[ext_resource path="res://assets/stage_design/stage_2_task_finished.png" type="Texture" id=85]
+[ext_resource path="res://assets/stage_design/stage_2_task_finished.png" type="Texture" id=84]
+[ext_resource path="res://assets/stage_design/stage_2_task_2_current.png" type="Texture" id=85]
 [ext_resource path="res://assets/stage_design/stage_2_task_5_current.png" type="Texture" id=86]
 [ext_resource path="res://assets/stage_design/stage_2_task_3_current.png" type="Texture" id=87]
 [ext_resource path="res://assets/stage_design/stage_2_task_5_not_finished.png" type="Texture" id=88]
@@ -105,11 +105,11 @@ font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 39
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 39
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -117,31 +117,31 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 39
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 47 ), ExtResource( 14 ), ExtResource( 39 ), ExtResource( 25 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 18 ), ExtResource( 77 ), ExtResource( 49 ), ExtResource( 40 ), ExtResource( 67 ) ],
+"frames": [ ExtResource( 47 ), ExtResource( 7 ), ExtResource( 39 ), ExtResource( 8 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 11 ), ExtResource( 77 ), ExtResource( 49 ), ExtResource( 40 ), ExtResource( 67 ) ],
 "loop": false,
 "name": "task_2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 32 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 17 ), ExtResource( 66 ), ExtResource( 27 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 20 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 34 ), ExtResource( 66 ), ExtResource( 26 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 31 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "task_3",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 16 ), ExtResource( 41 ), ExtResource( 26 ), ExtResource( 69 ), ExtResource( 21 ), ExtResource( 75 ), ExtResource( 35 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 24 ), ExtResource( 69 ), ExtResource( 22 ), ExtResource( 75 ), ExtResource( 32 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "task_1",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 29 ), ExtResource( 44 ), ExtResource( 15 ), ExtResource( 50 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 13 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
 "loop": false,
 "name": "task_4",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 28 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
 "loop": false,
 "name": "task_5",
 "speed": 10.0
@@ -149,12 +149,12 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
 "loop": false,
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -175,17 +175,17 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
 "loop": false,
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -193,17 +193,17 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 79 ), ExtResource( 84 ) ],
+"frames": [ ExtResource( 79 ), ExtResource( 85 ) ],
 "loop": false,
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 84 ), ExtResource( 81 ) ],
+"frames": [ ExtResource( 85 ), ExtResource( 82 ) ],
 "loop": false,
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 79 ), ExtResource( 84 ), ExtResource( 79 ), ExtResource( 84 ) ],
+"frames": [ ExtResource( 79 ), ExtResource( 85 ), ExtResource( 79 ), ExtResource( 85 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -229,17 +229,17 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "unlock",
 "speed": 0.58
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
 "loop": false,
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -247,7 +247,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ ExtResource( 82 ), ExtResource( 89 ) ],
+"frames": [ ExtResource( 81 ), ExtResource( 89 ) ],
 "loop": false,
 "name": "unlock",
 "speed": 0.58
@@ -257,7 +257,7 @@ animations = [ {
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 82 ), ExtResource( 89 ), ExtResource( 82 ), ExtResource( 89 ) ],
+"frames": [ ExtResource( 81 ), ExtResource( 89 ), ExtResource( 81 ), ExtResource( 89 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -265,17 +265,17 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "unlock",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
 "loop": false,
 "name": "complete",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
@@ -303,14 +303,14 @@ animations = [ {
 margin_right = 975.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 975, 550 )
-script = ExtResource( 10 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="background" type="Sprite" parent="."]
 scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 21 )
 centered = false
 
 [node name="hp_background" type="Sprite" parent="."]
@@ -372,7 +372,7 @@ __meta__ = {
 [node name="AnswerContainer" type="Sprite" parent="."]
 position = Vector2( 590, 440 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 20 )
 centered = false
 
 [node name="Answer" type="LineEdit" parent="."]
@@ -401,9 +401,9 @@ margin_right = 883.0
 margin_bottom = 458.0
 rect_scale = Vector2( 5, 5 )
 shortcut_in_tooltip = false
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 5 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
