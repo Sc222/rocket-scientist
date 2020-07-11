@@ -121,9 +121,14 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 47 ), ExtResource( 7 ), ExtResource( 39 ), ExtResource( 8 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 11 ), ExtResource( 77 ), ExtResource( 49 ), ExtResource( 40 ), ExtResource( 67 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
 "loop": false,
-"name": "task_2",
+"name": "task_5",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "task_4",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 34 ), ExtResource( 66 ), ExtResource( 26 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 31 ), ExtResource( 14 ) ],
@@ -136,41 +141,36 @@ animations = [ {
 "name": "task_1",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 47 ), ExtResource( 7 ), ExtResource( 39 ), ExtResource( 8 ), ExtResource( 53 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 11 ), ExtResource( 77 ), ExtResource( 49 ), ExtResource( 40 ), ExtResource( 67 ) ],
 "loop": false,
-"name": "task_4",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
-"loop": false,
-"name": "task_5",
+"name": "task_2",
 "speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 80 ), ExtResource( 83 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 93 ), ExtResource( 80 ), ExtResource( 93 ), ExtResource( 80 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ), ExtResource( 83 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=11]
@@ -180,15 +180,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -198,15 +198,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 85 ), ExtResource( 82 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 79 ), ExtResource( 85 ), ExtResource( 79 ), ExtResource( 85 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=13]
@@ -216,15 +216,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 87 ), ExtResource( 91 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 78 ), ExtResource( 87 ), ExtResource( 78 ), ExtResource( 87 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 87 ), ExtResource( 91 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=14]
@@ -234,15 +234,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.58
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=15]
@@ -252,15 +252,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.58
 }, {
-"frames": [ ExtResource( 89 ), ExtResource( 92 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 81 ), ExtResource( 89 ), ExtResource( 81 ), ExtResource( 89 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=16]
@@ -270,15 +270,15 @@ animations = [ {
 "name": "unlock",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=17]
@@ -288,15 +288,15 @@ animations = [ {
 "name": "unlock",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 86 ), ExtResource( 90 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 88 ), ExtResource( 86 ), ExtResource( 88 ), ExtResource( 86 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 90 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [node name="SecondStage" type="Control"]

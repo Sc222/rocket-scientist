@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/stage_resources/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/stage_resources/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+
+[node name="StageResouces" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="TileMap" type="TileMap" parent="YSort"]
+position = Vector2( 1, 0 )
+scale = Vector2( 5, 5 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 262178, 14, 0, 327680, 23, 0, 327690, 5, 0, 327693, 5, 0, 327698, 26, 0, 327700, 5, 0, 327702, 10, 0, 327705, 5, 0, 327711, 24, 0, 327713, 24, 0, 327718, 13, 0, 327724, 5, 0, 327728, 7, 0, 327729, 29, 0, 327730, 27, 0, 327733, 17, 0, 327736, 26, 0, 327738, 29, 0, 327742, 23, 0, 393222, 6, 0, 393223, 4, 0, 393225, 32, 0, 393227, 19, 0, 393231, 20, 0, 393233, 4, 0, 393234, 7, 0, 393235, 29, 0, 393239, 28, 0, 393241, 20, 0, 393243, 12, 0, 393245, 4, 0, 393253, 7, 0, 393258, 20, 0, 393259, 0, 0, 393261, 12, 0, 393274, 19, 0, 393276, 20, 0, 458753, 21, 0, 458756, 20, 0, 458759, 33, 0, 458763, 33, 0, 458767, 23, 0, 458772, 23, 0, 458774, 6, 0, 458776, 9, 0, 458780, 20, 0, 458784, 0, 0, 458786, 6, 0, 458791, 19, 0, 458799, 20, 0, 458802, 10, 0, 458805, 6, 0, 458809, 29, 0, 458811, 7, 0, 458812, 21, 0, 524294, 19, 0, 524296, 31, 0, 524299, 30, 0, 524301, 7, 0, 524305, 8, 0, 524306, 20, 0, 524310, 20, 0, 524312, 7, 0, 524315, 6, 0, 524318, 22, 0, 524323, 20, 0, 524331, 19, 0, 524334, 16, 0, 524338, 20, 0, 524341, 29, 0, 524344, 15, 0, 524351, 2, 0, 589824, 23, 0, 589831, 32, 0, 589834, 20, 0, 589840, 15, 0, 589843, 15, 0, 589846, 15, 0, 589849, 19, 0, 589851, 7, 0, 589863, 536870935, 0, 589865, 7, 0, 589867, 18, 0, 589870, 7, 0, 589872, 7, 0, 589874, 23, 0, 589879, 0, 0, 589881, 6, 0, 589886, 23, 0, 655364, 7, 0, 655368, 20, 0, 655370, 33, 0, 655375, 7, 0, 655376, 29, 0, 655377, 6, 0, 655379, 28, 0, 655382, 29, 0, 655385, 28, 0, 655386, 20, 0, 655388, 24, 0, 655390, 25, 0, 655393, 25, 0, 655395, 24, 0, 655398, 6, 0, 655403, 20, 0, 655414, 1, 0, 655415, 1, 0, 655419, 19, 0 )
+
+[node name="Root" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 160, 400 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 5, 5 )
+transform = Transform2D( 5, 0, 0, 5, 0, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 256, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
