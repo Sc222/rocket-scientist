@@ -1,29 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/stage_resources/tileset.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.5, 2 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 0.5 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 0.5, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 0.5, 1 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 2, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 2, 1.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 0.5, 1 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 2, 1.5 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 2, 1.5 )
-
-[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 2.00002, 0.999996 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.5, 1 )
 
 [node name="Node2D" type="Node2D"]
@@ -35,10 +32,10 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="box"]
+position = Vector2( 8, 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="box/StaticBody2D2"]
-position = Vector2( 10.5, 11 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box/StaticBody2D2"]
+polygon = PoolVector2Array( -3, 2, -3, 5, 6, 5, 8, 3, 8, 2, -3, 2 )
 
 [node name="fence" type="Sprite" parent="."]
 position = Vector2( 16, 0 )
@@ -52,7 +49,7 @@ position = Vector2( -16, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fence/StaticBody2D"]
 position = Vector2( 24, 11.5 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="small_tree_1" type="Sprite" parent="."]
 position = Vector2( 48, 16 )
@@ -67,7 +64,7 @@ position = Vector2( -48, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="small_tree_1/StaticBody2D4"]
 position = Vector2( 43.5, 13 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="small_tree_2" type="Sprite" parent="."]
 position = Vector2( 32, 16 )
@@ -81,7 +78,7 @@ position = Vector2( -32, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="small_tree_2/StaticBody2D5"]
 position = Vector2( 43.5, 29 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="grass_1" type="Sprite" parent="."]
 position = Vector2( 64, 16 )
@@ -125,7 +122,7 @@ position = Vector2( -80, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="med_tree_1/StaticBody2D6"]
 position = Vector2( 86, 14.5 )
-shape = SubResource( 7 )
+shape = SubResource( 45 )
 
 [node name="med_tree_2" type="Sprite" parent="."]
 position = Vector2( 96, 0 )
@@ -139,7 +136,7 @@ position = Vector2( -96, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="med_tree_2/StaticBody2D7"]
 position = Vector2( 118, 14.5 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="tent" type="Sprite" parent="."]
 position = Vector2( 128, 0 )
@@ -206,7 +203,7 @@ position = Vector2( -112, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="large_tree/StaticBody2D16"]
 position = Vector2( 145, 63 )
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 
 [node name="pillar" type="Sprite" parent="."]
 position = Vector2( 160, 16 )
@@ -220,7 +217,7 @@ position = Vector2( -160, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pillar/StaticBody2D15"]
 position = Vector2( 184.5, 61 )
-shape = SubResource( 12 )
+shape = SubResource( 7 )
 
 [node name="water_tank" type="Sprite" parent="."]
 position = Vector2( 192, 16 )
@@ -405,3 +402,15 @@ region_rect = Rect2( 176, 64, 16, 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="orange_small_2/StaticBody2D9"]
 polygon = PoolVector2Array( 9, 14, 4, 13, 4, 12, 16, 12, 16, 13, 12, 14, 9, 14 )
+
+[node name="invisible_wall" type="Sprite" parent="."]
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 96, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="invisible_wall"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="invisible_wall/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )

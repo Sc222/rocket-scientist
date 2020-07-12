@@ -24,11 +24,13 @@ animations = [ {
 [node name="Root" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-scale = Vector2( 5, 5 )
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
-animation = "idle"
-playing = true
+animation = "run"
 centered = false
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( 2, 18, 2, 16, 12, 16, 12, 18 )
