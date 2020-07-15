@@ -4,13 +4,26 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="fence" type="Sprite" parent="."]
+[node name="top_bottom" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 16, 0, 16, 16 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="fence"]
+[node name="StaticBody2D" type="StaticBody2D" parent="top_bottom"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fence/StaticBody2D"]
-polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="top_bottom/StaticBody2D"]
+polygon = PoolVector2Array( 0, 5, 16, 5, 16, 16, 0, 16 )
+
+[node name="left_right" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="left_right"]
+position = Vector2( 8, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="left_right/StaticBody2D"]
+polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
