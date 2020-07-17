@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/stage_resources/tileset.png" type="Texture" id=1]
+
+[node name="WaterLarge" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 48, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+position = Vector2( 0, -8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( -24, 0, 22, 0, 23, 4, 22, 8, 16, 12, -2, 16, -20, 16, -21, 13, -21, 8, -24, 5 )
