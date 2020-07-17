@@ -89,7 +89,7 @@ scale = Vector2( 5, 5 )
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 position = Vector2( 64, 128 )
 
-[node name="Camera2D" parent="Map/Player" index="2"]
+[node name="Camera2D" parent="Map/Player" index="3"]
 limit_left = 0
 limit_top = 0
 limit_right = 5120
