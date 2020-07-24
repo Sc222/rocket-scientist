@@ -95,7 +95,6 @@
 [ext_resource path="res://assets/stage_design/stage_2_task_1_not_finished.png" type="Texture" id=93]
 [ext_resource path="res://assets/stage_design/stage_2_hp_bg.png" type="Texture" id=94]
 
-
 [sub_resource type="DynamicFontData" id=1]
 antialiased = false
 font_path = "res://assets/10895.otf"
@@ -300,7 +299,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="SecondStage" type="Control"]
+[node name="StageDesign" type="Control"]
 margin_right = 975.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 975, 550 )
