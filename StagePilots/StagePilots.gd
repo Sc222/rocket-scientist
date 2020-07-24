@@ -22,18 +22,18 @@ var user_answer = ""
 
 #массив имен и путей к персам
 var avatars_dict = {
-	"Вова" : "res://avatars/pilot_1.png",
-	"Влад" : "res://avatars/pilot_2.png",
-	"Даник" : "res://avatars/pilot_3.png",
-	"Саша" : "res://avatars/pilot_4.png",
-	"Егор" : "res://avatars/pilot_5.png",
-	"Паша" : "res://avatars/pilot_6.png",
-	"Чел" : "res://avatars/pilot_7.png",
-	"Антон" : "res://avatars/pilot_8.png",
-	"Вася" : "res://avatars/pilot_9.png",
-	"Лёша" : "res://avatars/pilot_10.png",
-	"ПАПА" : "res://avatars/pilot_11.png",
-	"Дед" : "res://avatars/pilot_12.png",
+	"Вова" : "res://assets/stage_pilots/pilot_1.png",
+	"Влад" : "res://assets/stage_pilots/pilot_2.png",
+	"Даник" : "res://assets/stage_pilots/pilot_3.png",
+	"Саша" : "res://assets/stage_pilots/pilot_4.png",
+	"Егор" : "res://assets/stage_pilots/pilot_5.png",
+	"Паша" : "res://assets/stage_pilots/pilot_6.png",
+	"Чел" : "res://assets/stage_pilots/pilot_7.png",
+	"Антон" : "res://assets/stage_pilots/pilot_8.png",
+	"Вася" : "res://assets/stage_pilots/pilot_9.png",
+	"Лёша" : "res://assets/stage_pilots/pilot_10.png",
+	"ПАПА" : "res://assets/stage_pilots/pilot_11.png",
+	"Дед" : "res://assets/stage_pilots/pilot_12.png"
 }
 
 var coolness_arr = [
@@ -171,7 +171,7 @@ func _on_LineEdit_text_changed(new_text):
 	user_answer = new_text
 
 
-func cneck_answer():
+func check_answer():
 	var coolnessCurrentTask = current_pilots.values()[current_pilot][1]
 	match coolnessCurrentTask:
 		"20":
