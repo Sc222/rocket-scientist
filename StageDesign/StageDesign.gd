@@ -25,6 +25,9 @@ onready var taskHeaderLabel = get_node("TaskHeader")
 onready var taskLabel = get_node("TaskContainer/Task")
 onready var hpLabel = get_node("HpText")
 onready var rocket = get_node("rocket")
+onready var answer = get_node("AnswerContainer/Answer")
+onready var answerContainer = get_node("AnswerContainer")
+onready var buttonNextStage = get_node("ButtonNextStage")
 
 
 var tasks_dict = {
@@ -36,6 +39,7 @@ var tasks_dict = {
 }
 
 func _ready():
+	buttonNextStage.visible = false
 	UpdateHp(0)
 	GenerateNewTask()
 
@@ -53,12 +57,15 @@ func UpdateHp(changeValue):
 	hp=hp+changeValue
 	hpLabel.set_text(str(hp))
 	if hp==0:
+		answerContainer.visible = false
 		taskHeaderLabel.set_text(FAILURE)
 		taskLabel.set_text(NO_HP)
 
 func FinishStage():
 	taskHeaderLabel.set_text(WIN)
 	taskLabel.set_text(COMPLETED)
+	answerContainer.visible = false
+	buttonNextStage.visible = true
 	#todo сделать кнопку "следующий этап" и сделать ее видимой
 
 func GenerateNewTask():
@@ -71,7 +78,7 @@ func GenerateNewTask():
 	taskLabel.set_text(currentTaskText)
 
 func NextTask():
-		get_node("Answer").set_text("")
+		answer.set_text("")
 		get_node("task_"+str(currentTask)).play("complete")
 		get_node("task_"+str(currentTask)+"_line").play("complete")
 		taskLabel.set_text(PROCESSING[currentTask-1])
@@ -106,3 +113,9 @@ func CheckAnswer():
 			SetError()
 
 	
+
+
+func go_to_next_stage():
+	#!!! TODO SAVE CURRENT SCORE TO TEXT FILE OR CREATE GLOBAL SCRIPT!!!
+	# SEE https://godotengine.org/qa/1883/transfering-a-variable-over-to-another-scene
+	get_tree().change_scene("res://StageResources/StageResouces.tscn")

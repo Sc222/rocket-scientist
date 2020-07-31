@@ -78,16 +78,6 @@ animations = [ {
 "name": "coolness_50",
 "speed": 40.0
 }, {
-"frames": [ ExtResource( 64 ) ],
-"loop": false,
-"name": "coolness_hidden",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ) ],
-"loop": false,
-"name": "coolness_75",
-"speed": 60.0
-}, {
 "frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ), ExtResource( 58 ), ExtResource( 43 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 60 ), ExtResource( 42 ), ExtResource( 62 ) ],
 "loop": false,
 "name": "coolness_100",
@@ -97,13 +87,23 @@ animations = [ {
 "loop": false,
 "name": "coolness_25",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 64 ) ],
+"loop": false,
+"name": "coolness_hidden",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "coolness_75",
+"speed": 60.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 39
 outline_color = Color( 0.101961, 0.0980392, 0.196078, 1 )
 font_data = ExtResource( 1 )
@@ -118,6 +118,11 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "pilot_10",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "pilot_11",
@@ -128,19 +133,24 @@ animations = [ {
 "name": "pilot_2",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 19 ) ],
 "loop": false,
-"name": "pilot_10",
+"name": "pilot_6",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "pilot_8",
+"name": "pilot_4",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
-"name": "pilot_12",
+"name": "pilot_7",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "pilot_1",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ) ],
@@ -148,9 +158,14 @@ animations = [ {
 "name": "pilot_5",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
 "loop": false,
-"name": "pilot_6",
+"name": "pilot_12",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "pilot_8",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 32 ), ExtResource( 29 ) ],
@@ -161,21 +176,6 @@ animations = [ {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "pilot_3",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "pilot_7",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "pilot_4",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "pilot_1",
 "speed": 20.0
 } ]
 
@@ -233,7 +233,7 @@ margin_bottom = 115.0
 rect_scale = Vector2( 0.9, 0.9 )
 size_flags_horizontal = 7
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 align = 1
 autowrap = true
@@ -257,7 +257,7 @@ margin_right = 1167.0
 margin_bottom = 86.0
 rect_scale = Vector2( 0.16, 0.16 )
 rect_pivot_offset = Vector2( -935, -45 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
 text = "Задача"
 align = 1
@@ -280,7 +280,7 @@ margin_right = 305.0
 margin_bottom = 35.0
 size_flags_horizontal = 7
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 text = "TASK"
 autowrap = true
@@ -352,7 +352,7 @@ margin_right = 1167.0
 margin_bottom = 86.0
 rect_scale = Vector2( 0.16, 0.16 )
 rect_pivot_offset = Vector2( -935, -45 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
 text = "Сложность"
 align = 1
@@ -368,7 +368,7 @@ margin_bottom = 48.0
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 7
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 text = "Очень сложная"
 align = 1
