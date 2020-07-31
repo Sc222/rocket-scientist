@@ -13,8 +13,8 @@ onready var pilotPhoto = get_node("Pilot"+str(current_pilot+1))
 onready var pilotName = get_node("Name")
 onready var result = get_node("Result")
 onready var pilotCoolness = get_node("Coolness")
-onready var pilotHpLabel = get_node("PilotHpText")
-onready var hpLabel = get_node("HpText")
+onready var pilotHpLabel = get_node("Tries/PilotHpText")
+onready var hpLabel = get_node("Tries/HpText")
 onready var applyPilotButton = get_node("PilotInfo/ApplyPilot")
 onready var pilotTaskDifficulty = get_node("PilotInfo/Bg/Difficulty")
 onready var applyTask = get_node("TaskInfo/ApplyTask")
@@ -97,6 +97,8 @@ func _ready():
 	GeneratePilot()
 	GeneratePilot()
 	GeneratePilot()
+	pilotHpLabel.set_text(str(pilot_hp))
+	hpLabel.set_text(str(hp))
 
 
 func UpdateHp(changeValue):
