@@ -2,8 +2,8 @@ extends Control
 
 var LAST_TASK=5
 var TASK_HP_BONUS=2
-var WIN="Победа."
-var COMPLETED="Поздравляем, ракета спроектирована."
+var WIN="Победа"
+var COMPLETED="Поздравляем, ракета спроектирована"
 var FAILURE="Поражение"
 var NO_HP="Не осталось попыток"
 var PROCESSING=[

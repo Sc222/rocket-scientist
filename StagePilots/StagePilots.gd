@@ -1,17 +1,25 @@
 extends Control
 
-var FAILURE="Не осталось попыток"
-var NO_PILOT_HP="Выберай другого пилота"
-var NO_HP="ПРОИГРАЛ"
+var FAILURE="Поражение"
+var NO_PILOT_HP="Выберите другого\nпилота"
+var NO_HP="Не осталось попыток"
+var STAGE_FINISHED="Пилот успешно нанят"
+var WIN="Победа"
 
-onready var taskHeaderLabel = get_node("TaskHeader")
-onready var taskLabel = get_node("Task")
+onready var taskHeaderLabel = get_node("TaskInfo/Bg/TaskHeader")
+onready var answerInput = get_node("TaskInfo/ApplyTask/AnswerLineEdit")
+onready var taskLabel = get_node("TaskInfo/Bg/TaskContainer/Task")
 onready var pilotPhoto = get_node("Pilot"+str(current_pilot+1))
 onready var pilotName = get_node("Name")
+onready var result = get_node("Result")
 onready var pilotCoolness = get_node("Coolness")
 onready var pilotHpLabel = get_node("PilotHpText")
 onready var hpLabel = get_node("HpText")
-
+onready var applyPilotButton = get_node("PilotInfo/ApplyPilot")
+onready var pilotTaskDifficulty = get_node("PilotInfo/Bg/Difficulty")
+onready var applyTask = get_node("TaskInfo/ApplyTask")
+onready var pilotInfo = get_node("PilotInfo")
+onready var taskInfo = get_node("TaskInfo")
 var current_pilots = { }
 var current_pilot = 0
 var currentTaskText = ""
@@ -20,51 +28,61 @@ var pilot_hp = 2
 var hp = 2
 var user_answer = ""
 
-#массив имен и путей к персам
+#словарь имен и анимаций
 var avatars_dict = {
-	"Вова" : "res://assets/stage_pilots/pilot_1.png",
-	"Влад" : "res://assets/stage_pilots/pilot_2.png",
-	"Даник" : "res://assets/stage_pilots/pilot_3.png",
-	"Саша" : "res://assets/stage_pilots/pilot_4.png",
-	"Егор" : "res://assets/stage_pilots/pilot_5.png",
-	"Паша" : "res://assets/stage_pilots/pilot_6.png",
-	"Чел" : "res://assets/stage_pilots/pilot_7.png",
-	"Антон" : "res://assets/stage_pilots/pilot_8.png",
-	"Вася" : "res://assets/stage_pilots/pilot_9.png",
-	"Лёша" : "res://assets/stage_pilots/pilot_10.png",
-	"ПАПА" : "res://assets/stage_pilots/pilot_11.png",
-	"Дед" : "res://assets/stage_pilots/pilot_12.png"
+	"Такенори Кайягаки" : "pilot_1",
+	"Иван Андреев" : "pilot_2",
+	"Изабелла Коллинз" : "pilot_3",
+	"Виктория Иванова" : "pilot_4",
+	"Батя Влада М" : "pilot_5",
+	"Сьюзан Ли" : "pilot_6",
+	"Анонимус" : "pilot_7",
+	"Йозеф Кнехт" : "pilot_8",
+	"Утано Сакайя" : "pilot_9",
+	"Незнакомец в шляпе" : "pilot_10",
+	"Сохо Акигава" : "pilot_11",
+	"Стефани Гонзалес" : "pilot_12"
 }
 
 var coolness_arr = [
-	"20",
-	"40",
-	"60",
-	"80"
+	"coolness_25",
+	"coolness_50",
+	"coolness_75",
+	"coolness_100"
 ]
 
-var tasks_dict_20 = {
+var difficulty_dict = {
+	"coolness_25": "Простая",
+	"coolness_50": "Средняя",
+	"coolness_75": "Сложная",
+	"coolness_100": "Очень сложная"
+}
+
+var tasks_dict_25 = {
 	"Легкая задача. Ответ на задание равен 0.":"0",
 	"Легкая задача. Ответ на задание равен 1.":"1",
 	"Легкая задача. Ответ на задание равен 2.":"2",
 	"Легкая задача. Ответ на задание равен 3.":"3",
 	"Легкая задача. Ответ на задание равен 4.":"4"
 }
-var tasks_dict_40 = {
+
+var tasks_dict_50 = {
 	"Средняя задача. Ответ на задание равен 0.":"0",
 	"Средняя задача. Ответ на задание равен 1.":"1",
 	"Средняя задача. Ответ на задание равен 2.":"2",
 	"Средняя задача. Ответ на задание равен 3.":"3",
 	"Средняя задача. Ответ на задание равен 4.":"4"
 }
-var tasks_dict_60 = {
+
+var tasks_dict_75 = {
 	"Сложная задача. Ответ на задание равен 0.":"0",
 	"Сложная задача. Ответ на задание равен 1.":"1",
 	"Сложная задача. Ответ на задание равен 2.":"2",
 	"Сложная задача. Ответ на задание равен 3.":"3",
 	"Сложная задача. Ответ на задание равен 4.":"4"
 }
-var tasks_dict_80 = {
+
+var tasks_dict_100 = {
 	"Очень сложная задача. Ответ на задание равен 0.":"0",
 	"Очень сложная задача. Ответ на задание равен 1.":"1",
 	"Очень сложная задача. Ответ на задание равен 2.":"2",
@@ -72,34 +90,42 @@ var tasks_dict_80 = {
 	"Очень сложная задача. Ответ на задание равен 4.":"4"
 }
 
+
+func _ready():
+	change_ui_visibility(false, false)
+	GeneratePilot()
+	GeneratePilot()
+	GeneratePilot()
+	GeneratePilot()
+
+
 func UpdateHp(changeValue):
 	pilot_hp = pilot_hp + changeValue
 	pilotHpLabel.set_text(str(pilot_hp))
 	if pilot_hp==0:
-		taskLabel.set_text(NO_PILOT_HP)
+		#todo hide task info and clear answer input
+		change_ui_visibility(false, false)
+		pilotCoolness.play("coolness_hidden")
+		pilotName.set_text(NO_PILOT_HP)
+		answerInput.text=""
+	
 		is_Task_Solved = false
 		var cp = get_node("Pilot"+str(current_pilot+1))
-		cp.disabled = true
 		cp.visible = false
 		UpdateHp(2)
 		hp = hp - 1
 		hpLabel.set_text(str(hp))
 		if hp==0:
-			taskHeaderLabel.set_text(FAILURE)
-			taskLabel.set_text(NO_HP)
-		
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	GeneratePilot()
-	pilotName.set_text(current_pilots.keys()[0])
-	pilotCoolness.set_text(current_pilots.values()[0][1])
-	GeneratePilot()
-	GeneratePilot()
-	GeneratePilot()
+			lose()
+
+
+func change_ui_visibility(is_apply_pilot_visible, is_apply_task_visible):
+	pilotInfo.visible=is_apply_pilot_visible
+	taskInfo.visible=is_apply_task_visible
+
 
 func GeneratePilot():
 	randomize()
-	
 	#создаем новое имя и аватар и заносим в словарь пилотов текущей сессии
 	var rand_index = randi()%avatars_dict.size()
 	var new_name = avatars_dict.keys()[rand_index]
@@ -108,85 +134,94 @@ func GeneratePilot():
 	current_pilots[new_name] = [new_avatar, coolness]
 	avatars_dict.erase(new_name)
 	coolness_arr.erase(coolness)
-	
-	pilotPhoto.texture_normal = load(current_pilots.values()[current_pilot][0])
-	if(current_pilots.size() <= 3): 
+	pilotPhoto.set_animation(current_pilots.values()[current_pilot][0])
+	if current_pilots.size() <= 3: 
 		current_pilot += 1
 		pilotPhoto = get_node("Pilot"+str(current_pilot+1))
 
+
 func generate_new_task():
+	#applyPilotButton.set_disabled(true)
+	change_ui_visibility(false, true)
 	if is_Task_Solved == false :
 		is_Task_Solved = true
 		randomize()
 		match current_pilots.values()[current_pilot][1] :
-			"20":
+			"coolness_25":
 				# удаляем предыдущую задачу, чтобы они не повторялись
-				tasks_dict_20.erase(currentTaskText)
-				currentTaskText = tasks_dict_20.keys()[randi()%tasks_dict_20.size()]
+				tasks_dict_25.erase(currentTaskText)
+				currentTaskText = tasks_dict_25.keys()[randi()%tasks_dict_25.size()]
 				taskLabel.set_text(currentTaskText)
-			"40":
-				# удаляем предыдущую задачу, чтобы они не повторялись
-				tasks_dict_40.erase(currentTaskText)
-				currentTaskText = tasks_dict_40.keys()[randi()%tasks_dict_40.size()]
+			"coolness_50":
+				tasks_dict_50.erase(currentTaskText)
+				currentTaskText = tasks_dict_50.keys()[randi()%tasks_dict_50.size()]
 				taskLabel.set_text(currentTaskText)
-			"60":
-				# удаляем предыдущую задачу, чтобы они не повторялись
-				tasks_dict_60.erase(currentTaskText)
-				currentTaskText = tasks_dict_60.keys()[randi()%tasks_dict_60.size()]
+			"coolness_75":
+				tasks_dict_75.erase(currentTaskText)
+				currentTaskText = tasks_dict_75.keys()[randi()%tasks_dict_75.size()]
 				taskLabel.set_text(currentTaskText)
-			"80":
-				# удаляем предыдущую задачу, чтобы они не повторялись
-				tasks_dict_80.erase(currentTaskText)
-				currentTaskText = tasks_dict_80.keys()[randi()%tasks_dict_80.size()]
+			"coolness_100":
+				tasks_dict_100.erase(currentTaskText)
+				currentTaskText = tasks_dict_100.keys()[randi()%tasks_dict_100.size()]
 				taskLabel.set_text(currentTaskText)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func select_pilot_1():
-	if is_Task_Solved == false :
-		pilotName.set_text(current_pilots.keys()[0])
-		pilotCoolness.set_text(current_pilots.values()[0][1])
-		current_pilot = 0
+	select_pilot(0)
+
+
 func select_pilot_2():
-	if is_Task_Solved == false :
-		pilotName.set_text(current_pilots.keys()[1])
-		pilotCoolness.set_text(current_pilots.values()[1][1])
-		current_pilot = 1
+	select_pilot(1)
+
+
 func select_pilot_3():
-	if is_Task_Solved == false :
-		pilotName.set_text(current_pilots.keys()[2])
-		pilotCoolness.set_text(current_pilots.values()[2][1])
-		current_pilot = 2
+	select_pilot(2)
+
+
 func select_pilot_4():
+	select_pilot(3)
+
+
+func select_pilot(index):
 	if is_Task_Solved == false :
-		pilotName.set_text(current_pilots.keys()[3])
-		pilotCoolness.set_text(current_pilots.values()[3][1])
-		current_pilot = 3
+		change_ui_visibility(true, false)
+		pilotName.set_text(current_pilots.keys()[index])
+		pilotCoolness.play(current_pilots.values()[index][1])
+		pilotTaskDifficulty.set_text(difficulty_dict[current_pilots.values()[index][1]])
+		get_node("Pilot"+str(current_pilot+1)).stop()
+		get_node("Pilot"+str(current_pilot+1)).set_frame(0)
+		current_pilot = index
+		get_node("Pilot"+str(current_pilot+1)).play()
 
 
 func _on_LineEdit_text_changed(new_text):
 	user_answer = new_text
 
+func win():
+	pilotCoolness.play("coolness_hidden")
+	change_ui_visibility(false, false)
+	pilotName.set_text(WIN)
+	result.set_text(STAGE_FINISHED)
+
+func lose():
+	change_ui_visibility(false, false)
+	pilotName.set_text(FAILURE)
+	result.set_text(NO_HP)
+	pilotHpLabel.set_text("0")
+
 
 func check_answer():
 	var coolnessCurrentTask = current_pilots.values()[current_pilot][1]
 	match coolnessCurrentTask:
-		"20":
-			if tasks_dict_20[currentTaskText] == user_answer :
-				pilotName.set_text("КРУТОЙ")
+		"coolness_25":
+			if tasks_dict_25[currentTaskText] == user_answer : win()
 			else: UpdateHp(-1)
-		"40":
-			if tasks_dict_40[currentTaskText] == user_answer :
-				pilotName.set_text("КРУТОЙ")
+		"coolness_50":
+			if tasks_dict_50[currentTaskText] == user_answer : win()
 			else: UpdateHp(-1)
-		"60":
-			if tasks_dict_60[currentTaskText] == user_answer :
-				pilotName.set_text("КРУТОЙ")
+		"coolness_75":
+			if tasks_dict_75[currentTaskText] == user_answer : win()
 			else: UpdateHp(-1)
-		"80":
-			if tasks_dict_80[currentTaskText] == user_answer :
-				pilotName.set_text("КРУТОЙ")
+		"coolness_100":
+			if tasks_dict_100[currentTaskText] == user_answer : win()
 			else: UpdateHp(-1)

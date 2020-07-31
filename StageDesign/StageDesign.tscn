@@ -121,6 +121,11 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "task_4",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
 "loop": false,
 "name": "task_5",
@@ -131,19 +136,14 @@ animations = [ {
 "name": "task_2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 24 ), ExtResource( 69 ), ExtResource( 22 ), ExtResource( 75 ), ExtResource( 32 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
 "loop": false,
-"name": "task_4",
+"name": "task_1",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 34 ), ExtResource( 66 ), ExtResource( 26 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 31 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "task_3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 24 ), ExtResource( 69 ), ExtResource( 22 ), ExtResource( 75 ), ExtResource( 32 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
-"loop": false,
-"name": "task_1",
 "speed": 10.0
 } ]
 
@@ -334,9 +334,9 @@ __meta__ = {
 }
 
 [node name="TaskHeader" type="Label" parent="."]
-margin_left = 609.528
+margin_left = 610.65
 margin_top = 29.1237
-margin_right = 934.528
+margin_right = 935.65
 margin_bottom = 71.1237
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
@@ -358,11 +358,13 @@ __meta__ = {
 
 [node name="Task" type="Label" parent="TaskContainer"]
 margin_right = 325.0
-margin_bottom = 42.0
+margin_bottom = 87.0
 grow_horizontal = 0
 size_flags_horizontal = 7
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 4 )
+text = "
+"
 valign = 1
 autowrap = true
 __meta__ = {
@@ -377,9 +379,9 @@ centered = false
 
 [node name="Answer" type="LineEdit" parent="."]
 margin_left = 595.0
-margin_top = 460.0
+margin_top = 458.502
 margin_right = 867.0
-margin_bottom = 516.0
+margin_bottom = 514.502
 rect_scale = Vector2( 0.9, 0.9 )
 size_flags_horizontal = 5
 size_flags_vertical = 5
