@@ -20,6 +20,8 @@ onready var pilotTaskDifficulty = get_node("PilotInfo/Bg/Difficulty")
 onready var applyTask = get_node("TaskInfo/ApplyTask")
 onready var pilotInfo = get_node("PilotInfo")
 onready var taskInfo = get_node("TaskInfo")
+onready var buttonNextStage = get_node("ButtonNextStage")
+
 var current_pilots = { }
 var current_pilot = 0
 var currentTaskText = ""
@@ -92,6 +94,7 @@ var tasks_dict_100 = {
 
 
 func _ready():
+	buttonNextStage.visible = false
 	change_ui_visibility(false, false)
 	GeneratePilot()
 	GeneratePilot()
@@ -204,6 +207,7 @@ func win():
 	change_ui_visibility(false, false)
 	pilotName.set_text(WIN)
 	result.set_text(STAGE_FINISHED)
+	buttonNextStage.visible = true
 
 func lose():
 	change_ui_visibility(false, false)
@@ -227,3 +231,8 @@ func check_answer():
 		"coolness_100":
 			if tasks_dict_100[currentTaskText] == user_answer : win()
 			else: UpdateHp(-1)
+
+
+func go_to_next_stage():
+	pass
+	# TODO LOAD NEXT STAGE HERE

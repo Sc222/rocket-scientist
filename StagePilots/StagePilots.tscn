@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://StagePilots/StagePilots.gd" type="Script" id=2]
@@ -66,6 +66,9 @@
 [ext_resource path="res://assets/stage_pilots/coolness_hidden.png" type="Texture" id=64]
 [ext_resource path="res://assets/stage_pilots/title_bg.png" type="Texture" id=65]
 [ext_resource path="res://assets/stage_pilots/tries_bg.png" type="Texture" id=66]
+[ext_resource path="res://assets/stage_pilots/btn_next_stage.png" type="Texture" id=67]
+[ext_resource path="res://assets/stage_pilots/btn_next_stage_pressed.png" type="Texture" id=68]
+[ext_resource path="res://assets/stage_pilots/btn_next_stage_hover.png" type="Texture" id=69]
 
 [sub_resource type="DynamicFont" id=1]
 size = 39
@@ -73,6 +76,16 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 64 ) ],
+"loop": false,
+"name": "coolness_hidden",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "coolness_75",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ) ],
 "loop": false,
 "name": "coolness_50",
@@ -87,16 +100,6 @@ animations = [ {
 "loop": false,
 "name": "coolness_25",
 "speed": 20.0
-}, {
-"frames": [ ExtResource( 64 ) ],
-"loop": false,
-"name": "coolness_hidden",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ) ],
-"loop": false,
-"name": "coolness_75",
-"speed": 60.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -118,11 +121,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 28 ), ExtResource( 25 ) ],
-"loop": false,
-"name": "pilot_10",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "pilot_11",
@@ -146,6 +144,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "pilot_7",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "pilot_10",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
@@ -184,8 +187,8 @@ size = 52
 font_data = ExtResource( 1 )
 
 [node name="StagePilots" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 975.0
+margin_bottom = 550.0
 rect_pivot_offset = Vector2( 427.522, 1407.68 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -466,6 +469,19 @@ text = "2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonNextStage" type="TextureButton" parent="."]
+margin_left = 665.0
+margin_top = 150.0
+margin_right = 714.0
+margin_bottom = 168.0
+rect_scale = Vector2( 5, 5 )
+texture_normal = ExtResource( 67 )
+texture_pressed = ExtResource( 68 )
+texture_hover = ExtResource( 69 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_changed" from="TaskInfo/ApplyTask/AnswerLineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="TaskInfo/ApplyTask/ApplyTaskBtn" to="." method="check_answer"]
 [connection signal="pressed" from="PilotInfo/ApplyPilot" to="." method="generate_new_task"]
@@ -473,3 +489,4 @@ __meta__ = {
 [connection signal="pressed" from="Pilot2/ButtonPilot2" to="." method="select_pilot_2"]
 [connection signal="pressed" from="Pilot3/ButtonPilot3" to="." method="select_pilot_3"]
 [connection signal="pressed" from="Pilot4/ButtonPilot4" to="." method="select_pilot_4"]
+[connection signal="pressed" from="ButtonNextStage" to="." method="go_to_next_stage"]
