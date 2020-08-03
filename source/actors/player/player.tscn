@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://actors/player/player.gd" type="Script" id=1]
+[ext_resource path="res://actors/player/pigdev.png" type="Texture" id=2]
+[ext_resource path="res://actors/player/hookRope.gd" type="Script" id=3]
+[ext_resource path="res://actors/hookgun/hook rope.tex" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 41.3692
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends RayCast2D\n\nexport (int) var hookRange\n\nfunc _ready():\n\tset_fixed_process(true)\nfunc _fixed_process(delta):\n\tset_cast_to(Vector2(0,1).rotated(get_angle_to(get_global_mouse_pos())) * hookRange)"
+
+[sub_resource type="OccluderPolygon2D" id=3]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -24.5021, 9.23046, -4.06285, 22.37, 18.7123, 24.4139, 35.9397, 20.618, 42.0715, 9.81445, 47.0353, 0.762772, 47.6192, 13.3183, 39.1516, 30.2537, 18.1283, 41.9333, -7.56673, 41.3493, -25.6701, 28.7937, -34.4297, 10.6904, -34.1378, -6.24497 )
+
+[node name="player" type="KinematicBody2D" groups=[ "player" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 7.14987, 1.58887 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+playerJumpForce = 1800
+jumpHeight = 100
+playerCurrentState = null
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="shape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 7.14987, 1.58887 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="gunReference" type="RemoteTransform2D" parent="."]
+
+transform/pos = Vector2( 89.0728, 0 )
+remote_path = NodePath("")
+script/script = ExtResource( 3 )
+
+[node name="hookRange" type="RayCast2D" parent="gunReference"]
+
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+script/script = SubResource( 2 )
+hookRange = null
+
+[node name="rope" type="Sprite" parent="gunReference"]
+
+transform/pos = Vector2( -64.3471, 1.38527 )
+texture = ExtResource( 4 )
+centered = false
+region = true
+
+[node name="visibilityNotifier" type="VisibilityNotifier2D" parent="."]
+
+transform/scale = Vector2( 1.56448, 2.38017 )
+rect = Rect2( -10, -10, 20, 20 )
+
+[node name="occluder" type="LightOccluder2D" parent="."]
+
+occluder = SubResource( 3 )
+light_mask = 1
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
+[connection signal="exit_screen" from="visibilityNotifier" to="." method="_on_visibilityNotifier_exit_screen"]
+
+

@@ -67,7 +67,6 @@ scale = Vector2( 5, 5 )
 
 [node name="Water" type="Node2D" parent="BackgroundObjects"]
 position = Vector2( 1.19209e-08, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="WaterLarge1" parent="BackgroundObjects/Water" instance=ExtResource( 10 )]
 position = Vector2( 828, 96 )
@@ -80,7 +79,6 @@ position = Vector2( 912, 96 )
 
 [node name="Pool1" parent="BackgroundObjects" instance=ExtResource( 26 )]
 position = Vector2( 520, 152 )
-scale = Vector2( 1, 1 )
 
 [node name="Map" type="YSort" parent="."]
 position = Vector2( 5.96046e-08, 0 )
@@ -224,7 +222,6 @@ position = Vector2( 276, 128 )
 
 [node name="TreeMedGreen2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 476, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeMedGreen3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 784, 144 )
@@ -337,7 +334,6 @@ position = Vector2( -1.19209e-08, 208 )
 
 [node name="Cactus14" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 384, 144 )
-scale = Vector2( 1, 1 )
 
 [node name="Roses" type="YSort" parent="Map/Plants"]
 
@@ -391,7 +387,6 @@ position = Vector2( 568, 208 )
 
 [node name="Rose17" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 368, 120 )
-scale = Vector2( 1, 1 )
 
 [node name="OrangeTotems" type="YSort" parent="Map"]
 
@@ -417,7 +412,6 @@ position = Vector2( 152, 112 )
 position = Vector2( 124, 156 )
 
 [node name="Buildings" type="YSort" parent="Map"]
-scale = Vector2( 1, 1 )
 
 [node name="Containers" type="YSort" parent="Map/Buildings"]
 
@@ -552,7 +546,6 @@ position = Vector2( 612, 148 )
 
 [node name="WaterTank1" parent="Map/Buildings/Other" instance=ExtResource( 24 )]
 position = Vector2( 872, 112 )
-scale = Vector2( 1, 1 )
 
 [node name="House1" parent="Map/Buildings/Other" instance=ExtResource( 23 )]
 position = Vector2( 712, 168 )

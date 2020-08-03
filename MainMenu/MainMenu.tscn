@@ -1,0 +1,166 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/main_menu/bg.png" type="Texture" id=1]
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/main_menu/rocket_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/main_menu/rocket_4.png" type="Texture" id=5]
+[ext_resource path="res://assets/main_menu/rocket_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/main_menu/rocket_5.png" type="Texture" id=7]
+[ext_resource path="res://assets/main_menu/rocket_1.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "flight",
+"speed": 12.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 1
+outline_color = Color( 0.901961, 0.305882, 0.294118, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+extra_spacing_top = -4
+extra_spacing_bottom = -2
+font_data = ExtResource( 3 )
+
+[node name="MainMenu" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 5, 5 )
+transform = Transform2D( 5, 0, 0, 5, 0, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 200, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Rocket" type="AnimatedSprite" parent="."]
+position = Vector2( 300, 345 )
+scale = Vector2( 6, 6 )
+frames = SubResource( 8 )
+animation = "flight"
+frame = 2
+playing = true
+
+[node name="Title" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 45.0
+margin_right = 266.0
+margin_bottom = 73.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Rocket Scientist"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+margin_left = 710.0
+margin_top = 200.0
+margin_right = 751.0
+margin_bottom = 214.0
+rect_scale = Vector2( 5, 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.933333, 0.439216, 1 )
+text = "Играть"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Leaderboards" type="Button" parent="."]
+margin_left = 660.0
+margin_top = 285.0
+margin_right = 712.0
+margin_bottom = 299.0
+rect_scale = Vector2( 5, 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.933333, 0.439216, 1 )
+text = "Рекорды"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="."]
+margin_left = 700.0
+margin_top = 370.0
+margin_right = 744.0
+margin_bottom = 384.0
+rect_scale = Vector2( 5, 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.933333, 0.439216, 1 )
+text = "Авторы"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 730.0
+margin_top = 455.0
+margin_right = 768.0
+margin_bottom = 469.0
+rect_scale = Vector2( 5, 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.933333, 0.439216, 1 )
+text = "Выход"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

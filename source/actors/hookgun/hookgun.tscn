@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://actors/hookgun/hookgun.gd" type="Script" id=1]
+[ext_resource path="res://actors/hookgun/hook tip.png" type="Texture" id=2]
+[ext_resource path="res://actors/hookgun/hook rope.tex" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 17.4343
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( 26.8715, -1.22927, -9.31722, -23.6068, -15.7857, -22.383, -14.2123, -11.7188, -22.0794, -15.2152, -25.9256, -11.5439, -26.6249, 4.53993, -23.1284, 11.7077, -12.8137, 9.43502, -16.8347, 18.3511, -10.541, 23.421 )
+
+[node name="hookgun" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+hookShotSpeed = 300
+hookShotRecoilSpeed = null
+gunReferencePath = null
+playerPath = null
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 7.16781, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="shape" type="CollisionShape2D" parent="area"]
+
+transform/pos = Vector2( 7.16781, 0 )
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="occluder" type="LightOccluder2D" parent="."]
+
+occluder = SubResource( 2 )
+light_mask = 1
+
+[node name="rope" type="Sprite" parent="."]
+
+visibility/behind_parent = true
+transform/pos = Vector2( -27.3099, 0 )
+texture = ExtResource( 3 )
+centered = false
+region = true
+
+[connection signal="area_enter" from="area" to="." method="_on_area_area_enter"]
+
+[connection signal="area_exit" from="area" to="." method="_on_area_area_exit"]
+
+[connection signal="body_enter" from="area" to="." method="_on_area_body_enter"]
+
+[connection signal="body_exit" from="area" to="." method="_on_area_body_exit"]
+
+

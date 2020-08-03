@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://objects/instantiableTiles/movingTiles.gd" type="Script" id=1]
+[ext_resource path="res://objects/instantiableTiles/platform.png" type="Texture" id=2]
+[ext_resource path="res://objects/corn/corn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/instantiableTiles/obstacleOccluder.tres" type="OccluderPolygon2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 114.306, 25.928 )
+
+[node name="obstacle" type="KinematicBody2D" groups=[ "platform", "obstacle" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 126.681, 41.6078 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="." groups=[ "obstacle" ]]
+
+transform/pos = Vector2( -0.423309, 0.145912 )
+transform/scale = Vector2( 0.756469, 0.7771 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="shape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 126.681, 41.6078 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="visibilityNotifier" type="VisibilityNotifier2D" parent="."]
+
+transform/pos = Vector2( 336.4, 13.0779 )
+rect = Rect2( 0, 0, 48, 48 )
+
+[node name="corn" parent="." instance=ExtResource( 3 )]
+
+[node name="occluder" type="LightOccluder2D" parent="."]
+
+occluder = ExtResource( 4 )
+light_mask = 1
+
+[connection signal="exit_screen" from="visibilityNotifier" to="." method="_on_visibilityNotifier_exit_screen"]
+
+[connection signal="body_enter" from="corn" to="." method="_on_item_body_enter"]
+
+
