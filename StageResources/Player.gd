@@ -21,11 +21,14 @@ func _physics_process(delta):
 		
 	var movement = speed * dir_vector * delta
 	
-	var is_direction_changed = change_direction(dir_vector.x)
+	#var is_direction_changed = change_direction(dir_vector.x)
 	
+	
+
+	direction = rotate_pistol(get_global_mouse_position())
 	update_animation(movement.length()!=0)	
 	move_and_collide(movement)
-	rotate_pistol(get_global_mouse_position(), is_direction_changed)
+	#change_direction(dir_vector.x)
 	
 #returns true if direction was changed
 func change_direction(x_direction):
@@ -50,24 +53,15 @@ func update_animation(is_moving):
 	else:
 		sprite.play("idle")
 
-func rotate_pistol(mouse_pos, is_direction_changed):
+func rotate_pistol(mouse_pos):
 	var angle = (mouse_pos - pistol.global_position).angle()
 	var can_rotate_that_much = false
-	if is_direction_changed:
-		# we should mirror gun, so add PI to rot angle
-		pistol.rotation += PI
-		if direction==DIR_RIGHT:
-			pistolSprite.set_flip_v(false)
-		if direction==DIR_LEFT:
-			pistolSprite.set_flip_v(true)
-	#print(angle)
-
+	var dir = direction
 	if angle>-PI/2 and angle<PI/2:
-		if direction==DIR_RIGHT:
-			can_rotate_that_much=true
+		pistolSprite.set_flip_v(false)
+		dir = DIR_RIGHT
 	else:
-		if direction==DIR_LEFT:
-			can_rotate_that_much=true
-			
-	if can_rotate_that_much:
-		pistol.look_at(mouse_pos)
+		pistolSprite.set_flip_v(true)
+		dir=DIR_LEFT
+	pistol.look_at(mouse_pos)
+	return dir

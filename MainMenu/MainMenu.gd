@@ -12,7 +12,7 @@ func _process(delta):
 	pass
 
 func launch_game():
-	pass
+	get_tree().change_scene("res://StageResources/StageResouces.tscn")
 
 func launch_leaderboards():
 	# todo launch leaderboards

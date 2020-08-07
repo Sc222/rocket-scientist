@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Rocket Scientist"
-run/main_scene="res://StageDesign/StageDesign.tscn"
+run/main_scene="res://MainMenu/MainMenu.tscn"
 config/icon="res://assets/stage_design/icon.png"
+
+[autoload]
+
+Global="*res://Global/Global.gd"
 
 [display]
 
