@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/stage_resources/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/stage_resources/player_stats_bg.png" type="Texture" id=2]
 [ext_resource path="res://StageResources/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/stage_resources/tileset_invisible.tres" type="TileSet" id=4]
 [ext_resource path="res://StageResources/Objects/Rock.tscn" type="PackedScene" id=5]
@@ -30,19 +31,18 @@
 [ext_resource path="res://StageResources/Objects/Box.tscn" type="PackedScene" id=29]
 [ext_resource path="res://StageResources/Objects/Fence.tscn" type="PackedScene" id=30]
 [ext_resource path="res://StageResources/Objects/Pillar.tscn" type="PackedScene" id=31]
+[ext_resource path="res://StageResources/Bullet.tscn" type="PackedScene" id=32]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://assets/10895.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 52
+font_data = SubResource( 1 )
 
 [node name="StageResouces" type="Node2D"]
-
-[node name="Ui" type="CanvasLayer" parent="."]
-
-[node name="Button" type="Button" parent="Ui"]
-margin_left = 60.0
-margin_top = 300.0
-margin_right = 140.0
-margin_bottom = 320.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+scale = Vector2( 5, 5 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2( 5, 5 )
@@ -59,7 +59,6 @@ centered = false
 [node name="TileMapInvisibleWalls" type="TileMap" parent="."]
 visible = false
 position = Vector2( 5.96046e-08, 0 )
-scale = Vector2( 5, 5 )
 z_as_relative = false
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
@@ -67,14 +66,12 @@ format = 1
 tile_data = PoolIntArray( 327679, 2, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 1, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 262180, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 1, 0, 262186, 1, 0, 262187, 1, 0, 262188, 1, 0, 262189, 1, 0, 262190, 1, 0, 262191, 1, 0, 262192, 1, 0, 262193, 1, 0, 262194, 1, 0, 262195, 1, 0, 262196, 1, 0, 262197, 1, 0, 262198, 1, 0, 262199, 1, 0, 262200, 1, 0, 262201, 1, 0, 262202, 1, 0, 262203, 1, 0, 262204, 1, 0, 262205, 1, 0, 262206, 1, 0, 262207, 1, 0, 262208, 1, 0, 393215, 2, 0, 327744, 2, 0, 458751, 2, 0, 393280, 2, 0, 524287, 2, 0, 458816, 2, 0, 589823, 2, 0, 524352, 2, 0, 655359, 2, 0, 589888, 2, 0, 720895, 2, 0, 655424, 2, 0, 786431, 2, 0, 720960, 2, 0, 851967, 2, 0, 786496, 2, 0, 917503, 2, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 1, 0, 852000, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 852004, 1, 0, 852005, 1, 0, 852006, 1, 0, 852007, 1, 0, 852008, 1, 0, 852009, 1, 0, 852010, 1, 0, 852011, 1, 0, 852012, 1, 0, 852013, 1, 0, 852014, 1, 0, 852015, 1, 0, 852016, 1, 0, 852017, 1, 0, 852018, 1, 0, 852019, 1, 0, 852020, 1, 0, 852021, 1, 0, 852022, 1, 0, 852023, 1, 0, 852024, 1, 0, 852025, 1, 0, 852026, 1, 0, 852027, 1, 0, 852028, 1, 0, 852029, 1, 0, 852030, 1, 0, 852031, 1, 0, 852032, 1, 0 )
 
 [node name="TileMapBackground" type="TileMap" parent="."]
-scale = Vector2( 5, 5 )
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 327728, 1, 0, 393222, 0, 0, 393227, 2, 0, 393231, 3, 0, 393234, 1, 0, 393240, 3, 0, 393246, 3, 0, 393253, 1, 0, 393258, 3, 0, 393274, 2, 0, 393276, 3, 0, 458752, 4, 0, 458774, 0, 0, 458780, 1, 0, 458786, 0, 0, 458791, 2, 0, 458799, 3, 0, 458805, 0, 0, 458811, 1, 0, 458813, 4, 0, 524294, 2, 0, 524301, 1, 0, 524306, 3, 0, 524310, 3, 0, 524312, 1, 0, 524314, 3, 0, 524315, 0, 0, 524318, 3, 0, 524323, 3, 0, 524331, 2, 0, 524339, 3, 0, 589826, 3, 0, 589852, 2, 0, 589865, 1, 0, 589870, 1, 0, 589872, 1, 0, 589881, 0, 0, 655364, 1, 0, 655368, 3, 0, 655377, 0, 0, 655398, 0, 0, 655403, 3, 0, 655419, 2, 0, 851971, 3, 0, 851975, 2, 0, 851981, 1, 0, 851995, 2, 0, 852000, 2, 0, 852004, 1, 0, 852008, 3, 0, 852012, 1, 0, 852022, 2, 0, 852028, 3, 0, 917515, 0, 0, 917553, 0, 0 )
 
 [node name="BackgroundObjects" type="Node2D" parent="."]
-scale = Vector2( 5, 5 )
 
 [node name="Water" type="Node2D" parent="BackgroundObjects"]
 position = Vector2( 1.19209e-08, 0 )
@@ -93,7 +90,6 @@ position = Vector2( 520, 152 )
 
 [node name="Map" type="YSort" parent="."]
 position = Vector2( 5.96046e-08, 0 )
-scale = Vector2( 5, 5 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 position = Vector2( 64, 128 )
@@ -563,5 +559,40 @@ position = Vector2( 712, 168 )
 
 [node name="WaterTower1" parent="Map/Buildings/Other" instance=ExtResource( 25 )]
 position = Vector2( 568, 112 )
+
+[node name="Bullet" parent="Map" instance=ExtResource( 32 )]
+position = Vector2( 59, 136 )
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="StatsBg" type="Sprite" parent="Ui"]
+position = Vector2( 10, 10 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Ammo" type="Label" parent="Ui/StatsBg"]
+margin_left = 36.0
+margin_top = 1.0
+margin_right = 90.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hp" type="Label" parent="Ui/StatsBg"]
+margin_left = 14.0
+margin_top = 1.0
+margin_right = 68.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="Map/Player"]

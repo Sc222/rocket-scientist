@@ -33,12 +33,13 @@ centered = false
 
 [node name="Pistol" type="Node2D" parent="."]
 position = Vector2( 6.5, -9.5 )
-rotation = 6.28319
 
 [node name="Sprite" type="Sprite" parent="Pistol"]
-position = Vector2( 13.5, 0 )
-rotation = 1.74846e-07
+position = Vector2( 13.5, 9.53674e-07 )
 texture = ExtResource( 8 )
+
+[node name="BulletSpawner" type="Position2D" parent="Pistol"]
+position = Vector2( 20.5, -2.5 )
 
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, -19 )

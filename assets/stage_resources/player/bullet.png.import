@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle.png-983c4f7c02bab6760749e6b232cb8cea.stex"
+path="res://.import/bullet.png-5ec01ce94d0a3a2b7e7e9d6a91775245.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage_resources/character/Idle.png"
-dest_files=[ "res://.import/Idle.png-983c4f7c02bab6760749e6b232cb8cea.stex" ]
+source_file="res://assets/stage_resources/player/bullet.png"
+dest_files=[ "res://.import/bullet.png-5ec01ce94d0a3a2b7e7e9d6a91775245.stex" ]
 
 [params]
 
@@ -20,15 +20,15 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

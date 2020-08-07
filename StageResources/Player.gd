@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 16*20
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
@@ -7,11 +8,16 @@ var direction=DIR_RIGHT
 onready var sprite = get_node("Sprite")
 onready var pistol = get_node("Pistol")
 onready var pistolSprite = pistol.get_node("Sprite")
+onready var bulletSpawner = pistol.get_node("BulletSpawner")
 
 func _ready():
 	pass
 
 func _physics_process(delta):
+	#difference between pressed without just?
+	if Input.is_action_just_pressed("player_shoot"):
+		shoot()
+	
 	var dir_vector: Vector2
 	dir_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	dir_vector.y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
@@ -29,7 +35,17 @@ func _physics_process(delta):
 	update_animation(movement.length()!=0)	
 	move_and_collide(movement)
 	#change_direction(dir_vector.x)
-	
+
+
+func shoot():
+	var bullet = Bullet.instance()
+	#add bullet as child of map to make it y-sortable
+	print("Spawner",$Pistol/BulletSpawner.global_position)
+	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
+	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
+	bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
+	owner.get_node("Map").add_child(bullet)
+
 #returns true if direction was changed
 func change_direction(x_direction):
 	var new_direction = direction
@@ -59,9 +75,11 @@ func rotate_pistol(mouse_pos):
 	var dir = direction
 	if angle>-PI/2 and angle<PI/2:
 		pistolSprite.set_flip_v(false)
+		bulletSpawner.position.y=-2.5
 		dir = DIR_RIGHT
 	else:
 		pistolSprite.set_flip_v(true)
+		bulletSpawner.position.y=2.5
 		dir=DIR_LEFT
 	pistol.look_at(mouse_pos)
 	return dir
