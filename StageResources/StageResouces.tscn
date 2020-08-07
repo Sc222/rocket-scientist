@@ -33,6 +33,17 @@
 
 [node name="StageResouces" type="Node2D"]
 
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="Ui"]
+margin_left = 60.0
+margin_top = 300.0
+margin_right = 140.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2( 5, 5 )
 transform = Transform2D( 5, 0, 0, 5, 0, 0 )

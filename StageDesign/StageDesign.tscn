@@ -129,9 +129,9 @@ animations = [ {
 "name": "task_2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
 "loop": false,
-"name": "task_4",
+"name": "task_5",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 67 ), ExtResource( 37 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 56 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 54 ), ExtResource( 76 ), ExtResource( 34 ), ExtResource( 66 ), ExtResource( 26 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 31 ), ExtResource( 14 ) ],
@@ -139,41 +139,41 @@ animations = [ {
 "name": "task_3",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 50 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 72 ), ExtResource( 51 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "task_4",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 30 ), ExtResource( 64 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 24 ), ExtResource( 69 ), ExtResource( 22 ), ExtResource( 75 ), ExtResource( 32 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "task_1",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 6 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 48 ), ExtResource( 74 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 71 ), ExtResource( 73 ), ExtResource( 58 ) ],
-"loop": false,
-"name": "task_5",
 "speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 80 ), ExtResource( 83 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 93 ), ExtResource( 80 ), ExtResource( 93 ), ExtResource( 80 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ), ExtResource( 83 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=11]
@@ -183,15 +183,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -201,15 +201,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 85 ), ExtResource( 82 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 79 ), ExtResource( 85 ), ExtResource( 79 ), ExtResource( 85 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=13]
@@ -219,15 +219,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.63
 }, {
-"frames": [ ExtResource( 87 ), ExtResource( 91 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 78 ), ExtResource( 87 ), ExtResource( 78 ), ExtResource( 87 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 87 ), ExtResource( 91 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=14]
@@ -237,15 +237,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.58
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=15]
@@ -255,15 +255,15 @@ animations = [ {
 "name": "unlock",
 "speed": 0.58
 }, {
-"frames": [ ExtResource( 89 ), ExtResource( 92 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 81 ), ExtResource( 89 ), ExtResource( 81 ), ExtResource( 89 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=16]
@@ -273,15 +273,15 @@ animations = [ {
 "name": "unlock",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 84 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=17]
@@ -291,15 +291,15 @@ animations = [ {
 "name": "unlock",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 86 ), ExtResource( 90 ) ],
-"loop": false,
-"name": "complete",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 88 ), ExtResource( 86 ), ExtResource( 88 ), ExtResource( 86 ) ],
 "loop": false,
 "name": "wrong",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 90 ) ],
+"loop": false,
+"name": "complete",
+"speed": 10.0
 } ]
 
 [node name="StageDesign" type="Control"]
@@ -311,22 +311,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="background" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 scale = Vector2( 5, 5 )
 texture = ExtResource( 21 )
 centered = false
 
-[node name="hp_background" type="Sprite" parent="."]
-position = Vector2( 40, 25 )
+[node name="HpBackground" type="Sprite" parent="."]
+position = Vector2( 15, 12 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 94 )
 centered = false
 
-[node name="HpText" type="Label" parent="."]
-margin_left = 115.0
-margin_top = 30.0
-margin_right = 170.0
-margin_bottom = 85.0
+[node name="HpText" type="Label" parent="HpBackground"]
+margin_left = 14.0
+margin_top = 1.0
+margin_right = 69.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.2, 0.2 )
 custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
@@ -428,28 +429,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rocket" type="AnimatedSprite" parent="."]
+[node name="Rocket" type="AnimatedSprite" parent="."]
 position = Vector2( 95, 260 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 8 )
 animation = "task_1"
 centered = false
 
-[node name="task_1" type="AnimatedSprite" parent="."]
+[node name="Task1" type="AnimatedSprite" parent="."]
 position = Vector2( 20, 130 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 9 )
 animation = "complete"
 centered = false
 
-[node name="task_1_line" type="AnimatedSprite" parent="."]
+[node name="Task1Line" type="AnimatedSprite" parent="."]
 position = Vector2( 80, 190 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 10 )
 animation = "complete"
 centered = false
 
-[node name="txt_task_1" type="Label" parent="."]
+[node name="Task1Number" type="Label" parent="."]
 margin_left = 47.8514
 margin_top = 147.636
 margin_right = 67.8514
@@ -463,21 +464,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="task_2" type="AnimatedSprite" parent="."]
+[node name="Task2" type="AnimatedSprite" parent="."]
 position = Vector2( 130, 455 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 11 )
 animation = "unlock"
 centered = false
 
-[node name="task_2_line" type="AnimatedSprite" parent="."]
+[node name="Task2Line" type="AnimatedSprite" parent="."]
 position = Vector2( 160, 400 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 12 )
 animation = "unlock"
 centered = false
 
-[node name="txt_task_2" type="Label" parent="."]
+[node name="Task2Number" type="Label" parent="."]
 margin_left = 157.5
 margin_top = 472.5
 margin_right = 177.5
@@ -491,21 +492,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="task_3" type="AnimatedSprite" parent="."]
+[node name="Task3" type="AnimatedSprite" parent="."]
 position = Vector2( 240, 20 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 11 )
 animation = "unlock"
 centered = false
 
-[node name="task_3_line" type="AnimatedSprite" parent="."]
+[node name="Task3Line" type="AnimatedSprite" parent="."]
 position = Vector2( 275, 95 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 13 )
 animation = "unlock"
 centered = false
 
-[node name="txt_task_3" type="Label" parent="."]
+[node name="Task3Number" type="Label" parent="."]
 margin_left = 267.805
 margin_top = 37.1963
 margin_right = 287.805
@@ -519,21 +520,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="task_4" type="AnimatedSprite" parent="."]
+[node name="Task4" type="AnimatedSprite" parent="."]
 position = Vector2( 350, 455 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 14 )
 animation = "unlock"
 centered = false
 
-[node name="task_4_line" type="AnimatedSprite" parent="."]
+[node name="Task4Line" type="AnimatedSprite" parent="."]
 position = Vector2( 375, 345 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 15 )
 animation = "unlock"
 centered = false
 
-[node name="txt_task_4" type="Label" parent="."]
+[node name="Task4Number" type="Label" parent="."]
 margin_left = 377.257
 margin_top = 473.908
 margin_right = 397.257
@@ -547,21 +548,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="task_5" type="AnimatedSprite" parent="."]
+[node name="Task5" type="AnimatedSprite" parent="."]
 position = Vector2( 460, 130 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 16 )
 animation = "unlock"
 centered = false
 
-[node name="task_5_line" type="AnimatedSprite" parent="."]
+[node name="Task5Line" type="AnimatedSprite" parent="."]
 position = Vector2( 435, 195 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 17 )
 animation = "unlock"
 centered = false
 
-[node name="txt_task_5" type="Label" parent="."]
+[node name="Task5Number" type="Label" parent="."]
 margin_left = 487.829
 margin_top = 147.962
 margin_right = 507.829
@@ -577,4 +578,4 @@ __meta__ = {
 [connection signal="pressed" from="ButtonNextStage" to="." method="go_to_next_stage"]
 [connection signal="text_changed" from="AnswerContainer/Answer" to="." method="_on_Answer_text_changed"]
 [connection signal="pressed" from="AnswerContainer/Apply" to="." method="CheckAnswer"]
-[connection signal="animation_finished" from="rocket" to="." method="_on_rocket_animation_finished"]
+[connection signal="animation_finished" from="Rocket" to="." method="_on_rocket_animation_finished"]

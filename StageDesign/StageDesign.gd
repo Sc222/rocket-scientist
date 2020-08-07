@@ -23,8 +23,8 @@ var userAnswer = ""
 var isTaskGenerated = true
 onready var taskHeaderLabel = get_node("TaskHeader")
 onready var taskLabel = get_node("TaskContainer/Task")
-onready var hpLabel = get_node("HpText")
-onready var rocket = get_node("rocket")
+onready var hpLabel = get_node("HpBackground/HpText")
+onready var rocket = get_node("Rocket")
 onready var answer = get_node("AnswerContainer/Answer")
 onready var answerContainer = get_node("AnswerContainer")
 onready var buttonNextStage = get_node("ButtonNextStage")
@@ -79,22 +79,22 @@ func GenerateNewTask():
 
 func NextTask():
 		answer.set_text("")
-		get_node("task_"+str(currentTask)).play("complete")
-		get_node("task_"+str(currentTask)+"_line").play("complete")
+		get_node("Task"+str(currentTask)).play("complete")
+		get_node("Task"+str(currentTask)+"Line").play("complete")
 		taskLabel.set_text(PROCESSING[currentTask-1])
 		taskHeaderLabel.set_text(PROCESS)
 		if currentTask!=LAST_TASK:
 			isTaskGenerated=false
 			UpdateHp(TASK_HP_BONUS)
-			get_node("task_"+str(currentTask+1)).play("unlock")
-			get_node("task_"+str(currentTask+1)+"_line").play("unlock")
+			get_node("Task"+str(currentTask+1)).play("unlock")
+			get_node("Task"+str(currentTask+1)+"Line").play("unlock")
 		rocket.play("task_"+str(currentTask))
 		currentTask=currentTask+1
 
 func SetError():
 	# todo вычитать попытки
-	var taskButton = get_node("task_"+str(currentTask))
-	var taskLine = get_node("task_"+str(currentTask)+"_line")
+	var taskButton = get_node("Task"+str(currentTask))
+	var taskLine = get_node("Task"+str(currentTask)+"Line")
 	taskButton.frame = 0
 	taskLine.frame = 0
 	taskButton.play("wrong")
@@ -108,8 +108,6 @@ func CheckAnswer():
 			NextTask()
 		else:
 			UpdateHp(-1)
-			# todo вычитать попытки
-			print("вычитать попытки")
 			SetError()
 
 	
