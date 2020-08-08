@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/stage_resources/player/player_run_3.png" type="Texture" id=1]
 [ext_resource path="res://assets/stage_resources/player/player_idle_2.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://assets/stage_resources/player/player_run_1.png" type="Texture" id=6]
 [ext_resource path="res://StageResources/Player.gd" type="Script" id=7]
 [ext_resource path="res://assets/stage_resources/player/gun.png" type="Texture" id=8]
+[ext_resource path="res://assets/stage_resources/player/gun_shoot_3.png" type="Texture" id=9]
+[ext_resource path="res://assets/stage_resources/player/gun_shoot_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/stage_resources/player/gun_shoot_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,6 +25,19 @@ animations = [ {
 "speed": 7.0
 } ]
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 16.0
+} ]
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 7 )
 
@@ -34,9 +50,10 @@ centered = false
 [node name="Pistol" type="Node2D" parent="."]
 position = Vector2( 6.5, -9.5 )
 
-[node name="Sprite" type="Sprite" parent="Pistol"]
+[node name="Animation" type="AnimatedSprite" parent="Pistol"]
 position = Vector2( 13.5, 9.53674e-07 )
-texture = ExtResource( 8 )
+frames = SubResource( 2 )
+animation = "idle"
 
 [node name="BulletSpawner" type="Position2D" parent="Pistol"]
 position = Vector2( 20.5, -2.5 )

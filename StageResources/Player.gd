@@ -7,7 +7,7 @@ const DIR_RIGHT="r"
 var direction=DIR_RIGHT
 onready var sprite = get_node("Sprite")
 onready var pistol = get_node("Pistol")
-onready var pistolSprite = pistol.get_node("Sprite")
+onready var pistolSprite = pistol.get_node("Animation")
 onready var bulletSpawner = pistol.get_node("BulletSpawner")
 
 func _ready():
@@ -38,6 +38,10 @@ func _physics_process(delta):
 
 
 func shoot():
+	$Pistol/Animation.play("shoot")
+	$Pistol/Animation.frame=0
+	#todo delay?
+	
 	var bullet = Bullet.instance()
 	#add bullet as child of map to make it y-sortable
 	print("Spawner",$Pistol/BulletSpawner.global_position)
