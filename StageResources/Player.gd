@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
+signal change_bullets_count(bullets)
 const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 16*20
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 var direction=DIR_RIGHT
+var bullets = 10
 onready var sprite = get_node("Sprite")
 onready var pistol = get_node("Pistol")
 onready var pistolSprite = pistol.get_node("Animation")
@@ -12,6 +14,8 @@ onready var bulletSpawner = pistol.get_node("BulletSpawner")
 
 func _ready():
 	pass
+
+
 
 func _physics_process(delta):
 	#difference between pressed without just?
@@ -38,17 +42,18 @@ func _physics_process(delta):
 
 
 func shoot():
-	$Pistol/Animation.play("shoot")
-	$Pistol/Animation.frame=0
-	#todo delay?
-	
-	var bullet = Bullet.instance()
-	#add bullet as child of map to make it y-sortable
-	print("Spawner",$Pistol/BulletSpawner.global_position)
-	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
-	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
-	bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
-	owner.get_node("Map").add_child(bullet)
+	if bullets>0:
+		bullets = bullets-1
+		emit_signal("change_bullets_count", bullets)
+		$Pistol/Animation.play("shoot")
+		$Pistol/Animation.frame=0
+		var bullet = Bullet.instance()
+		#add bullet as child of map to make it y-sortable
+		print("Spawner",$Pistol/BulletSpawner.global_position)
+		bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
+		bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
+		bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
+		owner.get_node("Map").add_child(bullet)
 
 #returns true if direction was changed
 func change_direction(x_direction):

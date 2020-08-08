@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/stage_resources/bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/stage_resources/player_stats_bg.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://StageResources/Objects/Box.tscn" type="PackedScene" id=29]
 [ext_resource path="res://StageResources/Objects/Fence.tscn" type="PackedScene" id=30]
 [ext_resource path="res://StageResources/Objects/Pillar.tscn" type="PackedScene" id=31]
+[ext_resource path="res://StageResources/StageResouces.gd" type="Script" id=32]
 
 [sub_resource type="DynamicFontData" id=1]
 antialiased = false
@@ -42,6 +43,7 @@ font_data = SubResource( 1 )
 
 [node name="StageResouces" type="Node2D"]
 scale = Vector2( 5, 5 )
+script = ExtResource( 32 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2( 5, 5 )
@@ -590,5 +592,6 @@ text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="change_bullets_count" from="Map/Player" to="." method="_on_Player_change_bullets_count"]
 
 [editable path="Map/Player"]
