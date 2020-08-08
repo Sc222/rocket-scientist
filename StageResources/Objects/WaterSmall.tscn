@@ -10,7 +10,9 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 160, 0, 32, 16 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite" groups=[
+"background",
+]]
 position = Vector2( 0, -8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]

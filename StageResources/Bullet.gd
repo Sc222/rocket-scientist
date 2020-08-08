@@ -17,7 +17,10 @@ func _physics_process(delta):
 
 
 func _on_Bullet_body_entered(body):
-	pass
-	#if body.is_in_group("mobs"):
+	print(body.get_name())
+	if body.is_in_group("background"):
+		print("BACKGROUND SHOULD NOT COLLIDE WITH BULLETS!!!")
+	else:
+		queue_free()
+	#todo destructable map???
 	#    body.queue_free()
-	queue_free()
