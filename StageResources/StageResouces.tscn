@@ -93,13 +93,52 @@ position = Vector2( 520, 152 )
 position = Vector2( 5.96046e-08, 0 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
-position = Vector2( 64, 128 )
 
-[node name="Camera2D" parent="Map/Player" index="3"]
-limit_left = 0
-limit_top = 0
-limit_right = 5120
-limit_bottom = 1064
+[node name="PlayerPositions" type="Node2D" parent="Map"]
+
+[node name="Position1" type="Position2D" parent="Map/PlayerPositions"]
+position = Vector2( 65, 130 )
+
+[node name="Position2" type="Position2D" parent="Map/PlayerPositions"]
+position = Vector2( 407, 149 )
+
+[node name="Position3" type="Position2D" parent="Map/PlayerPositions"]
+position = Vector2( 671, 173 )
+
+[node name="Position4" type="Position2D" parent="Map/PlayerPositions"]
+position = Vector2( 918, 123 )
+
+[node name="Chests" type="YSort" parent="Map"]
+
+[node name="Position1" type="Position2D" parent="Map/Chests"]
+position = Vector2( 243, 95 )
+
+[node name="Position2" type="Position2D" parent="Map/Chests"]
+position = Vector2( 871, 162 )
+
+[node name="Position3" type="Position2D" parent="Map/Chests"]
+position = Vector2( 720, 100 )
+
+[node name="Position4" type="Position2D" parent="Map/Chests"]
+position = Vector2( 751, 181 )
+
+[node name="Position5" type="Position2D" parent="Map/Chests"]
+position = Vector2( 592, 191 )
+
+[node name="Position6" type="Position2D" parent="Map/Chests"]
+position = Vector2( 362, 178 )
+
+[node name="Position7" type="Position2D" parent="Map/Chests"]
+position = Vector2( 48, 180 )
+
+[node name="Position8" type="Position2D" parent="Map/Chests"]
+position = Vector2( 304, 141 )
+
+[node name="Position9" type="Position2D" parent="Map/Chests"]
+position = Vector2( 432, 98 )
+
+[node name="Position10" type="Position2D" parent="Map/Chests"]
+position = Vector2( 959, 91 )
 
 [node name="Rocks" type="YSort" parent="Map"]
 
@@ -128,10 +167,10 @@ position = Vector2( 304, 203 )
 position = Vector2( 336, 139 )
 
 [node name="Rock9" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 400, 203 )
+position = Vector2( 405, 206 )
 
 [node name="Rock10" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 480, 203 )
+position = Vector2( 490, 203 )
 
 [node name="Rock11" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 544, 202 )
@@ -152,7 +191,7 @@ position = Vector2( 736, 202 )
 position = Vector2( 800, 203 )
 
 [node name="Rock17" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 816, 171 )
+position = Vector2( 823, 168 )
 
 [node name="Rock18" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 864, 203 )
@@ -170,10 +209,10 @@ position = Vector2( 1008, 171 )
 position = Vector2( 1008, 107 )
 
 [node name="Rock23" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 512, 216 )
+position = Vector2( 514, 217 )
 
 [node name="Rock24" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 440, 216 )
+position = Vector2( 439, 218 )
 
 [node name="Rock25" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 640, 216 )
@@ -188,7 +227,7 @@ position = Vector2( 896, 216 )
 position = Vector2( 960, 212 )
 
 [node name="Rock29" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 144, 216 )
+position = Vector2( 137, 216 )
 
 [node name="Plants" type="YSort" parent="Map"]
 
@@ -229,13 +268,13 @@ position = Vector2( 216, 208 )
 position = Vector2( 276, 128 )
 
 [node name="TreeMedGreen2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 476, 216 )
+position = Vector2( 480, 216 )
 
 [node name="TreeMedGreen3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 784, 144 )
 
 [node name="TreeMedGreen4" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 448, 192 )
+position = Vector2( 451, 195 )
 
 [node name="TreeMedGreen5" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 328, 208 )
@@ -244,16 +283,16 @@ position = Vector2( 328, 208 )
 position = Vector2( 232, 208 )
 
 [node name="TreeMedGreen7" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 112, 200 )
+position = Vector2( 115, 197 )
 
 [node name="TreeMed1" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
 position = Vector2( 40, 208 )
 
 [node name="TreeMed2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 424, 132 )
+position = Vector2( 438, 141 )
 
 [node name="TreeMed3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 728, 136 )
+position = Vector2( 743, 140 )
 
 [node name="TreeMed4" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
 position = Vector2( 1008, 188 )
@@ -262,7 +301,7 @@ position = Vector2( 1008, 188 )
 position = Vector2( 168, 208 )
 
 [node name="TreeMed6" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 400, 216 )
+position = Vector2( 386, 217 )
 
 [node name="TreeMed7" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
 position = Vector2( 296, 216 )
@@ -270,7 +309,7 @@ position = Vector2( 296, 216 )
 [node name="Small" type="YSort" parent="Map/Plants/Trees"]
 
 [node name="TreeSmallGreen1" parent="Map/Plants/Trees/Small" instance=ExtResource( 7 )]
-position = Vector2( 712, 96 )
+position = Vector2( 736, 92 )
 
 [node name="TreeSmallGreen2" parent="Map/Plants/Trees/Small" instance=ExtResource( 7 )]
 position = Vector2( 408, 96 )
@@ -288,7 +327,7 @@ position = Vector2( 168, 96 )
 position = Vector2( 60, 96 )
 
 [node name="TreeSmall1" parent="Map/Plants/Trees/Small" instance=ExtResource( 15 )]
-position = Vector2( 104, 96 )
+position = Vector2( 139, 94 )
 
 [node name="TreeSmall2" parent="Map/Plants/Trees/Small" instance=ExtResource( 15 )]
 position = Vector2( 264, 96 )
@@ -302,25 +341,25 @@ position = Vector2( 972, 96 )
 [node name="Cactuses" type="YSort" parent="Map/Plants"]
 
 [node name="Cactus1" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 136, 200 )
+position = Vector2( 98, 172 )
 
 [node name="Cactus2" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 280, 208 )
 
 [node name="Cactus3" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 312, 176 )
+position = Vector2( 318, 182 )
 
 [node name="Cactus4" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 300, 144 )
+position = Vector2( 308, 107 )
 
 [node name="Cactus5" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 376, 208 )
+position = Vector2( 377, 208 )
 
 [node name="Cactus6" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 408, 176 )
 
 [node name="Cactus7" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 520, 192 )
+position = Vector2( 529, 192 )
 
 [node name="Cactus8" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 648, 192 )
@@ -349,16 +388,16 @@ position = Vector2( 384, 144 )
 position = Vector2( 56, 200 )
 
 [node name="Rose2" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 308, 116 )
+position = Vector2( 310, 162 )
 
 [node name="Rose3" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 264, 176 )
 
 [node name="Rose4" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 360, 176 )
+position = Vector2( 359, 154 )
 
 [node name="Rose5" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 504, 192 )
+position = Vector2( 509, 192 )
 
 [node name="Rose6" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 632, 192 )
@@ -373,13 +412,13 @@ position = Vector2( 776, 192 )
 position = Vector2( 784, 100 )
 
 [node name="Rose10" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 856, 144 )
+position = Vector2( 849, 144 )
 
 [node name="Rose11" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 888, 192 )
 
 [node name="Rose12" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 920, 128 )
+position = Vector2( 932, 130 )
 
 [node name="Rose13" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 936, 96 )
@@ -408,7 +447,7 @@ position = Vector2( 184, 124 )
 position = Vector2( 120, 124 )
 
 [node name="TotemSmall3" parent="Map/OrangeTotems" instance=ExtResource( 18 )]
-position = Vector2( 164, 168 )
+position = Vector2( 163, 159 )
 
 [node name="TotemTall1" parent="Map/OrangeTotems" instance=ExtResource( 19 )]
 position = Vector2( 192, 156 )
@@ -424,13 +463,13 @@ position = Vector2( 124, 156 )
 [node name="Containers" type="YSort" parent="Map/Buildings"]
 
 [node name="ContainerSmall1" parent="Map/Buildings/Containers" instance=ExtResource( 21 )]
-position = Vector2( 172, 192 )
+position = Vector2( 160, 186 )
 
 [node name="ContainerSmall2" parent="Map/Buildings/Containers" instance=ExtResource( 21 )]
 position = Vector2( 472, 112 )
 
 [node name="ContainerSmall3" parent="Map/Buildings/Containers" instance=ExtResource( 21 )]
-position = Vector2( 744, 112 )
+position = Vector2( 753, 110 )
 
 [node name="ContainerLarge1" parent="Map/Buildings/Containers" instance=ExtResource( 22 )]
 position = Vector2( 640, 112 )
@@ -449,6 +488,9 @@ position = Vector2( 964, 188 )
 [node name="Tent4" parent="Map/Buildings/Tents" instance=ExtResource( 20 )]
 position = Vector2( 672, 144 )
 
+[node name="Tent5" parent="Map/Buildings/Tents" instance=ExtResource( 20 )]
+position = Vector2( 108, 100 )
+
 [node name="Boxes" type="YSort" parent="Map/Buildings"]
 
 [node name="Box1" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
@@ -458,19 +500,19 @@ position = Vector2( 48, 108 )
 position = Vector2( 76, 148 )
 
 [node name="Box3" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 524, 120 )
+position = Vector2( 541, 117 )
 
 [node name="Box4" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
 position = Vector2( 696, 108 )
 
 [node name="Box5" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 900, 144 )
+position = Vector2( 902, 131 )
 
 [node name="Box6" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
 position = Vector2( 956, 112 )
 
 [node name="Box7" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 464, 208 )
+position = Vector2( 464, 207 )
 
 [node name="Crosses" type="YSort" parent="Map/Buildings"]
 
@@ -478,10 +520,10 @@ position = Vector2( 464, 208 )
 position = Vector2( 492, 172 )
 
 [node name="Cross2" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
-position = Vector2( 532, 172 )
+position = Vector2( 535, 166 )
 
 [node name="Cross3" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
-position = Vector2( 580, 152 )
+position = Vector2( 577, 146 )
 
 [node name="Cross4" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
 position = Vector2( 568, 124 )
@@ -584,11 +626,11 @@ __meta__ = {
 [node name="Hp" type="Label" parent="Ui/StatsBg"]
 margin_left = 14.0
 margin_top = 1.0
-margin_right = 68.0
+margin_right = 41.0
 margin_bottom = 56.0
 rect_scale = Vector2( 0.2, 0.2 )
 custom_fonts/font = SubResource( 2 )
-text = "10"
+text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }

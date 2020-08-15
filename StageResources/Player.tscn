@@ -38,7 +38,9 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -65,3 +67,7 @@ polygon = PoolVector2Array( 2, 18, 2, 16, 12, 16, 12, 18 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -19 )
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 5120
+limit_bottom = 1064
