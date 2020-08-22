@@ -61,7 +61,7 @@ position = Vector2( 300, 345 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 1 )
 animation = "flight"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Title" type="Label" parent="."]

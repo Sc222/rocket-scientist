@@ -1,24 +1,31 @@
 extends KinematicBody2D
 
-signal change_bullets_count(bullets)
 const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 16*20
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
+const START_HP = 3
+const COINS_TO_COLLECT = 3
+const RELOAD_TIME = 0.4 #sec
+var reload = 0.0
 var direction=DIR_RIGHT
-var bullets = 10
 onready var sprite = get_node("Sprite")
 onready var pistol = get_node("Pistol")
 onready var pistolSprite = pistol.get_node("Animation")
 onready var bulletSpawner = pistol.get_node("BulletSpawner")
+onready var reloadIndicator = pistol.get_node("ReloadIndicator")
+var hp = START_HP
+var coins = 0
+
 
 func _ready():
 	pass
 
 
 func _physics_process(delta):
-	#difference between pressed without just?
-	if Input.is_action_just_pressed("player_shoot"):
+	reload(delta)
+	if Input.is_action_just_pressed("player_shoot") and reload == 0.0:
+		reload = RELOAD_TIME
 		shoot()
 	
 	var dir_vector: Vector2
@@ -30,30 +37,28 @@ func _physics_process(delta):
 		
 	var movement = speed * dir_vector * delta
 	
-	#var is_direction_changed = change_direction(dir_vector.x)
-	
-	
-
 	direction = rotate_pistol(get_global_mouse_position())
 	update_animation(movement.length()!=0)	
 	move_and_collide(movement)
-	#change_direction(dir_vector.x)
 
+func reload(delta):
+	if reload > 0.0:
+		$Pistol/ReloadIndicator.visible=true
+		reload -= delta
+	if reload <= 0:
+		$Pistol/ReloadIndicator.visible=false
+		reload = 0
 
 func shoot():
-	if bullets>0:
-		bullets = bullets-1
-		emit_signal("change_bullets_count", bullets)
-		$Pistol/Animation.play("shoot")
-		$Pistol/Animation.frame=0
-		var bullet = Bullet.instance()
-		#bullet is added as child of map to make it y-sortable
-		bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
-		bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
-		bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
-		
-		#PLAYER MUST BE CHILD OF "MAP" NODE
-		get_parent().add_child(bullet)
+	$Pistol/Animation.play("shoot")
+	$Pistol/Animation.frame=0
+	var bullet = Bullet.instance()
+	#bullet is added as child of map to make it y-sortable
+	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
+	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
+	bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
+	#PLAYER MUST BE CHILD OF "MAP" NODE
+	get_parent().add_child(bullet)
 
 #returns true if direction was changed
 func change_direction(x_direction):
@@ -80,15 +85,16 @@ func update_animation(is_moving):
 
 func rotate_pistol(mouse_pos):
 	var angle = (mouse_pos - pistol.global_position).angle()
-	var can_rotate_that_much = false
 	var dir = direction
 	if angle>-PI/2 and angle<PI/2:
 		pistolSprite.set_flip_v(false)
 		bulletSpawner.position.y=-2.5
+		reloadIndicator.position.y=-9
 		dir = DIR_RIGHT
 	else:
 		pistolSprite.set_flip_v(true)
 		bulletSpawner.position.y=2.5
+		reloadIndicator.position.y=9
 		dir=DIR_LEFT
 	pistol.look_at(mouse_pos)
 	return dir

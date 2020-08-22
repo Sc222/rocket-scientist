@@ -94,6 +94,9 @@ position = Vector2( 5.96046e-08, 0 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
+[node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
+frame = 2
+
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 
 [node name="Position1" type="Position2D" parent="Map/PlayerPositions"]
@@ -611,14 +614,14 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="Ammo" type="Label" parent="Ui/StatsBg"]
-margin_left = 36.0
+[node name="Coins" type="Label" parent="Ui/StatsBg"]
+margin_left = 31.0
 margin_top = 1.0
-margin_right = 90.0
+margin_right = 113.0
 margin_bottom = 56.0
 rect_scale = Vector2( 0.2, 0.2 )
 custom_fonts/font = SubResource( 2 )
-text = "10"
+text = "0/3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -634,6 +637,5 @@ text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="change_bullets_count" from="Map/Player" to="." method="_on_Player_change_bullets_count"]
 
 [editable path="Map/Player"]

@@ -16,10 +16,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_player_nearby and chest_state == CHEST_STATE.CLOSED:
-		#$Sprite.play("opened")
-		#is_closed = false
 		if Input.is_action_just_pressed("player_action"):
 			$UI/Info.visible = false
 			$UI/Task.visible = true
@@ -65,9 +63,11 @@ func _on_ChestArea_body_entered(body):
 
 
 func _on_ChestArea_body_exited(body):
-	$UI/Info.visible = false
-	if body.is_in_group("player") and chest_state == CHEST_STATE.WAIT_FOR_ANSWER:
+	if body.is_in_group("player"):
 		is_player_nearby = false
-		$UI/Task.visible = is_player_nearby
-		$Sprite.play("idle")
-		chest_state = CHEST_STATE.CLOSED
+		$UI/Info.visible = false
+		$UI/Task.visible = false
+		if chest_state == CHEST_STATE.WAIT_FOR_ANSWER:
+			chest_state = CHEST_STATE.CLOSED
+		if chest_state == CHEST_STATE.CLOSED:
+			$Sprite.play("idle")

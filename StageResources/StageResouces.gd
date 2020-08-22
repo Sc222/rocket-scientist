@@ -1,14 +1,15 @@
 extends Node2D
 
 class ChestInfo:
-	var task = "Условие задачи"
-	var answer = "1"
-	var answer_variants = ["1","2","3"]  # 3 answer variants
 	
-	func _init(task, answer, answer_variants):
-		self.task = task
-		self.answer = answer
-		self.answer_variants = answer_variants
+	var task = ""
+	var answer = ""
+	var answer_variants = []
+	
+	func _init(task_val, answer_val, answer_variants_val):
+		self.task = task_val
+		self.answer = answer_val
+		self.answer_variants = answer_variants_val
 	
 
 const Player = preload("res://StageResources/Player.tscn")
@@ -27,11 +28,14 @@ var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 const PLAYER_POSITIONS = ["1", "2", "3", "4"]
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_player_pos()
-	$Ui/StatsBg/Ammo.text=str($Map/Player.bullets)
+	update_ui($Map/Player)
 	spawn_chests(CHESTS_COUNT)
+
+func update_ui(player):
+	$Ui/StatsBg/Hp.text=str(player.hp)
+	$Ui/StatsBg/Coins.text=str(player.coins)+"/"+str(player.COINS_TO_COLLECT)
 
 func set_player_pos():
 	randomize()
@@ -42,7 +46,7 @@ func set_player_pos():
 	$Map/Player.global_position.y=spawner.global_position.y
 
 func spawn_chests(chests_count):
-	for i in range(1,CHESTS_COUNT+1):
+	for _i in range(1, chests_count+1):
 		randomize()
 		var pos_index = randi()%chest_positions.size()
 		var position = chest_positions[pos_index]
@@ -62,16 +66,26 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	var spawner = $Map/Chests.get_node("Position"+pos)
 	#todo fix /5 issue
 	chest.correct_answer = chest_info.answer
+	chest.connect("send_answer",self,"_on_Chest_send_answer")
 	chest.answer_variants = chest_info.answer_variants
 	chest.global_position.x=spawner.global_position.x/5
 	chest.global_position.y=spawner.global_position.y/5
 	$Map/Chests.add_child(chest)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 #update bullets amount
 func _on_Player_change_bullets_count(bullets):
 	$Ui/StatsBg/Ammo.text=str(bullets)
+
+
+#receive signal from the chest and update player
+func _on_Chest_send_answer(is_correct):
+	print("CHEST SEND ANSWER")
+	if is_correct:
+		$Map/Player.coins+=1
+		# todo check win
+	else:
+		# todo check death
+		# todo take damage animation
+		$Map/Player.hp-=1
+	update_ui($Map/Player)
