@@ -57,8 +57,9 @@ motion_mirroring = Vector2( 256, 0 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="TileMapInvisibleWalls" type="TileMap" parent="."]
-visible = false
+[node name="TileMapInvisibleWalls" type="TileMap" parent="." groups=[
+"background",
+]]
 position = Vector2( 5.96046e-08, 0 )
 z_as_relative = false
 tile_set = ExtResource( 4 )
