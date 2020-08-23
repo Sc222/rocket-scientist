@@ -95,7 +95,7 @@ position = Vector2( 5.96046e-08, 0 )
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
 [node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
-frame = 2
+frame = 1
 
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 
@@ -637,5 +637,7 @@ text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="die" from="Map/Player" to="." method="_on_Player_die"]
+[connection signal="win" from="Map/Player" to="." method="_on_Player_win"]
 
 [editable path="Map/Player"]

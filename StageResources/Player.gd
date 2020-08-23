@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal die
+signal win
 const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 16*20
 const DIR_LEFT = "l"
@@ -9,13 +11,14 @@ const COINS_TO_COLLECT = 3
 const RELOAD_TIME = 0.4 #sec
 var reload = 0.0
 var direction=DIR_RIGHT
+var hp = START_HP
+var coins = 0
+var is_vulnerable = true # player is invulnerable while hit animation is playing
 onready var sprite = get_node("Sprite")
 onready var pistol = get_node("Pistol")
 onready var pistolSprite = pistol.get_node("Animation")
 onready var bulletSpawner = pistol.get_node("BulletSpawner")
 onready var reloadIndicator = pistol.get_node("ReloadIndicator")
-var hp = START_HP
-var coins = 0
 
 
 func _ready():
@@ -98,3 +101,23 @@ func rotate_pistol(mouse_pos):
 		dir=DIR_LEFT
 	pistol.look_at(mouse_pos)
 	return dir
+	
+func collect_coin():
+	coins+=1
+	if coins == COINS_TO_COLLECT:
+		emit_signal("win")
+
+func hit():
+	if is_vulnerable:
+		is_vulnerable = false
+		hp-=1
+		if hp == 0:
+			emit_signal("die")
+			#todo play death animation
+		else:
+			$AnimationPlayer.seek(0)
+			$AnimationPlayer.play("Hit")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	is_vulnerable = true

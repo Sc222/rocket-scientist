@@ -71,7 +71,7 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	chest.global_position.x=spawner.global_position.x/5
 	chest.global_position.y=spawner.global_position.y/5
 	$Map/Chests.add_child(chest)
-	
+
 
 #update bullets amount
 func _on_Player_change_bullets_count(bullets):
@@ -82,10 +82,18 @@ func _on_Player_change_bullets_count(bullets):
 func _on_Chest_send_answer(is_correct):
 	print("CHEST SEND ANSWER")
 	if is_correct:
-		$Map/Player.coins+=1
-		# todo check win
+		$Map/Player.collect_coin()
+		# update total score
 	else:
-		# todo check death
-		# todo take damage animation
-		$Map/Player.hp-=1
+		$Map/Player.hit()
 	update_ui($Map/Player)
+
+
+func _on_Player_die():
+	print("GAME OVER")
+	pass # Replace with function body.
+
+
+func _on_Player_win():
+	print("PLAYER WINS")
+	pass # Replace with function body.
