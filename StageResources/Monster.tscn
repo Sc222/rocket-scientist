@@ -50,7 +50,7 @@ tracks/0/keys = {
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 16 ) ],
-"loop": true,
+"loop": false,
 "name": "idle",
 "speed": 5.0
 }, {
@@ -86,13 +86,16 @@ position = Vector2( 6.5, -8 )
 [node name="Animation" type="AnimatedSprite" parent="Dagger"]
 position = Vector2( 15.5, 2.86102e-06 )
 frames = SubResource( 3 )
-animation = "idle"
+animation = "attack"
+frame = 6
+playing = true
 
 [node name="ReloadIndicator" type="AnimatedSprite" parent="Dagger"]
 visible = false
 position = Vector2( 13.5, -8 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="RayCast" type="RayCast2D" parent="Dagger"]
