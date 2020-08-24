@@ -60,6 +60,7 @@ centered = false
 [node name="TileMapInvisibleWalls" type="TileMap" parent="." groups=[
 "background",
 ]]
+visible = false
 position = Vector2( 5.96046e-08, 0 )
 z_as_relative = false
 tile_set = ExtResource( 4 )
@@ -91,14 +92,14 @@ position = Vector2( 912, 96 )
 position = Vector2( 520, 152 )
 
 [node name="Map" type="YSort" parent="."]
-position = Vector2( 5.96046e-08, 0 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
 [node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
-frame = 1
+frame = 3
 
 [node name="PlayerPositions" type="Node2D" parent="Map"]
+visible = false
 
 [node name="Position1" type="Position2D" parent="Map/PlayerPositions"]
 position = Vector2( 65, 130 )
@@ -111,6 +112,187 @@ position = Vector2( 671, 173 )
 
 [node name="Position4" type="Position2D" parent="Map/PlayerPositions"]
 position = Vector2( 918, 123 )
+
+[node name="MonsterPositions" type="Node2D" parent="Map"]
+scale = Vector2( 1, 1 )
+
+[node name="MonsterPos1" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 42, 157 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos1"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos2" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 97, 110 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos2"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos3" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 128, 171 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos3"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos4" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 241, 107 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos4"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos5" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 218, 168 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos5"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos6" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 321, 119 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos6"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos7" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 286, 155 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos7"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos8" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 399, 179 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos8"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos9" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 371, 131 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos9"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos10" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 445, 116 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos10"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos11" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 475, 182 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos11"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos12" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 507, 116 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos12"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos13" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 607, 111 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos13"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos14" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 558, 158 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos14"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos15" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 608, 169 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos15"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos16" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 647, 139 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos16"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos17" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 710, 129 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos17"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos18" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 985, 167 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos18"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos19" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 794, 175 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos19"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos20" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 765, 146 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos20"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos21" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 796, 112 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos21"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos22" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 856, 122 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos22"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos23" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 882, 142 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos23"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos24" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 910, 172 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos24"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos25" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 957, 127 )
+scale = Vector2( 1, 1 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos25"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="Monsters" type="YSort" parent="Map"]
+scale = Vector2( 1, 1 )
 
 [node name="Chests" type="YSort" parent="Map"]
 
@@ -638,7 +820,12 @@ text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MonsterSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 [connection signal="die" from="Map/Player" to="." method="_on_Player_die"]
 [connection signal="win" from="Map/Player" to="." method="_on_Player_win"]
+[connection signal="timeout" from="MonsterSpawnTimer" to="." method="_on_MonsterSpawnTimer_timeout"]
 
 [editable path="Map/Player"]

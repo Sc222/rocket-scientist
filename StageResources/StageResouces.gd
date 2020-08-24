@@ -14,8 +14,11 @@ class ChestInfo:
 
 const Player = preload("res://StageResources/Player.tscn")
 const Chest = preload("res://StageResources/Chest.tscn")
+const Monster = preload("res://StageResources/Monster.tscn")
 const CHESTS_COUNT = 5
 const CHESTS_TO_COLLECT = 3
+const MAX_MONSTERS = 10
+var monsters_on_map = 0
 
 var chest_tasks = [
 	ChestInfo.new("Задача с ответом 1","1",["1","2","3"]),
@@ -97,3 +100,32 @@ func _on_Player_die():
 func _on_Player_win():
 	print("PLAYER WINS")
 	pass # Replace with function body.
+
+
+func _on_MonsterSpawnTimer_timeout():
+	var spawners = get_visible_monster_spawners()
+	randomize()
+	var rand_index = randi()%spawners.size()
+	
+	#spawn zombie
+	if monsters_on_map < MAX_MONSTERS:
+		print("spawn monster")
+		var spawner = spawners[rand_index]
+		var monster = Monster.instance()
+		#monsters_on_map+=1
+		monster.global_position.x=spawner.global_position.x/5
+		monster.global_position.y=spawner.global_position.y/5
+		$Map/Monsters.add_child(monster)
+		pass
+		#spawn_zombie
+
+
+func get_visible_monster_spawners():
+	var spawners = $Map/MonsterPositions.get_children()
+	var result = []
+	for i in range(0, spawners.size()):
+		if spawners[i].get_node("VisibilityNotifier").is_on_screen():
+			result.append(spawners[i])
+			print("visible: "+str(i))
+	return result
+
