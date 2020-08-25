@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
 signal die
-signal win
+signal change_hp
+
 const Bullet = preload("res://StageResources/Bullet.tscn")
-export var speed = 16*20
+export var speed = 7
+const HALF_WIDTH=6*5
+const HALF_HEIGHT=9*5
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
@@ -34,11 +37,9 @@ func _physics_process(delta):
 	var dir_vector: Vector2
 	dir_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	dir_vector.y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
-	
-	if abs(dir_vector.x) == 1 and abs(dir_vector.y) == 1:
-		dir_vector = dir_vector.normalized()
+	dir_vector = dir_vector.normalized()
 		
-	var movement = speed * dir_vector * delta
+	var movement = speed * dir_vector
 	
 	direction = rotate_pistol(get_global_mouse_position())
 	update_animation(movement.length()!=0)	
@@ -79,8 +80,10 @@ func change_direction(x_direction):
 func update_animation(is_moving):
 	if direction==DIR_RIGHT:
 		sprite.set_flip_h(false)
+		$HitArea/HitPolygon.position.x=0
 	elif direction==DIR_LEFT:
 		sprite.set_flip_h(true)
+		$HitArea/HitPolygon.position.x=-1
 	if is_moving:
 		sprite.play("run")
 	else:
@@ -111,13 +114,22 @@ func hit():
 	if is_vulnerable:
 		is_vulnerable = false
 		hp-=1
+		emit_signal("change_hp")
 		if hp == 0:
 			emit_signal("die")
 			#todo play death animation
 		else:
 			$AnimationPlayer.seek(0)
-			$AnimationPlayer.play("Hit")
+			$AnimationPlayer.play("hit")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	is_vulnerable = true
+
+
+func _on_HitArea_area_entered(area):
+	if area.is_in_group("deadly"):
+		print("hit")
+		#todo better way to send signal FROM dagger
+		#todo what about knockback
+		hit()

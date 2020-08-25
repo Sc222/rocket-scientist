@@ -17,7 +17,7 @@ const Chest = preload("res://StageResources/Chest.tscn")
 const Monster = preload("res://StageResources/Monster.tscn")
 const CHESTS_COUNT = 5
 const CHESTS_TO_COLLECT = 3
-const MAX_MONSTERS = 10
+const MAX_MONSTERS = 1
 var monsters_on_map = 0
 
 var chest_tasks = [
@@ -92,6 +92,9 @@ func _on_Chest_send_answer(is_correct):
 	update_ui($Map/Player)
 
 
+func _on_Player_change_hp():
+	update_ui($Map/Player)
+
 func _on_Player_die():
 	print("GAME OVER")
 	pass # Replace with function body.
@@ -112,7 +115,7 @@ func _on_MonsterSpawnTimer_timeout():
 		print("spawn monster")
 		var spawner = spawners[rand_index]
 		var monster = Monster.instance()
-		#monsters_on_map+=1
+		monsters_on_map+=1
 		monster.global_position.x=spawner.global_position.x/5
 		monster.global_position.y=spawner.global_position.y/5
 		$Map/Monsters.add_child(monster)

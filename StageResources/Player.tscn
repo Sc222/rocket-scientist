@@ -30,7 +30,7 @@ animations = [ {
 } ]
 
 [sub_resource type="Animation" id=4]
-resource_name = "Hit"
+resource_name = "hit"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -73,13 +73,15 @@ animations = [ {
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.917647, 0.196078, 0.235294, 1 )
 position = Vector2( 0, -19 )
 frames = SubResource( 1 )
-animation = "run"
+animation = "idle"
+frame = 1
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hit = SubResource( 4 )
+anims/hit = SubResource( 4 )
 
 [node name="Pistol" type="Node2D" parent="."]
 position = Vector2( 6.5, -9.5 )
@@ -94,13 +96,13 @@ animation = "idle"
 position = Vector2( 13.5, -9 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 3 )
-frame = 2
 playing = true
 
 [node name="BulletSpawner" type="Position2D" parent="Pistol"]
 position = Vector2( 20.5, -2.5 )
 
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2( 0, -19 )
 polygon = PoolVector2Array( 2, 18, 2, 16, 12, 16, 12, 18 )
 
@@ -111,4 +113,13 @@ limit_left = 0
 limit_top = 0
 limit_right = 5120
 limit_bottom = 1064
+
+[node name="HitArea" type="Area2D" parent="." groups=[
+"player",
+]]
+
+[node name="HitPolygon" type="CollisionPolygon2D" parent="HitArea"]
+polygon = PoolVector2Array( 3, -15, 11, -15, 11, -3, 3, -3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="HitArea" to="." method="_on_HitArea_area_entered"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
