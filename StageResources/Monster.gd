@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 var player = null
-export var speed = 4
+export var speed = 3.5
 const ATTACK_DISTANCE = 25
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"

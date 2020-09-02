@@ -124,7 +124,7 @@ func hit():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	is_vulnerable = true
+		is_vulnerable = true
 
 
 func _on_HitArea_area_entered(area):

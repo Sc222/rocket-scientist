@@ -3,7 +3,9 @@
 [ext_resource path="res://assets/stage_resources/player/bullet.png" type="Texture" id=1]
 [ext_resource path="res://StageResources/Bullet.gd" type="Script" id=2]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=[
+"deadly",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
