@@ -5,6 +5,7 @@ onready var ParallaxBg = get_node("ParallaxBackground")
 
 
 func _ready():
+	$Rocket.play("flight")
 	pass # Replace with function body.
 
 func _process(delta):

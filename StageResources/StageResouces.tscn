@@ -95,6 +95,9 @@ position = Vector2( 520, 152 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
+[node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
+frame = 3
+
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 visible = false
 
