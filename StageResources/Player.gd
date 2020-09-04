@@ -16,19 +16,7 @@ const RELOAD_TIME = 0.4 #sec
 var reload = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
-var coins = 0
 var is_vulnerable = true # player is invulnerable while hit animation is playing
-onready var sprite = get_node("Sprite")
-onready var pistol = get_node("Pistol")
-onready var pistolSprite = pistol.get_node("Animation")
-onready var bulletSpawner = pistol.get_node("BulletSpawner")
-onready var reloadIndicator = pistol.get_node("ReloadIndicator")
-
-#tmp
-var navigation = null
-
-func _ready():
-	navigation = get_parent().get_parent().get_node("Navigation2D")
 
 
 func _physics_process(delta):
@@ -36,32 +24,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("player_shoot") and reload == 0.0:
 		reload = RELOAD_TIME
 		shoot()
-	
-	#var movement = Vector2.ZERO
-	
-	# working movement code
-	var dir_vector: Vector2
-	dir_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-	dir_vector.y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
-	dir_vector = dir_vector.normalized()
-		
-	var movement = speed * dir_vector
-	
-	# pathfinding demo
-	#var dest = get_local_mouse_position()
-
-	#print("player: ", position)
-	#print("mouse: ",dest)
-	
-	#var path = navigation.get_simple_path(position, get_global_mouse_position())
-	#get_parent().get_parent().get_node("debugLine").points=path
-	
-	#if path.size()>0:
-	#	print("true")
-	#	movement = path[0].normalized()*speed
-	#print(movement)
+	var movement = Vector2.ZERO
+	movement.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+	movement.y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
+	movement = movement.normalized()*speed
 	direction = rotate_pistol(get_global_mouse_position())
-	update_animation(movement.length()!=0)	
+	update_animation(movement.length()!=0)
 	move_and_collide(movement)
 
 func reload(delta):
@@ -83,51 +51,35 @@ func shoot():
 	#PLAYER MUST BE CHILD OF "MAP" NODE
 	get_parent().add_child(bullet)
 
-#returns true if direction was changed
-func change_direction(x_direction):
-	var new_direction = direction
-	if x_direction>0:
-		new_direction = DIR_RIGHT
-	if x_direction<0:
-		new_direction = DIR_LEFT
-	
-	if new_direction != direction:
-		direction=new_direction
-		return true
-	return false
 
 func update_animation(is_moving):
 	if direction==DIR_RIGHT:
-		sprite.set_flip_h(false)
+		$Sprite.set_flip_h(false)
 		$HitArea/HitPolygon.position.x=0
 	elif direction==DIR_LEFT:
-		sprite.set_flip_h(true)
+		$Sprite.set_flip_h(true)
 		$HitArea/HitPolygon.position.x=-1
 	if is_moving:
-		sprite.play("run")
+		$Sprite.play("run")
 	else:
-		sprite.play("idle")
+		$Sprite.play("idle")
 
 func rotate_pistol(mouse_pos):
-	var angle = (mouse_pos - pistol.global_position).angle()
+	var angle = (mouse_pos - $Pistol.global_position).angle()
 	var dir = direction
 	if angle>-PI/2 and angle<PI/2:
-		pistolSprite.set_flip_v(false)
-		bulletSpawner.position.y=-2.5
-		reloadIndicator.position.y=-9
+		$Pistol/Animation.set_flip_v(false)
+		$Pistol/BulletSpawner.position.y=-2.5
+		$Pistol/ReloadIndicator.position.y=-9
 		dir = DIR_RIGHT
 	else:
-		pistolSprite.set_flip_v(true)
-		bulletSpawner.position.y=2.5
-		reloadIndicator.position.y=9
+		$Pistol/Animation.set_flip_v(true)
+		$Pistol/BulletSpawner.position.y=2.5
+		$Pistol/ReloadIndicator.position.y=9
 		dir=DIR_LEFT
-	pistol.look_at(mouse_pos)
+	$Pistol.look_at(mouse_pos)
 	return dir
-	
-func collect_coin():
-	coins+=1
-	if coins == COINS_TO_COLLECT:
-		emit_signal("win")
+
 
 func hit():
 	if is_vulnerable:
