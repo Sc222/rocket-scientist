@@ -12,7 +12,7 @@ const RELOAD_TIME = 0.4 #sec
 var is_visible = false
 var player = null
 var navigation = null
-export var speed = 3.5
+var speed = 3.3
 var reload = 0.0
 var direction=DIR_RIGHT
 
@@ -20,6 +20,10 @@ var direction=DIR_RIGHT
 func init(player, navigation):
 	self.player = player
 	self.navigation = navigation
+	randomize()
+	
+	#speed is a bit different to multiple monsters movement look nicer
+	speed = speed + randi()%3*0.1
 
 
 func _physics_process(delta):
@@ -37,7 +41,7 @@ func _physics_process(delta):
 		var path_to_player = navigation.get_simple_path(tmp_pos, tmp_player_pos)
 		
 		#debug line
-		get_parent().get_parent().get_parent().get_node("debugLine").points=path_to_player
+		#get_parent().get_parent().get_parent().get_node("debugLine").points=path_to_player
 		
 		movement = (path_to_player[1] - tmp_pos).normalized()*speed
 

@@ -35,9 +35,9 @@
 [ext_resource path="res://StageResources/Navigation2D.gd" type="Script" id=33]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 756, 204, 900, 174, 998, 173, 1024, 173, 1024, 213, 916, 212, 1024, 80, 1024, 166.987, 998, 167, 561, 140, 919, 93, 323, 83, 321, 80, 799, 80, 799, 85, 932, 83, 931, 80, 857, 84, 856, 80, 891, 80, 891, 83, 844, 174, 756, 198, 900, 169, 844, 169, 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 752, 198, 752, 197, 668, 197, 668, 199, 662, 199, 662, 205, 628, 205, 628, 199, 624, 199, 624, 197, 540, 197, 540, 198, 534, 198, 476, 154, 564, 204, 564, 202, 598, 202, 598, 205, 692, 205, 692, 202, 726, 202, 726, 204, 916, 213, 886, 212, 886, 213, 534, 204, 547, 154, 856, 88, 892, 85, 322, 86, 931, 86, 902, 91, 908, 91, 909, 93, 561, 134, 831, 99, 320, 90, 802, 88, 802, 93, 297, 93, 312.005, 93, 804, 99, 494, 134, 851, 92, 927, 89, 844, 96, 476, 151 )
+vertices = PoolVector2Array( 756, 204, 901, 174, 998, 173, 1024, 173, 1024, 213, 916, 212, 1024, 80, 1024, 166.987, 998, 167, 561, 140, 919, 93, 323, 83, 321, 80, 799, 80, 799, 85, 932, 83, 931, 80, 857, 84, 856, 80, 891, 80, 891, 83, 843, 174, 756, 198, 901, 169, 843, 169, 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 752, 198, 752, 197, 668, 197, 668, 199, 662, 199, 662, 205, 628, 205, 628, 199, 624, 199, 624, 197, 540, 197, 540, 198, 534, 198, 476, 154, 564, 204, 564, 202, 598, 202, 598, 205, 692, 205, 692, 202, 726, 202, 726, 204, 916, 213, 886, 212, 886, 213, 534, 204, 547, 154, 856, 88, 892, 85, 322, 86, 931, 86, 902, 91, 908, 91, 909, 93, 561, 134, 831, 99, 320, 90, 802, 88, 802, 93, 297, 93, 312.005, 93, 804, 99, 494, 134, 851, 92, 927, 89, 844, 96, 476, 151 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 16, 6 ), PoolIntArray( 17, 18, 19, 20 ), PoolIntArray( 21, 1, 0, 22 ), PoolIntArray( 2, 1, 23, 8 ), PoolIntArray( 9, 8, 23, 24 ), PoolIntArray( 25, 26, 27, 28 ), PoolIntArray( 25, 28, 29 ), PoolIntArray( 22, 30, 31 ), PoolIntArray( 32, 33, 34, 9 ), PoolIntArray( 34, 35, 36, 37 ), PoolIntArray( 37, 38, 39 ), PoolIntArray( 40, 41, 42, 43 ), PoolIntArray( 44, 45, 46, 47 ), PoolIntArray( 48, 49, 50, 51 ), PoolIntArray( 4, 52, 5 ), PoolIntArray( 51, 0, 5, 53, 48 ), PoolIntArray( 53, 54, 25, 55, 47 ), PoolIntArray( 9, 24, 21, 22, 31 ), PoolIntArray( 9, 31, 32 ), PoolIntArray( 9, 34, 37, 39 ), PoolIntArray( 9, 39, 40, 56 ), PoolIntArray( 43, 56, 40 ), PoolIntArray( 57, 17, 20, 58 ), PoolIntArray( 59, 11, 14 ), PoolIntArray( 60, 15, 6 ), PoolIntArray( 61, 62, 63, 9, 64, 65 ), PoolIntArray( 66, 59, 14, 67, 68 ), PoolIntArray( 25, 29, 69 ), PoolIntArray( 70, 43, 42, 55, 25, 69 ), PoolIntArray( 70, 66, 68, 71, 64, 72 ), PoolIntArray( 57, 58, 61, 73 ), PoolIntArray( 74, 60, 6 ), PoolIntArray( 75, 73, 61 ), PoolIntArray( 10, 74, 6 ), PoolIntArray( 63, 10, 9 ), PoolIntArray( 65, 75, 61 ), PoolIntArray( 71, 65, 64 ), PoolIntArray( 70, 72, 76 ), PoolIntArray( 70, 76, 43 ), PoolIntArray( 35, 48, 53 ), PoolIntArray( 36, 35, 53 ), PoolIntArray( 55, 44, 47 ), PoolIntArray( 53, 47, 36 ) ]
-outlines = [ PoolVector2Array( 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 297, 93, 312.005, 93, 320, 90, 322, 86, 323, 83, 321, 80, 799, 80, 799, 85, 802, 88, 802, 93, 804, 99, 831, 99, 844, 96, 851, 92, 856, 88, 857, 84, 856, 80, 891, 80, 891, 83, 892, 85, 902, 91, 908, 91, 909, 93, 919, 93, 927, 89, 931, 86, 932, 83, 931, 80, 1024, 80, 1024, 166.987, 998, 167, 998, 173, 1024, 173, 1024, 213, 916, 213, 916, 212, 886, 212, 886, 213 ), PoolVector2Array( 534, 204, 534, 198, 540, 198, 540, 197, 624, 197, 624, 199, 628, 199, 628, 205, 598, 205, 598, 202, 564, 202, 564, 204 ), PoolVector2Array( 662, 205, 662, 199, 668, 199, 668, 197, 752, 197, 752, 198, 756, 198, 756, 204, 726, 204, 726, 202, 692, 202, 692, 205 ), PoolVector2Array( 844, 174, 844, 169, 900, 169, 900, 174 ), PoolVector2Array( 476, 154, 476, 151, 494, 134, 561, 134, 561, 140, 547, 154 ) ]
+outlines = [ PoolVector2Array( 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 297, 93, 312.005, 93, 320, 90, 322, 86, 323, 83, 321, 80, 799, 80, 799, 85, 802, 88, 802, 93, 804, 99, 831, 99, 844, 96, 851, 92, 856, 88, 857, 84, 856, 80, 891, 80, 891, 83, 892, 85, 902, 91, 908, 91, 909, 93, 919, 93, 927, 89, 931, 86, 932, 83, 931, 80, 1024, 80, 1024, 166.987, 998, 167, 998, 173, 1024, 173, 1024, 213, 916, 213, 916, 212, 886, 212, 886, 213 ), PoolVector2Array( 534, 204, 534, 198, 540, 198, 540, 197, 624, 197, 624, 199, 628, 199, 628, 205, 598, 205, 598, 202, 564, 202, 564, 204 ), PoolVector2Array( 662, 205, 662, 199, 668, 199, 668, 197, 752, 197, 752, 198, 756, 198, 756, 204, 726, 204, 726, 202, 692, 202, 692, 205 ), PoolVector2Array( 843, 174, 843, 169, 901, 169, 901, 174 ), PoolVector2Array( 476, 154, 476, 151, 494, 134, 561, 134, 561, 140, 547, 154 ) ]
 
 [sub_resource type="DynamicFontData" id=2]
 antialiased = false
@@ -102,7 +102,7 @@ position = Vector2( 520, 152 )
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
 [node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
-frame = 3
+frame = 1
 
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 
@@ -139,7 +139,7 @@ position = Vector2( 128, 171 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos4" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 241, 107 )
+position = Vector2( 228, 107 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos4"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -157,7 +157,7 @@ position = Vector2( 321, 119 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos7" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 286, 155 )
+position = Vector2( 280, 166 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos7"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -290,7 +290,7 @@ position = Vector2( 751, 181 )
 scale = Vector2( 1, 1 )
 
 [node name="Position5" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 592, 191 )
+position = Vector2( 592, 186 )
 scale = Vector2( 1, 1 )
 
 [node name="Position6" type="Position2D" parent="Map/ChestPositions"]
@@ -438,7 +438,7 @@ position = Vector2( 192, 203 )
 position = Vector2( 244, 140 )
 
 [node name="Rock7" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 304, 203 )
+position = Vector2( 309, 201 )
 
 [node name="Rock8" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 336, 139 )
@@ -483,10 +483,10 @@ position = Vector2( 962, 209 )
 position = Vector2( 240, 192 )
 
 [node name="TreeLarge2" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
-position = Vector2( 288, 192 )
+position = Vector2( 289, 188 )
 
 [node name="TreeLarge3" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
-position = Vector2( 336, 192 )
+position = Vector2( 339, 188 )
 
 [node name="TreeLarge4" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
 position = Vector2( 384, 192 )
@@ -506,16 +506,16 @@ position = Vector2( 218, 208 )
 position = Vector2( 276, 128 )
 
 [node name="TreeMedGreen3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 784, 144 )
+position = Vector2( 791, 151 )
 
 [node name="TreeMedGreen4" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 451, 195 )
+position = Vector2( 452, 193 )
 
 [node name="TreeMedGreen5" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 328, 208 )
 
 [node name="TreeMedGreen6" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 232, 208 )
+position = Vector2( 241, 209 )
 
 [node name="TreeMedGreen7" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 115, 197 )
@@ -524,16 +524,16 @@ position = Vector2( 115, 197 )
 position = Vector2( 40, 209 )
 
 [node name="TreeMed2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 438, 141 )
+position = Vector2( 433, 138 )
 
 [node name="TreeMed3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 743, 140 )
+position = Vector2( 733, 134 )
 
 [node name="TreeMed4" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
 position = Vector2( 850, 152 )
 
 [node name="TreeMed5" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 162, 197 )
+position = Vector2( 155, 194 )
 
 [node name="Small" type="YSort" parent="Map/Plants/Trees"]
 
@@ -692,7 +692,7 @@ position = Vector2( 124, 156 )
 [node name="Containers" type="YSort" parent="Map/Buildings"]
 
 [node name="ContainerSmall1" parent="Map/Buildings/Containers" instance=ExtResource( 21 )]
-position = Vector2( 160, 186 )
+position = Vector2( 164, 183 )
 
 [node name="ContainerSmall2" parent="Map/Buildings/Containers" instance=ExtResource( 21 )]
 position = Vector2( 472, 112 )
@@ -701,7 +701,7 @@ position = Vector2( 472, 112 )
 position = Vector2( 753, 110 )
 
 [node name="ContainerLarge1" parent="Map/Buildings/Containers" instance=ExtResource( 22 )]
-position = Vector2( 640, 112 )
+position = Vector2( 645, 113 )
 
 [node name="Tents" type="YSort" parent="Map/Buildings"]
 
@@ -732,7 +732,7 @@ position = Vector2( 76, 148 )
 position = Vector2( 541, 117 )
 
 [node name="Box4" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 696, 108 )
+position = Vector2( 694, 114 )
 
 [node name="Box5" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
 position = Vector2( 902, 131 )
@@ -741,18 +741,18 @@ position = Vector2( 902, 131 )
 position = Vector2( 956, 112 )
 
 [node name="Box7" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 464, 207 )
+position = Vector2( 403, 119 )
 
 [node name="Crosses" type="YSort" parent="Map/Buildings"]
 
 [node name="Cross1" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
-position = Vector2( 492, 172 )
+position = Vector2( 494, 170 )
 
 [node name="Cross2" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
-position = Vector2( 535, 166 )
+position = Vector2( 536, 168 )
 
 [node name="Cross3" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
-position = Vector2( 577, 146 )
+position = Vector2( 580, 146 )
 
 [node name="Cross4" parent="Map/Buildings/Crosses" instance=ExtResource( 28 )]
 position = Vector2( 568, 124 )
@@ -767,18 +767,18 @@ position = Vector2( 508, 96 )
 position = Vector2( 604, 96 )
 
 [node name="CrossLarge3" parent="Map/Buildings/Crosses" instance=ExtResource( 27 )]
-position = Vector2( 568, 176 )
+position = Vector2( 572, 173 )
 
 [node name="CrossLarge4" parent="Map/Buildings/Crosses" instance=ExtResource( 27 )]
-position = Vector2( 460, 168 )
+position = Vector2( 459, 165 )
 
 [node name="CrossLarge5" parent="Map/Buildings/Crosses" instance=ExtResource( 27 )]
-position = Vector2( 472, 140 )
+position = Vector2( 468, 134 )
 
 [node name="Fences" type="YSort" parent="Map/Buildings"]
 
 [node name="Fence11" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 169, 208 )
+position = Vector2( 170, 208 )
 
 [node name="Pillars" type="YSort" parent="Map/Buildings"]
 
