@@ -122,6 +122,7 @@ func _on_MonsterSpawnTimer_timeout():
 		print("spawn monster")
 		var spawner = spawners[rand_index]
 		var monster = Monster.instance()
+		monster.init($Map/Player,$Navigation2D)
 		monsters_on_map+=1
 		monster.global_position.x=spawner.global_position.x/5
 		monster.global_position.y=spawner.global_position.y/5

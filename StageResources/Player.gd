@@ -7,6 +7,7 @@ const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 7
 const HALF_WIDTH=6
 const HALF_HEIGHT=9
+const HALF_COLLISION_HEIGHT=2
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
