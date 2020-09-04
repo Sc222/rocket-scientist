@@ -29,12 +29,11 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "default"
 length = 0.1
 
-[sub_resource type="Animation" id=2]
-resource_name = "hit"
+[sub_resource type="Animation" id=3]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -50,7 +49,7 @@ tracks/0/keys = {
 "values": [ Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ), Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ), Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
@@ -63,7 +62,7 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
@@ -84,8 +83,8 @@ frame = 1
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 5 )
-anims/hit = SubResource( 2 )
+anims/default = SubResource( 2 )
+anims/hit = SubResource( 3 )
 
 [node name="Pistol" type="Node2D" parent="."]
 position = Vector2( 6.5, -9.5 )
@@ -93,14 +92,13 @@ rotation = 6.28319
 
 [node name="Animation" type="AnimatedSprite" parent="Pistol"]
 position = Vector2( 13.5, 9.53674e-07 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "idle"
 
 [node name="ReloadIndicator" type="AnimatedSprite" parent="Pistol"]
 position = Vector2( 13.5, -9 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 4 )
-frame = 1
+frames = SubResource( 5 )
 playing = true
 
 [node name="BulletSpawner" type="Position2D" parent="Pistol"]

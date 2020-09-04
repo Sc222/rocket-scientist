@@ -5,8 +5,8 @@ signal change_hp
 
 const Bullet = preload("res://StageResources/Bullet.tscn")
 export var speed = 7
-const HALF_WIDTH=6*5
-const HALF_HEIGHT=9*5
+const HALF_WIDTH=6
+const HALF_HEIGHT=9
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
@@ -23,9 +23,11 @@ onready var pistolSprite = pistol.get_node("Animation")
 onready var bulletSpawner = pistol.get_node("BulletSpawner")
 onready var reloadIndicator = pistol.get_node("ReloadIndicator")
 
+#tmp
+var navigation = null
 
 func _ready():
-	pass
+	navigation = get_parent().get_parent().get_node("Navigation2D")
 
 
 func _physics_process(delta):
@@ -34,6 +36,9 @@ func _physics_process(delta):
 		reload = RELOAD_TIME
 		shoot()
 	
+	#var movement = Vector2.ZERO
+	
+	# working movement code
 	var dir_vector: Vector2
 	dir_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	dir_vector.y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
@@ -41,6 +46,19 @@ func _physics_process(delta):
 		
 	var movement = speed * dir_vector
 	
+	# pathfinding demo
+	#var dest = get_local_mouse_position()
+
+	#print("player: ", position)
+	#print("mouse: ",dest)
+	
+	#var path = navigation.get_simple_path(position, get_global_mouse_position())
+	#get_parent().get_parent().get_node("debugLine").points=path
+	
+	#if path.size()>0:
+	#	print("true")
+	#	movement = path[0].normalized()*speed
+	#print(movement)
 	direction = rotate_pistol(get_global_mouse_position())
 	update_animation(movement.length()!=0)	
 	move_and_collide(movement)

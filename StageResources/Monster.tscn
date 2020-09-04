@@ -156,11 +156,11 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "default"
 length = 0.001
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -176,7 +176,7 @@ tracks/0/keys = {
 "values": [ Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ), Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ), Color( 0.917647, 0.196078, 0.235294, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 16 ) ],
 "loop": false,
@@ -189,8 +189,8 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 96.1301
+[sub_resource type="CircleShape2D" id=7]
+radius = 100.0
 
 [node name="Monster" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -204,8 +204,8 @@ centered = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack_l = SubResource( 2 )
 anims/attack_r = SubResource( 3 )
-anims/default = SubResource( 7 )
-anims/hit = SubResource( 4 )
+anims/default = SubResource( 4 )
+anims/hit = SubResource( 5 )
 
 [node name="Dagger" type="Area2D" parent="." groups=[
 "deadly",
@@ -214,7 +214,7 @@ position = Vector2( 6.5, -8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Dagger"]
 position = Vector2( 15.5, 2.86102e-06 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 animation = "attack"
 frame = 6
 
@@ -228,14 +228,13 @@ polygon = PoolVector2Array( 19, -10, 26, -10, 27, -9, 27, -8, 25, -6, 19, -6 )
 disabled = true
 
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
-position = Vector2( 0, -19 )
-polygon = PoolVector2Array( 2, 18, 2, 16, 12, 16, 12, 18 )
+position = Vector2( -1, -19 )
+polygon = PoolVector2Array( 4, 18, 4, 16, 11, 16, 11, 18 )
 
 [node name="PlayerDetectArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
-visible = false
 position = Vector2( 7, -9 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_PlayerDetectArea_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_PlayerDetectArea_body_exited"]

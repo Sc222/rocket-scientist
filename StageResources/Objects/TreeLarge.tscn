@@ -14,3 +14,7 @@ region_rect = Rect2( 128, 16, 32, 48 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 polygon = PoolVector2Array( -1, 24, -1, 22, 3, 22, 3, 24 )
+
+[node name="NavigationPolygon2D" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.4 )
+polygon = PoolVector2Array( 7, -4, 7, 2, -5, 2, -5, -4 )
