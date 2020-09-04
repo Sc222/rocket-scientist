@@ -15,3 +15,8 @@ position = Vector2( 0, -8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 polygon = PoolVector2Array( -8, 12, -8, 11, 8, 11, 8, 12 )
+
+[node name="NavigationPolygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color( 1, 1, 1, 0.4 )
+polygon = PoolVector2Array( 12, 2, -12, 2, -12, -3, 12, -3 )

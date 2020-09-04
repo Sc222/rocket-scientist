@@ -34,10 +34,10 @@
 [ext_resource path="res://StageResources/StageResouces.gd" type="Script" id=32]
 [ext_resource path="res://StageResources/Navigation2D.gd" type="Script" id=33]
 
-[sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 1029, 166, 1029, 174, 1025, 174, 468, 170, 1025, 165.94, 480, 142, 494, 134, 477, 151, 323, 83, 321, 80, 1024, 79, 369, 84, 354, 84, 480, 137, 471, 142, 1025, 110.046, 584, 143, 562, 138, 575, 126, 566, 126, 562, 134, 575, 121, 566, 121, 500, 112, 500, 107, 1024, 102, 388, 93, 388, 89, 457, 107, 584, 148, 547, 154, 258, 219, 0, 219, 0, 79, 284, 80, 284, 83, 285, 86, 297, 93, 272, 219, 258, 227, 1029, 102, 1029, 110, 1025, 219, 460, 219, 459, 170, 460, 221, 428, 221, 428, 219, 368, 219, 368, 227, 354, 227, 354, 219, 272, 227, 312.005, 93, 320, 90, 575, 143, 498, 114, 457, 114, 471, 137, 373, 100, 459, 165, 322, 86, 468, 165, 370, 100, 575, 148, 477, 154 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 6, 5, 13 ), PoolIntArray( 14, 5, 7 ), PoolIntArray( 15, 4, 16, 17, 18 ), PoolIntArray( 19, 18, 17, 20 ), PoolIntArray( 15, 18, 21 ), PoolIntArray( 15, 21, 22, 23, 24, 25 ), PoolIntArray( 26, 27, 10, 25, 24, 28 ), PoolIntArray( 29, 4, 3, 30 ), PoolIntArray( 31, 32, 33, 34, 35 ), PoolIntArray( 31, 35, 36 ), PoolIntArray( 31, 36, 37, 38, 39 ), PoolIntArray( 25, 40, 41, 15 ), PoolIntArray( 3, 2, 42, 43, 44 ), PoolIntArray( 43, 45, 46, 47, 44 ), PoolIntArray( 48, 49, 50, 51 ), PoolIntArray( 38, 52, 39 ), PoolIntArray( 51, 38, 37, 53 ), PoolIntArray( 51, 53, 54, 48 ), PoolIntArray( 4, 29, 16 ), PoolIntArray( 17, 16, 55 ), PoolIntArray( 23, 22, 19, 20, 6, 56 ), PoolIntArray( 57, 56, 6, 13, 58 ), PoolIntArray( 26, 28, 57, 59 ), PoolIntArray( 60, 44, 47, 48, 54, 61 ), PoolIntArray( 62, 60, 61, 8, 63 ), PoolIntArray( 17, 55, 64, 30 ), PoolIntArray( 59, 57, 58, 14 ), PoolIntArray( 59, 14, 7, 65, 62, 63 ), PoolIntArray( 10, 27, 11 ), PoolIntArray( 8, 12, 63 ), PoolIntArray( 30, 64, 29 ), PoolIntArray( 65, 30, 3, 62 ), PoolIntArray( 62, 59, 59 ) ]
-outlines = [ PoolVector2Array( 0, 219, 0, 79, 284, 80, 284, 83, 285, 86, 297, 93, 312.005, 93, 320, 90, 322, 86, 323, 83, 321, 80, 1024, 79, 1024, 102, 1029, 102, 1029, 110, 1025, 110.046, 1025, 165.94, 1029, 166, 1029, 174, 1025, 174, 1025, 219, 460, 219, 460, 221, 428, 221, 428, 219, 368, 219, 368, 227, 354, 227, 354, 219, 272, 219, 272, 227, 258, 227, 258, 219 ), PoolVector2Array( 471, 142, 480, 142, 480, 137, 471, 137 ), PoolVector2Array( 459, 170, 459, 165, 468, 165, 468, 170 ), PoolVector2Array( 494, 134, 477, 151, 477, 154, 547, 154, 562, 138, 562, 134 ), PoolVector2Array( 566, 126, 566, 121, 575, 121, 575, 126 ), PoolVector2Array( 575, 148, 575, 143, 584, 143, 584, 148 ), PoolVector2Array( 498, 114, 500, 112, 500, 107, 457, 107, 457, 114 ), PoolVector2Array( 388, 93, 388, 89, 369, 84, 354, 84, 370, 100, 373, 100, 373, 100 ) ]
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 756, 204, 900, 174, 998, 173, 1024, 173, 1024, 213, 916, 212, 1024, 80, 1024, 166.987, 998, 167, 561, 140, 919, 93, 323, 83, 321, 80, 799, 80, 799, 85, 932, 83, 931, 80, 857, 84, 856, 80, 891, 80, 891, 83, 844, 174, 756, 198, 900, 169, 844, 169, 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 752, 198, 752, 197, 668, 197, 668, 199, 662, 199, 662, 205, 628, 205, 628, 199, 624, 199, 624, 197, 540, 197, 540, 198, 534, 198, 476, 154, 564, 204, 564, 202, 598, 202, 598, 205, 692, 205, 692, 202, 726, 202, 726, 204, 916, 213, 886, 212, 886, 213, 534, 204, 547, 154, 856, 88, 892, 85, 322, 86, 931, 86, 902, 91, 908, 91, 909, 93, 561, 134, 831, 99, 320, 90, 802, 88, 802, 93, 297, 93, 312.005, 93, 804, 99, 494, 134, 851, 92, 927, 89, 844, 96, 476, 151 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 16, 6 ), PoolIntArray( 17, 18, 19, 20 ), PoolIntArray( 21, 1, 0, 22 ), PoolIntArray( 2, 1, 23, 8 ), PoolIntArray( 9, 8, 23, 24 ), PoolIntArray( 25, 26, 27, 28 ), PoolIntArray( 25, 28, 29 ), PoolIntArray( 22, 30, 31 ), PoolIntArray( 32, 33, 34, 9 ), PoolIntArray( 34, 35, 36, 37 ), PoolIntArray( 37, 38, 39 ), PoolIntArray( 40, 41, 42, 43 ), PoolIntArray( 44, 45, 46, 47 ), PoolIntArray( 48, 49, 50, 51 ), PoolIntArray( 4, 52, 5 ), PoolIntArray( 51, 0, 5, 53, 48 ), PoolIntArray( 53, 54, 25, 55, 47 ), PoolIntArray( 9, 24, 21, 22, 31 ), PoolIntArray( 9, 31, 32 ), PoolIntArray( 9, 34, 37, 39 ), PoolIntArray( 9, 39, 40, 56 ), PoolIntArray( 43, 56, 40 ), PoolIntArray( 57, 17, 20, 58 ), PoolIntArray( 59, 11, 14 ), PoolIntArray( 60, 15, 6 ), PoolIntArray( 61, 62, 63, 9, 64, 65 ), PoolIntArray( 66, 59, 14, 67, 68 ), PoolIntArray( 25, 29, 69 ), PoolIntArray( 70, 43, 42, 55, 25, 69 ), PoolIntArray( 70, 66, 68, 71, 64, 72 ), PoolIntArray( 57, 58, 61, 73 ), PoolIntArray( 74, 60, 6 ), PoolIntArray( 75, 73, 61 ), PoolIntArray( 10, 74, 6 ), PoolIntArray( 63, 10, 9 ), PoolIntArray( 65, 75, 61 ), PoolIntArray( 71, 65, 64 ), PoolIntArray( 70, 72, 76 ), PoolIntArray( 70, 76, 43 ), PoolIntArray( 35, 48, 53 ), PoolIntArray( 36, 35, 53 ), PoolIntArray( 55, 44, 47 ), PoolIntArray( 53, 47, 36 ) ]
+outlines = [ PoolVector2Array( 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 297, 93, 312.005, 93, 320, 90, 322, 86, 323, 83, 321, 80, 799, 80, 799, 85, 802, 88, 802, 93, 804, 99, 831, 99, 844, 96, 851, 92, 856, 88, 857, 84, 856, 80, 891, 80, 891, 83, 892, 85, 902, 91, 908, 91, 909, 93, 919, 93, 927, 89, 931, 86, 932, 83, 931, 80, 1024, 80, 1024, 166.987, 998, 167, 998, 173, 1024, 173, 1024, 213, 916, 213, 916, 212, 886, 212, 886, 213 ), PoolVector2Array( 534, 204, 534, 198, 540, 198, 540, 197, 624, 197, 624, 199, 628, 199, 628, 205, 598, 205, 598, 202, 564, 202, 564, 204 ), PoolVector2Array( 662, 205, 662, 199, 668, 199, 668, 197, 752, 197, 752, 198, 756, 198, 756, 204, 726, 204, 726, 202, 692, 202, 692, 205 ), PoolVector2Array( 844, 174, 844, 169, 900, 169, 900, 174 ), PoolVector2Array( 476, 154, 476, 151, 494, 134, 561, 134, 561, 140, 547, 154 ) ]
 
 [sub_resource type="DynamicFontData" id=2]
 antialiased = false
@@ -57,6 +57,7 @@ transform = Transform2D( 5, 0, 0, 5, 0, 0 )
 scroll_base_scale = Vector2( 0.25, 0.2 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 256, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -93,7 +94,7 @@ position = Vector2( 304, 96 )
 [node name="WaterSmall2" parent="BackgroundObjects/Water" instance=ExtResource( 12 )]
 position = Vector2( 912, 96 )
 
-[node name="Pool1" parent="BackgroundObjects" instance=ExtResource( 26 )]
+[node name="Pool" parent="BackgroundObjects" instance=ExtResource( 26 )]
 position = Vector2( 520, 152 )
 
 [node name="Map" type="YSort" parent="."]
@@ -269,37 +270,152 @@ position = Vector2( 957, 127 )
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos25"]
 rect = Rect2( -5, -5, 10, 10 )
 
+[node name="ChestPositions" type="Node2D" parent="Map"]
+scale = Vector2( 1, 1 )
+
+[node name="Position1" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 243, 95 )
+scale = Vector2( 1, 1 )
+
+[node name="Position2" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 871, 162 )
+scale = Vector2( 1, 1 )
+
+[node name="Position3" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 720, 100 )
+scale = Vector2( 1, 1 )
+
+[node name="Position4" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 751, 181 )
+scale = Vector2( 1, 1 )
+
+[node name="Position5" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 592, 191 )
+scale = Vector2( 1, 1 )
+
+[node name="Position6" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 362, 178 )
+scale = Vector2( 1, 1 )
+
+[node name="Position7" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 48, 180 )
+scale = Vector2( 1, 1 )
+
+[node name="Position8" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 304, 141 )
+scale = Vector2( 1, 1 )
+
+[node name="Position9" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 432, 98 )
+scale = Vector2( 1, 1 )
+
+[node name="Position10" type="Position2D" parent="Map/ChestPositions"]
+position = Vector2( 959, 91 )
+scale = Vector2( 1, 1 )
+
 [node name="Chests" type="YSort" parent="Map"]
 
-[node name="Position1" type="Position2D" parent="Map/Chests"]
-position = Vector2( 243, 95 )
+[node name="ManualNavPolygon" type="YSort" parent="Map"]
+scale = Vector2( 1, 1 )
 
-[node name="Position2" type="Position2D" parent="Map/Chests"]
-position = Vector2( 871, 162 )
+[node name="Rock21" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 1008, 171 )
+scale = Vector2( 1, 1 )
 
-[node name="Position3" type="Position2D" parent="Map/Chests"]
-position = Vector2( 720, 100 )
+[node name="Rock27" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 896, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position4" type="Position2D" parent="Map/Chests"]
-position = Vector2( 751, 181 )
+[node name="Rock26" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 776, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position5" type="Position2D" parent="Map/Chests"]
-position = Vector2( 592, 191 )
+[node name="Rock25" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 640, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position6" type="Position2D" parent="Map/Chests"]
-position = Vector2( 362, 178 )
+[node name="Rock23" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 515, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position7" type="Position2D" parent="Map/Chests"]
-position = Vector2( 48, 180 )
+[node name="TreeMedGreen2" parent="Map/ManualNavPolygon" instance=ExtResource( 13 )]
+position = Vector2( 480, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position8" type="Position2D" parent="Map/Chests"]
-position = Vector2( 304, 141 )
+[node name="Rock24" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 439, 218 )
+scale = Vector2( 1, 1 )
 
-[node name="Position9" type="Position2D" parent="Map/Chests"]
-position = Vector2( 432, 98 )
+[node name="TreeMed6" parent="Map/ManualNavPolygon" instance=ExtResource( 11 )]
+position = Vector2( 386, 216 )
+scale = Vector2( 1, 1 )
 
-[node name="Position10" type="Position2D" parent="Map/Chests"]
-position = Vector2( 959, 91 )
+[node name="TreeLarge7" parent="Map/ManualNavPolygon" instance=ExtResource( 14 )]
+position = Vector2( 360, 224 )
+scale = Vector2( 1, 1 )
+
+[node name="TreeMed7" parent="Map/ManualNavPolygon" instance=ExtResource( 11 )]
+position = Vector2( 295, 216 )
+scale = Vector2( 1, 1 )
+
+[node name="Rock29" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 137, 216 )
+scale = Vector2( 1, 1 )
+
+[node name="TreeLarge8" parent="Map/ManualNavPolygon" instance=ExtResource( 14 )]
+position = Vector2( 264, 224 )
+scale = Vector2( 1, 1 )
+
+[node name="Rock11" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 544, 202 )
+
+[node name="Fence4" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 564, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence5" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 580, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence6" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 596, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Rock12" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 608, 203 )
+scale = Vector2( 1, 1 )
+
+[node name="Rock14" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 672, 203 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence7" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 692, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence8" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 708, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence9" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 724, 200 )
+scale = Vector2( 1, 1 )
+
+[node name="Rock15" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
+position = Vector2( 736, 202 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence1" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 856, 172 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence2" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 872, 172 )
+scale = Vector2( 1, 1 )
+
+[node name="Fence3" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
+position = Vector2( 888, 172 )
+scale = Vector2( 1, 1 )
 
 [node name="Rocks" type="YSort" parent="Map"]
 
@@ -307,7 +423,7 @@ position = Vector2( 959, 91 )
 position = Vector2( 12, 104 )
 
 [node name="Rock2" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 12, 168 )
+position = Vector2( 16, 171 )
 
 [node name="Rock3" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 16, 203 )
@@ -333,62 +449,29 @@ position = Vector2( 405, 206 )
 [node name="Rock10" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 490, 203 )
 
-[node name="Rock11" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 544, 202 )
-
-[node name="Rock12" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 608, 203 )
-
 [node name="Rock13" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 630, 171 )
-
-[node name="Rock14" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 672, 203 )
-
-[node name="Rock15" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 736, 202 )
 
 [node name="Rock16" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 800, 203 )
 
 [node name="Rock17" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 823, 168 )
+position = Vector2( 818, 167 )
 
 [node name="Rock18" parent="Map/Rocks" instance=ExtResource( 5 )]
 position = Vector2( 864, 203 )
 
 [node name="Rock19" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 928, 203 )
+position = Vector2( 926, 201 )
 
 [node name="Rock20" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 992, 203 )
-
-[node name="Rock21" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 1008, 171 )
+position = Vector2( 994, 201 )
 
 [node name="Rock22" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 1008, 107 )
-
-[node name="Rock23" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 515, 216 )
-
-[node name="Rock24" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 439, 218 )
-
-[node name="Rock25" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 640, 216 )
-
-[node name="Rock26" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 776, 216 )
-
-[node name="Rock27" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 896, 216 )
+position = Vector2( 995, 105 )
 
 [node name="Rock28" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 960, 212 )
-
-[node name="Rock29" parent="Map/Rocks" instance=ExtResource( 5 )]
-position = Vector2( 137, 216 )
+position = Vector2( 962, 209 )
 
 [node name="Plants" type="YSort" parent="Map"]
 
@@ -414,12 +497,6 @@ position = Vector2( 432, 192 )
 [node name="TreeLarge6" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
 position = Vector2( 928, 176 )
 
-[node name="TreeLarge7" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
-position = Vector2( 360, 224 )
-
-[node name="TreeLarge8" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
-position = Vector2( 264, 224 )
-
 [node name="TreeLarge9" parent="Map/Plants/Trees/Large" instance=ExtResource( 14 )]
 position = Vector2( 218, 208 )
 
@@ -427,9 +504,6 @@ position = Vector2( 218, 208 )
 
 [node name="TreeMedGreen1" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 276, 128 )
-
-[node name="TreeMedGreen2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
-position = Vector2( 478, 214 )
 
 [node name="TreeMedGreen3" parent="Map/Plants/Trees/Medium" instance=ExtResource( 13 )]
 position = Vector2( 784, 144 )
@@ -447,7 +521,7 @@ position = Vector2( 232, 208 )
 position = Vector2( 115, 197 )
 
 [node name="TreeMed1" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 40, 208 )
+position = Vector2( 40, 209 )
 
 [node name="TreeMed2" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
 position = Vector2( 438, 141 )
@@ -456,16 +530,10 @@ position = Vector2( 438, 141 )
 position = Vector2( 743, 140 )
 
 [node name="TreeMed4" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 1008, 188 )
+position = Vector2( 850, 152 )
 
 [node name="TreeMed5" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 168, 208 )
-
-[node name="TreeMed6" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 386, 216 )
-
-[node name="TreeMed7" parent="Map/Plants/Trees/Medium" instance=ExtResource( 11 )]
-position = Vector2( 296, 216 )
+position = Vector2( 162, 197 )
 
 [node name="Small" type="YSort" parent="Map/Plants/Trees"]
 
@@ -538,7 +606,7 @@ position = Vector2( 904, 192 )
 position = Vector2( 904, 192 )
 
 [node name="Cactus13" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( -1.19209e-08, 208 )
+position = Vector2( 9, 212 )
 
 [node name="Cactus14" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 384, 144 )
@@ -573,7 +641,7 @@ position = Vector2( 776, 192 )
 position = Vector2( 784, 100 )
 
 [node name="Rose10" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
-position = Vector2( 849, 144 )
+position = Vector2( 866, 132 )
 
 [node name="Rose11" parent="Map/Plants/Roses" instance=ExtResource( 8 )]
 position = Vector2( 888, 192 )
@@ -644,7 +712,7 @@ position = Vector2( 368, 96 )
 position = Vector2( 816, 128 )
 
 [node name="Tent3" parent="Map/Buildings/Tents" instance=ExtResource( 20 )]
-position = Vector2( 964, 188 )
+position = Vector2( 957, 186 )
 
 [node name="Tent4" parent="Map/Buildings/Tents" instance=ExtResource( 20 )]
 position = Vector2( 672, 144 )
@@ -709,38 +777,8 @@ position = Vector2( 472, 140 )
 
 [node name="Fences" type="YSort" parent="Map/Buildings"]
 
-[node name="Fence1" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 856, 172 )
-
-[node name="Fence2" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 872, 172 )
-
-[node name="Fence3" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 888, 172 )
-
-[node name="Fence4" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 564, 200 )
-
-[node name="Fence5" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 580, 200 )
-
-[node name="Fence6" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 596, 200 )
-
-[node name="Fence7" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 692, 200 )
-
-[node name="Fence8" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 708, 200 )
-
-[node name="Fence9" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 724, 200 )
-
-[node name="Fence10" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 160, 212 )
-
 [node name="Fence11" parent="Map/Buildings/Fences" instance=ExtResource( 30 )]
-position = Vector2( 188, 208 )
+position = Vector2( 169, 208 )
 
 [node name="Pillars" type="YSort" parent="Map/Buildings"]
 
@@ -773,7 +811,7 @@ width = 2.0
 script = ExtResource( 33 )
 
 [node name="NavigationPolygon" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 4 )
+navpoly = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal chests_placed
+
 class ChestInfo:
 	
 	var task = ""
@@ -32,6 +34,9 @@ const PLAYER_POSITIONS = ["1", "2", "3", "4"]
 
 
 func _ready():
+	#send signal to navigation2D when chests are added
+	self.connect("chests_placed",$Navigation2D,"on_chests_placed")
+	
 	set_player_pos()
 	update_ui($Map/Player)
 	spawn_chests(CHESTS_COUNT)
@@ -60,13 +65,15 @@ func spawn_chests(chests_count):
 		var chestInfo = chest_tasks[task_index]
 		chest_tasks.remove(task_index)
 		spawn_chest(position, chestInfo)
+	emit_signal("chests_placed")
 
 func spawn_chest(pos, chest_info:ChestInfo):
 	var chest = Chest.instance()
 	chest.get_node("UI/Task/Text").set_text(chest_info.task)
 	for i in range(0, chest_info.answer_variants.size()):
 		chest.get_node("UI/Task/Node/Variant"+str(i+1)).set_text(chest_info.answer_variants[i])
-	var spawner = $Map/Chests.get_node("Position"+pos)
+	var spawner = $Map/ChestPositions.get_node("Position"+pos)
+	
 	#todo fix /5 issue
 	chest.correct_answer = chest_info.answer
 	chest.connect("send_answer",self,"_on_Chest_send_answer")

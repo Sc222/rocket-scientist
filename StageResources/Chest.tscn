@@ -180,5 +180,9 @@ polygon = PoolVector2Array( 1, 16, 0, 15, 0, 12, 17, 12, 17, 13, 16, 14, 13, 15,
 position = Vector2( 0, -8 )
 rotation = 1.5708
 shape = SubResource( 5 )
+
+[node name="NavigationPolygon2D" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.4 )
+polygon = PoolVector2Array( -13, 2, 12, 2, 12, -6, -13, -6 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_ChestArea_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_ChestArea_body_exited"]

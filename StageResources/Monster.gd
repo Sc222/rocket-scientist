@@ -1,9 +1,6 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var player = null
 var navigation = null
 export var speed = 3.5
@@ -47,6 +44,8 @@ func _physics_process(delta):
 		var distance_to_walk = speed
 		# Move the player along the path until he has run out of movement or the path ends.
 		movement = (path_to_player[1] - tmp_pos).normalized()*speed
+		
+		# MONSTER TODO: attack check if path nodes count = 2 and vector length = attack_distance
 		#if position.distance_to(player.position)<ATTACK_DISTANCE:
 		#	movement = Vector2.ZERO
 		#	if reload == 0.0:
