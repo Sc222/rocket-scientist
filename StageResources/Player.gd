@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal win
 signal die
 signal change_hp
 
@@ -16,6 +17,7 @@ const RELOAD_TIME = 0.4 #sec
 var reload = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
+var coins = 0
 var is_vulnerable = true # player is invulnerable while hit animation is playing
 
 
@@ -79,7 +81,11 @@ func rotate_pistol(mouse_pos):
 		dir=DIR_LEFT
 	$Pistol.look_at(mouse_pos)
 	return dir
-
+	
+func collect_coin():
+	coins+=1
+	if coins == COINS_TO_COLLECT:
+		emit_signal("win")
 
 func hit():
 	if is_vulnerable:

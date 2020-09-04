@@ -4,8 +4,9 @@ extends Navigation2D
 const PATH_TO_MAP = "../Map/"
 const NAVIGATION_POLYGON = "NavigationPolygon2D"
 const NAV_POLYGONS_VISIBLE = false
-var nav_polygon = null
-const OBJECTS_GROUPS = [
+
+#objects which are instanced before game launch
+const STATIC_OBJECT_GROUPS = [
 	"Rocks",
 	"Plants/Trees/Large",
 	"Plants/Trees/Medium",
@@ -18,39 +19,39 @@ const OBJECTS_GROUPS = [
 	"Buildings/Pillars",
 	"Buildings/Other"
 ] 
-const CHESTS_GROUP = "Chests"
 
-# Called when the node enters the scene tree for the first time.
+# chests are instanced only when signal is emitted so they are separate
+const CHESTS_GROUP = ["Chests"]
+
 func _ready():
-	nav_polygon = $NavigationPolygon.get_navigation_polygon()
-	for group in OBJECTS_GROUPS:
-		add_polygons_from_map_objects(group)
-	nav_polygon.make_polygons_from_outlines()
-	$NavigationPolygon.set_navigation_polygon(nav_polygon)
-	
-	#reenable polygon to make it work
-	$NavigationPolygon.enabled=false
-	$NavigationPolygon.enabled=true
+	update_navigation_polygon_with_map_groups(STATIC_OBJECT_GROUPS)
 
 func on_chests_placed():
-	print("chests placed")
-	nav_polygon = $NavigationPolygon.get_navigation_polygon()
-	add_polygons_from_map_objects(CHESTS_GROUP)
+	update_navigation_polygon_with_map_groups(CHESTS_GROUP)
+
+# group is the name of ysort node where objects with polygons are located
+# at first we add all outlines and then update the whole polygon
+func update_navigation_polygon_with_map_groups(groups):
+	var nav_polygon = $NavigationPolygon.get_navigation_polygon()
+	for group in groups:
+		add_polygon_outlines_from_map_group(nav_polygon, group)
+	
+	#convert outlines into polygons
 	nav_polygon.make_polygons_from_outlines()
 	$NavigationPolygon.set_navigation_polygon(nav_polygon)
 	
-	#reenable polygon to make it work
+	#reenable polygon to update its state
 	$NavigationPolygon.enabled=false
 	$NavigationPolygon.enabled=true
+	
 
-
-func add_polygons_from_map_objects(group):
+func add_polygon_outlines_from_map_group(nav_polygon, group):
 	var objects = get_node(PATH_TO_MAP+group).get_children()
 	for object in objects:
-		add_polygon_from_map_object(object.get_node(NAVIGATION_POLYGON))
+		add_polygon_outline(nav_polygon, object.get_node(NAVIGATION_POLYGON))
 
 
-func add_polygon_from_map_object(object):
+func add_polygon_outline(nav_polygon:NavigationPolygon, object:Polygon2D):
 	object.visible = NAV_POLYGONS_VISIBLE
 	var res_polygon = PoolVector2Array()
 	var polygon_transform = object.get_global_transform()

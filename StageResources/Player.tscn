@@ -73,6 +73,7 @@ animations = [ {
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
+collision_layer = 2
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -99,7 +100,6 @@ animation = "idle"
 position = Vector2( 13.5, -9 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="BulletSpawner" type="Position2D" parent="Pistol"]

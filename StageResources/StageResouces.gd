@@ -19,9 +19,8 @@ const Chest = preload("res://StageResources/Chest.tscn")
 const Monster = preload("res://StageResources/Monster.tscn")
 const CHESTS_COUNT = 5
 const CHESTS_TO_COLLECT = 3
-const MAX_MONSTERS = 1
+const MAX_MONSTERS = 3
 var monsters_on_map = 0
-
 var chest_tasks = [
 	ChestInfo.new("Задача с ответом 1","1",["1","2","3"]),
 	ChestInfo.new("Задача с ответом 4","4",["6","5","4"]),
@@ -35,7 +34,7 @@ const PLAYER_POSITIONS = ["1", "2", "3", "4"]
 
 func _ready():
 	#send signal to navigation2D when chests are added
-	self.connect("chests_placed",$Navigation2D,"on_chests_placed")
+	self.connect("chests_placed", $Navigation2D,"on_chests_placed")
 	
 	set_player_pos()
 	update_ui($Map/Player)
@@ -93,7 +92,6 @@ func _on_Chest_send_answer(is_correct):
 	print("CHEST SEND ANSWER")
 	if is_correct:
 		$Map/Player.collect_coin()
-		# update total score
 	else:
 		$Map/Player.hit()
 	update_ui($Map/Player)
@@ -104,31 +102,30 @@ func _on_Player_change_hp():
 
 func _on_Player_die():
 	print("GAME OVER")
-	pass # Replace with function body.
+	#todo lose
 
 
 func _on_Player_win():
 	print("PLAYER WINS")
-	pass # Replace with function body.
+	#todo win
 
 
 func _on_MonsterSpawnTimer_timeout():
+	if monsters_on_map < MAX_MONSTERS:
+		spawn_monster()
+
+func spawn_monster():
+	print("spawn monster")
 	var spawners = get_visible_monster_spawners()
 	randomize()
 	var rand_index = randi()%spawners.size()
-	
-	#spawn zombie
-	if monsters_on_map < MAX_MONSTERS:
-		print("spawn monster")
-		var spawner = spawners[rand_index]
-		var monster = Monster.instance()
-		monster.init($Map/Player,$Navigation2D)
-		monsters_on_map+=1
-		monster.global_position.x=spawner.global_position.x/5
-		monster.global_position.y=spawner.global_position.y/5
-		$Map/Monsters.add_child(monster)
-		pass
-		#spawn_zombie
+	var spawner = spawners[rand_index]
+	var monster = Monster.instance()
+	monster.init($Map/Player, $Navigation2D)
+	monsters_on_map+=1
+	monster.global_position.x=spawner.global_position.x/5
+	monster.global_position.y=spawner.global_position.y/5
+	$Map/Monsters.add_child(monster)
 
 
 func get_visible_monster_spawners():

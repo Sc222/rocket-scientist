@@ -57,7 +57,6 @@ transform = Transform2D( 5, 0, 0, 5, 0, 0 )
 scroll_base_scale = Vector2( 0.25, 0.2 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 motion_mirroring = Vector2( 256, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -67,6 +66,7 @@ centered = false
 [node name="TileMapInvisibleWalls" type="TileMap" parent="." groups=[
 "background",
 ]]
+visible = false
 position = Vector2( 5.96046e-08, 0 )
 z_as_relative = false
 tile_set = ExtResource( 4 )
@@ -100,6 +100,9 @@ position = Vector2( 520, 152 )
 [node name="Map" type="YSort" parent="."]
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
+
+[node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
+frame = 3
 
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 
@@ -850,6 +853,7 @@ wait_time = 2.0
 autostart = true
 [connection signal="change_hp" from="Map/Player" to="." method="_on_Player_change_hp"]
 [connection signal="die" from="Map/Player" to="." method="_on_Player_die"]
+[connection signal="win" from="Map/Player" to="." method="_on_Player_win"]
 [connection signal="timeout" from="MonsterSpawnTimer" to="." method="_on_MonsterSpawnTimer_timeout"]
 
 [editable path="Map/Player"]

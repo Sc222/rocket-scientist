@@ -16,7 +16,6 @@ export var speed = 3.5
 var reload = 0.0
 var direction=DIR_RIGHT
 
-# Monster's parent's parent must contain navigation2d node
 # call init after instancing monster scene
 func init(player, navigation):
 	self.player = player
@@ -27,18 +26,19 @@ func _physics_process(delta):
 	reload(delta)
 	var movement = Vector2.ZERO
 	if is_visible:
-		#todo helper method for shifting position to center
+		#todo helper method for shifting position
 		var tmp_pos = position
 		tmp_pos.x += HALF_WIDTH
 		tmp_pos.y -= HALF_COLLISION_HEIGHT
 		var tmp_player_pos = player.position
 		tmp_player_pos.x += player.HALF_WIDTH
 		tmp_player_pos.y -= player.HALF_COLLISION_HEIGHT
-			
+		
 		var path_to_player = navigation.get_simple_path(tmp_pos, tmp_player_pos)
+		
+		#debug line
 		get_parent().get_parent().get_parent().get_node("debugLine").points=path_to_player
-			
-		var distance_to_walk = speed
+		
 		movement = (path_to_player[1] - tmp_pos).normalized()*speed
 
 		# attack_if_close
