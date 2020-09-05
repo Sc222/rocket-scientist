@@ -31,7 +31,19 @@ animations = [ {
 
 [sub_resource type="Animation" id=2]
 resource_name = "default"
-length = 0.1
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.5
@@ -77,13 +89,15 @@ collision_layer = 2
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.917647, 0.196078, 0.235294, 1 )
 position = Vector2( 0, -19 )
 frames = SubResource( 1 )
-animation = "idle"
-frame = 1
+animation = "run"
+frame = 3
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
 anims/default = SubResource( 2 )
 anims/hit = SubResource( 3 )
 
@@ -100,6 +114,7 @@ animation = "idle"
 position = Vector2( 13.5, -9 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="BulletSpawner" type="Position2D" parent="Pistol"]

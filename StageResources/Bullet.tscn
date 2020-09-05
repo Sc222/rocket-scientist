@@ -4,7 +4,7 @@
 [ext_resource path="res://StageResources/Bullet.gd" type="Script" id=2]
 
 [node name="Bullet" type="Area2D" groups=[
-"deadly",
+"monster_deadly",
 ]]
 script = ExtResource( 2 )
 

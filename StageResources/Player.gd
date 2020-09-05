@@ -13,7 +13,7 @@ const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
 const COINS_TO_COLLECT = 3
-const RELOAD_TIME = 0.4 #sec
+const RELOAD_TIME = 0.5 #sec
 var reload = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
@@ -101,6 +101,7 @@ func hit():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "hit":
 		is_vulnerable = true
 
 

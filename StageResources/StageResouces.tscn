@@ -101,29 +101,32 @@ position = Vector2( 520, 152 )
 
 [node name="Player" parent="Map" instance=ExtResource( 3 )]
 
-[node name="ReloadIndicator" parent="Map/Player/Pistol" index="1"]
-frame = 1
-
 [node name="PlayerPositions" type="Node2D" parent="Map"]
 
 [node name="Position1" type="Position2D" parent="Map/PlayerPositions"]
-position = Vector2( 65, 130 )
+position = Vector2( 63, 128 )
 
 [node name="Position2" type="Position2D" parent="Map/PlayerPositions"]
-position = Vector2( 407, 149 )
+position = Vector2( 407, 135 )
 
 [node name="Position3" type="Position2D" parent="Map/PlayerPositions"]
 position = Vector2( 671, 173 )
 
 [node name="Position4" type="Position2D" parent="Map/PlayerPositions"]
-position = Vector2( 918, 123 )
+position = Vector2( 923, 108 )
 
 [node name="MonsterPositions" type="Node2D" parent="Map"]
 
 [node name="MonsterPos1" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 42, 157 )
+position = Vector2( 14, 121 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos1"]
+rect = Rect2( -5, -5, 10, 10 )
+
+[node name="MonsterPos26" type="Position2D" parent="Map/MonsterPositions"]
+position = Vector2( 89, 171 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos26"]
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos2" type="Position2D" parent="Map/MonsterPositions"]
@@ -133,13 +136,13 @@ position = Vector2( 97, 110 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos3" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 128, 171 )
+position = Vector2( 139, 182 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos3"]
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos4" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 228, 107 )
+position = Vector2( 217, 117 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos4"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -151,19 +154,19 @@ position = Vector2( 218, 168 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos6" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 321, 119 )
+position = Vector2( 336, 103 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos6"]
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos7" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 280, 166 )
+position = Vector2( 303, 180 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos7"]
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos8" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 399, 179 )
+position = Vector2( 406, 160 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos8"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -175,7 +178,7 @@ position = Vector2( 371, 131 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos10" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 445, 116 )
+position = Vector2( 450, 123 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos10"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -205,7 +208,7 @@ position = Vector2( 558, 158 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos15" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 608, 169 )
+position = Vector2( 642, 180 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos15"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -217,7 +220,7 @@ position = Vector2( 647, 139 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos17" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 710, 129 )
+position = Vector2( 707, 137 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos17"]
 rect = Rect2( -5, -5, 10, 10 )
@@ -253,9 +256,10 @@ position = Vector2( 856, 122 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos23" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 882, 142 )
+position = Vector2( 937, 139 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos23"]
+position = Vector2( 6.10352e-05, 0 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos24" type="Position2D" parent="Map/MonsterPositions"]
@@ -265,157 +269,121 @@ position = Vector2( 910, 172 )
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="MonsterPos25" type="Position2D" parent="Map/MonsterPositions"]
-position = Vector2( 957, 127 )
+position = Vector2( 1001, 120 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="Map/MonsterPositions/MonsterPos25"]
 rect = Rect2( -5, -5, 10, 10 )
 
 [node name="ChestPositions" type="Node2D" parent="Map"]
-scale = Vector2( 1, 1 )
 
 [node name="Position1" type="Position2D" parent="Map/ChestPositions"]
 position = Vector2( 243, 95 )
-scale = Vector2( 1, 1 )
 
 [node name="Position2" type="Position2D" parent="Map/ChestPositions"]
 position = Vector2( 871, 162 )
-scale = Vector2( 1, 1 )
 
 [node name="Position3" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 720, 100 )
-scale = Vector2( 1, 1 )
+position = Vector2( 721, 99 )
 
 [node name="Position4" type="Position2D" parent="Map/ChestPositions"]
 position = Vector2( 751, 181 )
-scale = Vector2( 1, 1 )
 
 [node name="Position5" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 592, 186 )
-scale = Vector2( 1, 1 )
+position = Vector2( 583, 187 )
 
 [node name="Position6" type="Position2D" parent="Map/ChestPositions"]
 position = Vector2( 362, 178 )
-scale = Vector2( 1, 1 )
 
 [node name="Position7" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 48, 180 )
-scale = Vector2( 1, 1 )
+position = Vector2( 48, 177 )
 
 [node name="Position8" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 304, 141 )
-scale = Vector2( 1, 1 )
+position = Vector2( 304, 132 )
 
 [node name="Position9" type="Position2D" parent="Map/ChestPositions"]
-position = Vector2( 432, 98 )
-scale = Vector2( 1, 1 )
+position = Vector2( 432, 94 )
 
 [node name="Position10" type="Position2D" parent="Map/ChestPositions"]
 position = Vector2( 959, 91 )
-scale = Vector2( 1, 1 )
 
 [node name="Chests" type="YSort" parent="Map"]
 
 [node name="ManualNavPolygon" type="YSort" parent="Map"]
-scale = Vector2( 1, 1 )
 
 [node name="Rock21" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 1008, 171 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock27" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 896, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock26" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 776, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock25" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 640, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock23" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 515, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeMedGreen2" parent="Map/ManualNavPolygon" instance=ExtResource( 13 )]
 position = Vector2( 480, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock24" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 439, 218 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeMed6" parent="Map/ManualNavPolygon" instance=ExtResource( 11 )]
 position = Vector2( 386, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeLarge7" parent="Map/ManualNavPolygon" instance=ExtResource( 14 )]
 position = Vector2( 360, 224 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeMed7" parent="Map/ManualNavPolygon" instance=ExtResource( 11 )]
 position = Vector2( 295, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock29" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 137, 216 )
-scale = Vector2( 1, 1 )
 
 [node name="TreeLarge8" parent="Map/ManualNavPolygon" instance=ExtResource( 14 )]
 position = Vector2( 264, 224 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock11" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 544, 202 )
 
 [node name="Fence4" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 564, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence5" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 580, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence6" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 596, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock12" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 608, 203 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock14" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 672, 203 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence7" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 692, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence8" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 708, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence9" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 724, 200 )
-scale = Vector2( 1, 1 )
 
 [node name="Rock15" parent="Map/ManualNavPolygon" instance=ExtResource( 5 )]
 position = Vector2( 736, 202 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence1" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 856, 172 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence2" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 872, 172 )
-scale = Vector2( 1, 1 )
 
 [node name="Fence3" parent="Map/ManualNavPolygon" instance=ExtResource( 30 )]
 position = Vector2( 888, 172 )
-scale = Vector2( 1, 1 )
 
 [node name="Rocks" type="YSort" parent="Map"]
 
@@ -570,7 +538,7 @@ position = Vector2( 972, 96 )
 [node name="Cactuses" type="YSort" parent="Map/Plants"]
 
 [node name="Cactus1" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
-position = Vector2( 98, 172 )
+position = Vector2( 102, 190 )
 
 [node name="Cactus2" parent="Map/Plants/Cactuses" instance=ExtResource( 9 )]
 position = Vector2( 280, 208 )
@@ -735,7 +703,7 @@ position = Vector2( 541, 117 )
 position = Vector2( 694, 114 )
 
 [node name="Box5" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
-position = Vector2( 902, 131 )
+position = Vector2( 903, 127 )
 
 [node name="Box6" parent="Map/Buildings/Boxes" instance=ExtResource( 29 )]
 position = Vector2( 956, 112 )
@@ -808,6 +776,7 @@ position = Vector2( 568, 112 )
 width = 2.0
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 script = ExtResource( 33 )
 
 [node name="NavigationPolygon" type="NavigationPolygonInstance" parent="Navigation2D"]
@@ -849,7 +818,7 @@ __meta__ = {
 }
 
 [node name="MonsterSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 autostart = true
 [connection signal="change_hp" from="Map/Player" to="." method="_on_Player_change_hp"]
 [connection signal="die" from="Map/Player" to="." method="_on_Player_die"]
