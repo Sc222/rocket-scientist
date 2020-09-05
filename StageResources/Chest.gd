@@ -1,6 +1,7 @@
 extends Node2D
 
 signal send_answer(is_correct)
+
 var is_player_nearby = false
 var chest_state = CHEST_STATE.CLOSED
 var correct_answer = ""
@@ -8,11 +9,6 @@ var answer_variants = []
 const CORRECT_ANSWER = "Правильный ответ!"
 const WRONG_ANSWER = "Вы ошиблись!"
 enum CHEST_STATE { OPENED, CLOSED, WAIT_FOR_ANSWER, EXPLODED } 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

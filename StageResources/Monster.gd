@@ -9,34 +9,40 @@ const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 2
 const COINS_TO_COLLECT = 3
-const RELOAD_TIME = 0.6 #sec
+const RELOAD_TIME = 0.65 #sec
 var is_visible = false
-var is_vulnerable = true # monster is invulnerable while hit animation is playing
 var player = null
 var navigation = null
 var hp = START_HP
 var speed = 2.5
 var reload = 0.0
 var direction=DIR_RIGHT
+var is_spawning = true
 
 # call init after instancing monster scene
 func init(player, navigation):
 	self.player = player
 	self.navigation = navigation
 	randomize()
-	
-	#speed is a bit different to multiple monsters movement look nicer
 	speed = speed + randi()%3*0.1
 
+func _ready():
+	spawn()
+	print("spawn: ",$Dagger/DaggerHitbox.is_disabled())
+	
+func spawn():
+	$Sprite.play("spawn")
+	$Dagger/DaggerHitbox.set_disabled(true)
+	$Dagger.visible=false
 
 
 func _physics_process(delta):
-	if hp<=0: #break if dead
+	if hp<=0 or is_spawning or player.hp<=0: #break if dead or not spawned yet
 		return
 	
 	reload(delta)
 	var movement = Vector2.ZERO
-	if is_visible:
+	if true: #todo: use is_visible if there are lots of monsters on the map
 		#todo helper method for shifting position
 		var tmp_pos = position
 		tmp_pos.x += HALF_WIDTH
@@ -105,15 +111,13 @@ func update_animation(is_moving):
 
 
 func hit():
-	if is_vulnerable:
-		is_vulnerable = false
-		hp-=1
-		print("monster hp",hp)
-		if hp == 0:
-			die()
-		else:
-			$AnimationPlayer.seek(0)
-			$AnimationPlayer.play("hit")
+	hp-=1
+	print("monster hp",hp)
+	if hp == 0:
+		die()
+	else:
+		$AnimationPlayer.seek(0)
+		$AnimationPlayer.play("hit")
 
 
 func die():
@@ -121,27 +125,26 @@ func die():
 	$Dagger.visible=false
 	$DaggerAnimationPlayer.stop()
 	$Dagger/DaggerHitbox.set_disabled(true)
-	$Sprite.play("die") #queue free dagger on animation end
+	$Sprite.play("die")
 	emit_signal("die")
 
 
 func _on_Sprite_animation_finished():
 	if $Sprite.animation=="die":
 		queue_free()
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "hit":
-		is_vulnerable = true
+	if $Sprite.animation=="spawn":
+		print("spawn: ",$Dagger/DaggerHitbox.is_disabled())
+		is_spawning=false
+		$Dagger.visible=true # make dagger visible
 
 
 func _on_HitArea_area_entered(area):
-	if hp<=0: #break if dead
+	if is_spawning or hp<=0: #break if dead
 		return
 	
 	if area.is_in_group("monster_deadly"):
-		print("vulnerability: ",is_vulnerable)
+		area.despawn()
 		hit()
-		area.queue_free()
 		print("hit monster")
 
 

@@ -30,6 +30,7 @@ var chest_tasks = [
 ]
 var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 const PLAYER_POSITIONS = ["1", "2", "3", "4"]
+var is_player_dead = false
 
 
 func _ready():
@@ -89,6 +90,9 @@ func _on_Player_change_bullets_count(bullets):
 
 #receive signal from the chest and update player
 func _on_Chest_send_answer(is_correct):
+	if is_player_dead:
+		return
+	
 	print("CHEST SEND ANSWER")
 	if is_correct:
 		$Map/Player.collect_coin()
@@ -102,11 +106,13 @@ func _on_Player_change_hp():
 
 func _on_Player_die():
 	print("GAME OVER")
+	is_player_dead=true
 	#todo lose
 
 
 func _on_Player_win():
-	print("PLAYER WINS")
+	if not is_player_dead:
+		print("PLAYER WINS")
 	#todo win
 
 
@@ -132,6 +138,7 @@ func _on_Monster_die():
 	monsters_on_map-=1
 
 func get_visible_monster_spawners():
+	#todo todo todo dont spawn near player or slow spawn anim
 	var spawners = $Map/MonsterPositions.get_children()
 	var result = []
 	for i in range(0, spawners.size()):

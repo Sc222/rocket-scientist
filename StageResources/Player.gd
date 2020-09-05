@@ -13,7 +13,7 @@ const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
 const COINS_TO_COLLECT = 3
-const RELOAD_TIME = 0.5 #sec
+const RELOAD_TIME = 0.3 #sec
 var reload = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
@@ -22,6 +22,9 @@ var is_vulnerable = true # player is invulnerable while hit animation is playing
 
 
 func _physics_process(delta):
+	if hp <= 0:
+		return
+	
 	reload(delta)
 	if Input.is_action_just_pressed("player_shoot") and reload == 0.0:
 		reload = RELOAD_TIME
@@ -93,11 +96,17 @@ func hit():
 		hp-=1
 		emit_signal("change_hp")
 		if hp == 0:
-			emit_signal("die")
-			#todo play death animation
+			print("player die")
+			$Pistol.visible=false
+			$Sprite.play("die")
 		else:
 			$AnimationPlayer.seek(0)
 			$AnimationPlayer.play("hit")
+
+
+func _on_Sprite_animation_finished():
+	if $Sprite.animation == "die":
+		emit_signal("die")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -111,3 +120,4 @@ func _on_HitArea_area_entered(area):
 		#todo better way to send signal FROM dagger
 		#todo what about knockback
 		hit()
+

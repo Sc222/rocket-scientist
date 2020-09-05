@@ -25,6 +25,7 @@ const CHESTS_GROUP = ["Chests"]
 func _ready():
 	update_navigation_polygon_with_map_groups(STATIC_OBJECT_GROUPS)
 
+
 func on_chests_placed():
 	update_navigation_polygon_with_map_groups(CHESTS_GROUP)
 
@@ -34,15 +35,8 @@ func update_navigation_polygon_with_map_groups(groups):
 	var nav_polygon = $NavigationPolygon.get_navigation_polygon()
 	for group in groups:
 		add_polygon_outlines_from_map_group(nav_polygon, group)
-	
-	#convert outlines into polygons
-	nav_polygon.make_polygons_from_outlines()
-	$NavigationPolygon.set_navigation_polygon(nav_polygon)
-	
-	#reenable polygon to update its state
-	$NavigationPolygon.enabled=false
-	$NavigationPolygon.enabled=true
-	
+	set_new_polygon(nav_polygon)
+
 
 func add_polygon_outlines_from_map_group(nav_polygon, group):
 	var objects = get_node(PATH_TO_MAP+group).get_children()
@@ -61,4 +55,13 @@ func add_polygon_outline(nav_polygon:NavigationPolygon, object:Polygon2D):
 		changed_vector.y=changed_vector.y/5
 		res_polygon.append(changed_vector)
 	nav_polygon.add_outline(res_polygon)
+
+
+func set_new_polygon(nav_polygon):
+	# convert outlines into polygons
+	nav_polygon.make_polygons_from_outlines()
+	$NavigationPolygon.set_navigation_polygon(nav_polygon)
+	# reenable polygon to update its state
+	$NavigationPolygon.enabled=false
+	$NavigationPolygon.enabled=true
 
