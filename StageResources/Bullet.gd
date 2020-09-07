@@ -1,9 +1,6 @@
 extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var speed = 200
 const GROUPS_CAN_FLY_THROUGH =["background","monster","player","small_object"]
 var is_despawning = false
