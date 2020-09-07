@@ -78,9 +78,9 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	chest.correct_answer = chest_info.answer
 	chest.connect("send_answer",self,"_on_Chest_send_answer")
 	chest.answer_variants = chest_info.answer_variants
-	chest.global_position.x=spawner.global_position.x/5
-	chest.global_position.y=spawner.global_position.y/5
 	$Map/Chests.add_child(chest)
+	chest.global_position.x=spawner.global_position.x
+	chest.global_position.y=spawner.global_position.y
 
 
 #update bullets amount
@@ -129,10 +129,11 @@ func spawn_monster():
 	var monster = Monster.instance()
 	monster.init($Map/Player, $Navigation2D)
 	monsters_on_map+=1
-	monster.global_position.x=spawner.global_position.x/5
-	monster.global_position.y=spawner.global_position.y/5
 	monster.connect("die",self,"_on_Monster_die")
 	$Map/Monsters.add_child(monster)
+	monster.global_position.x=spawner.global_position.x
+	monster.global_position.y=spawner.global_position.y
+	
 
 func _on_Monster_die():
 	monsters_on_map-=1

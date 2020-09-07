@@ -49,12 +49,13 @@ func shoot():
 	$Pistol/Animation.play("shoot")
 	$Pistol/Animation.frame=0
 	var bullet = Bullet.instance()
+	get_parent().add_child(bullet)
 	#bullet is added as child of map to make it y-sortable
-	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x/5
-	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y/5
+	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x
+	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y
 	bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
 	#PLAYER MUST BE CHILD OF "MAP" NODE
-	get_parent().add_child(bullet)
+	
 
 
 func update_animation(is_moving):

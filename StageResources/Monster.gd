@@ -24,6 +24,7 @@ func init(player, navigation):
 	self.player = player
 	self.navigation = navigation
 	randomize()
+	#speed is a bit different for multiple monsters movement look nicer
 	speed = speed + randi()%3*0.1
 
 func _ready():
@@ -124,8 +125,8 @@ func die():
 	print("monster die")
 	$Dagger.visible=false
 	$DaggerAnimationPlayer.stop()
-	$Dagger/DaggerHitbox.set_disabled(true)
-	$Sprite.play("die")
+	$Dagger/DaggerHitbox.set_deferred("set_disabled",true)
+	$Sprite.play("die") #queue free dagger on animation end
 	emit_signal("die")
 
 
