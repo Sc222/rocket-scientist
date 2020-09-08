@@ -21,6 +21,10 @@ var coins = 0
 var is_vulnerable = true # player is invulnerable while hit animation is playing
 
 
+func _ready():
+	$Pistol/ReloadIndicator.play()
+
+
 func _physics_process(delta):
 	if hp <= 0:
 		return
