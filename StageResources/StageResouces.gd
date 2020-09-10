@@ -38,15 +38,14 @@ var total_tasks = 0
 func _ready():
 	#send signal to navigation2D when chests are added
 	self.connect("chests_placed", $Navigation2D,"on_chests_placed")
-	
 	set_player_pos()
 	update_ui($Map/Player)
 	spawn_chests(CHESTS_COUNT)
 
 
 func update_ui(player):
-	$Ui/StatsBg/Hp.text=str(player.hp)
-	$Ui/StatsBg/Coins.text=str(player.coins)+"/"+str(player.COINS_TO_COLLECT)
+	$UI/StatsBg/Hp.text=str(player.hp)
+	$UI/StatsBg/Coins.text=str(player.coins)+"/"+str(player.COINS_TO_COLLECT)
 
 
 func set_player_pos():
@@ -79,8 +78,6 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	for i in range(0, chest_info.answer_variants.size()):
 		chest.get_node("UI/Task/Node/Variant"+str(i+1)).set_text(chest_info.answer_variants[i])
 	var spawner = $Map/ChestPositions.get_node("Position"+pos)
-	
-	#todo fix /5 issue
 	chest.correct_answer = chest_info.answer
 	chest.connect("send_answer",self,"_on_Chest_send_answer")
 	chest.answer_variants = chest_info.answer_variants
@@ -89,16 +86,10 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	chest.global_position.y=spawner.global_position.y
 
 
-#update bullets amount
-func _on_Player_change_bullets_count(bullets):
-	$Ui/StatsBg/Ammo.text=str(bullets)
-
-
 #receive signal from the chest and update player
 func _on_Chest_send_answer(is_correct):
 	if is_stage_completed:
-		return
-	
+		return	
 	print("CHEST SEND ANSWER")
 	total_tasks+=1
 	if is_correct:
@@ -127,7 +118,7 @@ func complete_stage(is_success):
 	is_stage_completed = true
 	get_tree().paused=true
 	if is_success:
-		$Ui/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
+		$UI/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
 	else:
 		#TODO GAME OVER DIALOG
 		pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://StagePilots/StagePilots.gd" type="Script" id=2]
@@ -66,9 +66,7 @@
 [ext_resource path="res://assets/stage_pilots/coolness_hidden.png" type="Texture" id=64]
 [ext_resource path="res://assets/stage_pilots/title_bg.png" type="Texture" id=65]
 [ext_resource path="res://assets/stage_pilots/tries_bg.png" type="Texture" id=66]
-[ext_resource path="res://assets/stage_pilots/btn_next_stage.png" type="Texture" id=67]
-[ext_resource path="res://assets/stage_pilots/btn_next_stage_pressed.png" type="Texture" id=68]
-[ext_resource path="res://assets/stage_pilots/btn_next_stage_hover.png" type="Texture" id=69]
+[ext_resource path="res://Global/NextStageMenu.tscn" type="PackedScene" id=67]
 
 [sub_resource type="DynamicFont" id=1]
 size = 39
@@ -216,6 +214,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
 text = "Выберите пилота"
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -470,19 +469,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonNextStage" type="TextureButton" parent="."]
-visible = false
-margin_left = 665.0
-margin_top = 150.0
-margin_right = 714.0
-margin_bottom = 168.0
-rect_scale = Vector2( 5, 5 )
-texture_normal = ExtResource( 67 )
-texture_pressed = ExtResource( 68 )
-texture_hover = ExtResource( 69 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="NextStageDialog" parent="UI" instance=ExtResource( 67 )]
 [connection signal="text_changed" from="TaskInfo/ApplyTask/AnswerLineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="TaskInfo/ApplyTask/ApplyTaskBtn" to="." method="check_answer"]
 [connection signal="pressed" from="PilotInfo/ApplyPilot" to="." method="generate_new_task"]
@@ -490,4 +479,3 @@ __meta__ = {
 [connection signal="pressed" from="Pilot2/ButtonPilot2" to="." method="select_pilot_2"]
 [connection signal="pressed" from="Pilot3/ButtonPilot3" to="." method="select_pilot_3"]
 [connection signal="pressed" from="Pilot4/ButtonPilot4" to="." method="select_pilot_4"]
-[connection signal="pressed" from="ButtonNextStage" to="." method="go_to_next_stage"]

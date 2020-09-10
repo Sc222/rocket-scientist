@@ -1,37 +1,60 @@
 extends Control
 
-var FAILURE="Поражение"
-var NO_PILOT_HP="Выберите другого\nпилота"
-var NO_HP="Не осталось попыток"
-var STAGE_FINISHED="Пилот успешно нанят"
-var WIN="Победа"
+const tasks_dict_25 = {
+	"Легкая задача. Ответ на задание равен 0.":"0",
+	"Легкая задача. Ответ на задание равен 1.":"1",
+	"Легкая задача. Ответ на задание равен 2.":"2",
+	"Легкая задача. Ответ на задание равен 3.":"3",
+	"Легкая задача. Ответ на задание равен 4.":"4"
+}
 
-onready var taskHeaderLabel = get_node("TaskInfo/Bg/TaskHeader")
-onready var answerInput = get_node("TaskInfo/ApplyTask/AnswerLineEdit")
-onready var taskLabel = get_node("TaskInfo/Bg/TaskContainer/Task")
-onready var pilotPhoto = get_node("Pilot"+str(current_pilot+1))
-onready var pilotName = get_node("Name")
-onready var result = get_node("Result")
-onready var pilotCoolness = get_node("Coolness")
-onready var pilotHpLabel = get_node("Tries/PilotHpText")
-onready var hpLabel = get_node("Tries/HpText")
-onready var applyPilotButton = get_node("PilotInfo/ApplyPilot")
-onready var pilotTaskDifficulty = get_node("PilotInfo/Bg/Difficulty")
-onready var applyTask = get_node("TaskInfo/ApplyTask")
-onready var pilotInfo = get_node("PilotInfo")
-onready var taskInfo = get_node("TaskInfo")
-onready var buttonNextStage = get_node("ButtonNextStage")
+const tasks_dict_50 = {
+	"Средняя задача. Ответ на задание равен 0.":"0",
+	"Средняя задача. Ответ на задание равен 1.":"1",
+	"Средняя задача. Ответ на задание равен 2.":"2",
+	"Средняя задача. Ответ на задание равен 3.":"3",
+	"Средняя задача. Ответ на задание равен 4.":"4"
+}
 
-var current_pilots = { }
-var current_pilot = 0
-var currentTaskText = ""
-var is_Task_Solved = false
-var pilot_hp = 2
-var hp = 2
-var user_answer = ""
+const tasks_dict_75 = {
+	"Сложная задача. Ответ на задание равен 0.":"0",
+	"Сложная задача. Ответ на задание равен 1.":"1",
+	"Сложная задача. Ответ на задание равен 2.":"2",
+	"Сложная задача. Ответ на задание равен 3.":"3",
+	"Сложная задача. Ответ на задание равен 4.":"4"
+}
 
-#словарь имен и анимаций
-var avatars_dict = {
+const tasks_dict_100 = {
+	"Очень сложная задача. Ответ на задание равен 0.":"0",
+	"Очень сложная задача. Ответ на задание равен 1.":"1",
+	"Очень сложная задача. Ответ на задание равен 2.":"2",
+	"Очень сложная задача. Ответ на задание равен 3.":"3",
+	"Очень сложная задача. Ответ на задание равен 4.":"4"
+}
+
+const coolness_arr = [
+	"coolness_25",
+	"coolness_50",
+	"coolness_75",
+	"coolness_100"
+]
+
+const all_tasks_dict = {
+	coolness_arr[0] : tasks_dict_25,
+	coolness_arr[1] : tasks_dict_25,
+	coolness_arr[2] : tasks_dict_25,
+	coolness_arr[3] : tasks_dict_25
+}
+
+const difficulty_dict = {
+	coolness_arr[0] : "Простая",
+	coolness_arr[1] : "Средняя",
+	coolness_arr[2] : "Сложная",
+	coolness_arr[3] : "Очень сложная"
+}
+
+# словарь имен и анимаций
+const avatars_dict = {
 	"Такенори Кайягаки" : "pilot_1",
 	"Иван Андреев" : "pilot_2",
 	"Изабелла Коллинз" : "pilot_3",
@@ -46,130 +69,139 @@ var avatars_dict = {
 	"Стефани Гонзалес" : "pilot_12"
 }
 
-var coolness_arr = [
-	"coolness_25",
-	"coolness_50",
-	"coolness_75",
-	"coolness_100"
-]
+var FAILURE="Поражение"
+var NO_PILOT_HP="Выберите другого пилота"
+var NO_HP="Не осталось попыток"
+var STAGE_FINISHED="Пилот успешно нанят"
+var WIN="Победа"
+var current_pilots = { }
+var current_pilot = 0
+var current_task_text = ""
+var is_task_solved = false
+var pilot_hp = 2
+var hp = 2
+var user_answer = ""
+var is_stage_completed = false
+var solved_tasks = 0
+var total_tasks = 0
 
-var difficulty_dict = {
-	"coolness_25": "Простая",
-	"coolness_50": "Средняя",
-	"coolness_75": "Сложная",
-	"coolness_100": "Очень сложная"
-}
-
-var tasks_dict_25 = {
-	"Легкая задача. Ответ на задание равен 0.":"0",
-	"Легкая задача. Ответ на задание равен 1.":"1",
-	"Легкая задача. Ответ на задание равен 2.":"2",
-	"Легкая задача. Ответ на задание равен 3.":"3",
-	"Легкая задача. Ответ на задание равен 4.":"4"
-}
-
-var tasks_dict_50 = {
-	"Средняя задача. Ответ на задание равен 0.":"0",
-	"Средняя задача. Ответ на задание равен 1.":"1",
-	"Средняя задача. Ответ на задание равен 2.":"2",
-	"Средняя задача. Ответ на задание равен 3.":"3",
-	"Средняя задача. Ответ на задание равен 4.":"4"
-}
-
-var tasks_dict_75 = {
-	"Сложная задача. Ответ на задание равен 0.":"0",
-	"Сложная задача. Ответ на задание равен 1.":"1",
-	"Сложная задача. Ответ на задание равен 2.":"2",
-	"Сложная задача. Ответ на задание равен 3.":"3",
-	"Сложная задача. Ответ на задание равен 4.":"4"
-}
-
-var tasks_dict_100 = {
-	"Очень сложная задача. Ответ на задание равен 0.":"0",
-	"Очень сложная задача. Ответ на задание равен 1.":"1",
-	"Очень сложная задача. Ответ на задание равен 2.":"2",
-	"Очень сложная задача. Ответ на задание равен 3.":"3",
-	"Очень сложная задача. Ответ на задание равен 4.":"4"
-}
+onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 
 
 func _ready():
 	get_tree().paused = false
-	buttonNextStage.visible = false
 	change_ui_visibility(false, false)
-	GeneratePilot()
-	GeneratePilot()
-	GeneratePilot()
-	GeneratePilot()
-	pilotHpLabel.set_text(str(pilot_hp))
-	hpLabel.set_text(str(hp))
+	for i in range(0,4):
+		generate_pilot()
+	$Tries/PilotHpText.set_text(str(pilot_hp))
+	$Tries/HpText.set_text(str(hp))
 
 
-func UpdateHp(changeValue):
+func update_hp(changeValue):
 	pilot_hp = pilot_hp + changeValue
-	pilotHpLabel.set_text(str(pilot_hp))
+	$Tries/PilotHpText.set_text(str(pilot_hp))
 	if pilot_hp==0:
 		#todo hide task info and clear answer input
 		change_ui_visibility(false, false)
-		pilotCoolness.play("coolness_hidden")
-		pilotName.set_text(NO_PILOT_HP)
-		answerInput.text=""
-	
-		is_Task_Solved = false
+		$Coolness.play("coolness_hidden")
+		$Name.set_text(NO_PILOT_HP)
+		$TaskInfo/ApplyTask/AnswerLineEdit.text=""
+		is_task_solved = false
 		var cp = get_node("Pilot"+str(current_pilot+1))
 		cp.visible = false
-		UpdateHp(2)
+		update_hp(2)
 		hp = hp - 1
-		hpLabel.set_text(str(hp))
+		$Tries/HpText.set_text(str(hp))
 		if hp==0:
-			lose()
+			complete_stage(false)
 
 
 func change_ui_visibility(is_apply_pilot_visible, is_apply_task_visible):
-	pilotInfo.visible=is_apply_pilot_visible
-	taskInfo.visible=is_apply_task_visible
+	$PilotInfo.visible=is_apply_pilot_visible
+	$TaskInfo.visible=is_apply_task_visible
 
 
-func GeneratePilot():
+func generate_pilot():
 	randomize()
 	#создаем новое имя и аватар и заносим в словарь пилотов текущей сессии
-	var rand_index = randi()%avatars_dict.size()
+	var rand_index = randi()% avatars_dict.size()
 	var new_name = avatars_dict.keys()[rand_index]
 	var new_avatar = avatars_dict.values()[rand_index]
 	var coolness = coolness_arr[randi()%coolness_arr.size()]
 	current_pilots[new_name] = [new_avatar, coolness]
 	avatars_dict.erase(new_name)
 	coolness_arr.erase(coolness)
-	pilotPhoto.set_animation(current_pilots.values()[current_pilot][0])
+	pilot_photo.set_animation(current_pilots.values()[current_pilot][0])
 	if current_pilots.size() <= 3: 
 		current_pilot += 1
-		pilotPhoto = get_node("Pilot"+str(current_pilot+1))
+		pilot_photo = get_node("Pilot"+str(current_pilot+1))
+
+
+func select_pilot(index):
+	if not is_task_solved:
+		change_ui_visibility(true, false)
+		$Name.set_text(current_pilots.keys()[index])
+		$Coolness.play(current_pilots.values()[index][1])
+		$PilotInfo/Bg/Difficulty.set_text(difficulty_dict[current_pilots.values()[index][1]])
+		get_node("Pilot"+str(current_pilot+1)).stop()
+		get_node("Pilot"+str(current_pilot+1)).set_frame(0)
+		current_pilot = index
+		get_node("Pilot"+str(current_pilot+1)).play()
+
+
+func win():
+	$Coolness.play("coolness_hidden")
+	change_ui_visibility(false, false)
+	$Name.set_text(WIN)
+	$Result.set_text(STAGE_FINISHED)
+
+
+func lose():
+	change_ui_visibility(false, false)
+	$Name.set_text(FAILURE)
+	$Result.set_text(NO_HP)
+	$Tries/PilotHpText.set_text("0")
+
+
+func complete_stage(is_success):
+	if is_stage_completed:
+		return
+	is_stage_completed = true
+	get_tree().paused=true
+	if is_success:
+		$UI/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
+	else:
+		#TODO GAME OVER DIALOG
+		pass
 
 
 func generate_new_task():
-	#applyPilotButton.set_disabled(true)
 	change_ui_visibility(false, true)
-	if is_Task_Solved == false :
-		is_Task_Solved = true
+	if not is_task_solved:
+		var current_task_coolness = current_pilots.values()[current_pilot][1]
+		var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
+		
+		# словарь - ссылочный тип данных, поэтому tasks_dict_** тоже очищается
+		# очистка словаря чтобы задачки не повторялись
+		tasks_coolness_dict.erase(current_task_text)
+
 		randomize()
-		match current_pilots.values()[current_pilot][1] :
-			"coolness_25":
-				# удаляем предыдущую задачу, чтобы они не повторялись
-				tasks_dict_25.erase(currentTaskText)
-				currentTaskText = tasks_dict_25.keys()[randi()%tasks_dict_25.size()]
-				taskLabel.set_text(currentTaskText)
-			"coolness_50":
-				tasks_dict_50.erase(currentTaskText)
-				currentTaskText = tasks_dict_50.keys()[randi()%tasks_dict_50.size()]
-				taskLabel.set_text(currentTaskText)
-			"coolness_75":
-				tasks_dict_75.erase(currentTaskText)
-				currentTaskText = tasks_dict_75.keys()[randi()%tasks_dict_75.size()]
-				taskLabel.set_text(currentTaskText)
-			"coolness_100":
-				tasks_dict_100.erase(currentTaskText)
-				currentTaskText = tasks_dict_100.keys()[randi()%tasks_dict_100.size()]
-				taskLabel.set_text(currentTaskText)
+		current_task_text = tasks_coolness_dict.keys()[randi()%tasks_coolness_dict.size()]
+		$TaskInfo/Bg/TaskContainer/Task.set_text(current_task_text)
+
+
+func check_answer():
+	total_tasks+=1
+	var current_task_coolness = current_pilots.values()[current_pilot][1]
+	var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
+	if tasks_coolness_dict[current_task_text] == user_answer:
+		complete_stage(true)
+	else:
+		update_hp(-1)
+
+
+func _on_LineEdit_text_changed(new_text):
+	user_answer = new_text
 
 
 func select_pilot_1():
@@ -186,57 +218,4 @@ func select_pilot_3():
 
 func select_pilot_4():
 	select_pilot(3)
-
-
-func select_pilot(index):
-	if is_Task_Solved == false :
-		change_ui_visibility(true, false)
-		pilotName.set_text(current_pilots.keys()[index])
-		pilotCoolness.play(current_pilots.values()[index][1])
-		pilotTaskDifficulty.set_text(difficulty_dict[current_pilots.values()[index][1]])
-		get_node("Pilot"+str(current_pilot+1)).stop()
-		get_node("Pilot"+str(current_pilot+1)).set_frame(0)
-		current_pilot = index
-		get_node("Pilot"+str(current_pilot+1)).play()
-
-
-func _on_LineEdit_text_changed(new_text):
-	user_answer = new_text
-
-
-func win():
-	pilotCoolness.play("coolness_hidden")
-	change_ui_visibility(false, false)
-	pilotName.set_text(WIN)
-	result.set_text(STAGE_FINISHED)
-	buttonNextStage.visible = true
-
-
-func lose():
-	change_ui_visibility(false, false)
-	pilotName.set_text(FAILURE)
-	result.set_text(NO_HP)
-	pilotHpLabel.set_text("0")
-
-
-func check_answer():
-	var coolnessCurrentTask = current_pilots.values()[current_pilot][1]
-	match coolnessCurrentTask:
-		"coolness_25":
-			if tasks_dict_25[currentTaskText] == user_answer : win()
-			else: UpdateHp(-1)
-		"coolness_50":
-			if tasks_dict_50[currentTaskText] == user_answer : win()
-			else: UpdateHp(-1)
-		"coolness_75":
-			if tasks_dict_75[currentTaskText] == user_answer : win()
-			else: UpdateHp(-1)
-		"coolness_100":
-			if tasks_dict_100[currentTaskText] == user_answer : win()
-			else: UpdateHp(-1)
-
-
-func go_to_next_stage():
-	pass
-	# TODO LOAD NEXT STAGE HERE
 
