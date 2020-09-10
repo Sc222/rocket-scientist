@@ -470,6 +470,7 @@ __meta__ = {
 }
 
 [node name="UI" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [node name="NextStageDialog" parent="UI" instance=ExtResource( 67 )]
 [connection signal="text_changed" from="TaskInfo/ApplyTask/AnswerLineEdit" to="." method="_on_LineEdit_text_changed"]

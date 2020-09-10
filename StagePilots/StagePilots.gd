@@ -74,6 +74,8 @@ var NO_PILOT_HP="Выберите другого пилота"
 var NO_HP="Не осталось попыток"
 var STAGE_FINISHED="Пилот успешно нанят"
 var WIN="Победа"
+
+const PILOTS_COUNT = 4
 var current_pilots = { }
 var current_pilot = 0
 var current_task_text = ""
@@ -91,7 +93,7 @@ onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 func _ready():
 	get_tree().paused = false
 	change_ui_visibility(false, false)
-	for i in range(0,4):
+	for i in range(0,PILOTS_COUNT):
 		generate_pilot()
 	$Tries/PilotHpText.set_text(str(pilot_hp))
 	$Tries/HpText.set_text(str(hp))
@@ -101,6 +103,7 @@ func update_hp(changeValue):
 	pilot_hp = pilot_hp + changeValue
 	$Tries/PilotHpText.set_text(str(pilot_hp))
 	if pilot_hp==0:
+		change_pilots_state(false) #enable pilots select
 		#todo hide task info and clear answer input
 		change_ui_visibility(false, false)
 		$Coolness.play("coolness_hidden")
@@ -139,6 +142,10 @@ func generate_pilot():
 
 func select_pilot(index):
 	if not is_task_solved:
+		
+		# pilot was already selected
+		if current_pilot==index and get_node("Pilot"+str(current_pilot+1)).get_frame() ==1:
+			return
 		change_ui_visibility(true, false)
 		$Name.set_text(current_pilots.keys()[index])
 		$Coolness.play(current_pilots.values()[index][1])
@@ -149,18 +156,18 @@ func select_pilot(index):
 		get_node("Pilot"+str(current_pilot+1)).play()
 
 
-func win():
-	$Coolness.play("coolness_hidden")
-	change_ui_visibility(false, false)
-	$Name.set_text(WIN)
-	$Result.set_text(STAGE_FINISHED)
+#func win():
+#$Coolness.play("coolness_hidden")
+#change_ui_visibility(false, false)
+#$Name.set_text(WIN)
+#$Result.set_text(STAGE_FINISHED)
 
 
-func lose():
-	change_ui_visibility(false, false)
-	$Name.set_text(FAILURE)
-	$Result.set_text(NO_HP)
-	$Tries/PilotHpText.set_text("0")
+#func lose():
+#	change_ui_visibility(false, false)
+#	$Name.set_text(FAILURE)
+#	$Result.set_text(NO_HP)
+#	$Tries/PilotHpText.set_text("0")
 
 
 func complete_stage(is_success):
@@ -176,6 +183,7 @@ func complete_stage(is_success):
 
 
 func generate_new_task():
+	change_pilots_state(true) #disable pilots select
 	change_ui_visibility(false, true)
 	if not is_task_solved:
 		var current_task_coolness = current_pilots.values()[current_pilot][1]
@@ -190,11 +198,17 @@ func generate_new_task():
 		$TaskInfo/Bg/TaskContainer/Task.set_text(current_task_text)
 
 
+func change_pilots_state(is_disabled):
+	for i in range (1, PILOTS_COUNT+1):
+		get_node("Pilot"+str(i)+"/ButtonPilot"+str(i)).set_disabled(is_disabled)
+
+
 func check_answer():
 	total_tasks+=1
 	var current_task_coolness = current_pilots.values()[current_pilot][1]
 	var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
 	if tasks_coolness_dict[current_task_text] == user_answer:
+		solved_tasks+=1
 		complete_stage(true)
 	else:
 		update_hp(-1)
