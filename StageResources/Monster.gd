@@ -15,14 +15,14 @@ var player = null
 var navigation = null
 var hp = START_HP
 var speed = 2.5
-var reload = 0.0
+var reload_val = 0.0
 var direction=DIR_RIGHT
 var is_spawning = true
 
 # call init after instancing monster scene
-func init(player, navigation):
-	self.player = player
-	self.navigation = navigation
+func init(player_val, navigation_val):
+	self.player = player_val
+	self.navigation = navigation_val
 	randomize()
 	#speed is a bit different for multiple monsters movement look nicer
 	speed = speed + randi()%3*0.1
@@ -53,16 +53,12 @@ func _physics_process(delta):
 		tmp_player_pos.y -= player.HALF_COLLISION_HEIGHT
 		
 		var path_to_player = navigation.get_simple_path(tmp_pos, tmp_player_pos)
-		
-		#debug line
-		#get_parent().get_parent().get_parent().get_node("debugLine").points=path_to_player
-		
 		movement = (path_to_player[1] - tmp_pos).normalized()*speed
 
 		# attack_if_close
 		if path_to_player.size()==2 and (path_to_player[1] - tmp_pos).length()<ATTACK_DISTANCE:
 			movement = Vector2.ZERO
-			if reload == 0.0:
+			if reload_val == 0.0:
 				attack()
 		direction = rotate_knife(player.global_position)
 	update_animation(movement.length()!=0)
@@ -70,14 +66,14 @@ func _physics_process(delta):
 
 
 func reload(delta):
-	if reload > 0.0:
-		reload -= delta
-	if reload <= 0:
-		reload = 0
+	if reload_val > 0.0:
+		reload_val -= delta
+	if reload_val <= 0:
+		reload_val = 0
 
 
 func attack():
-	reload = RELOAD_TIME
+	reload_val = RELOAD_TIME
 	$DaggerAnimationPlayer.play("attack_"+direction)
 
 
@@ -140,7 +136,7 @@ func _on_Sprite_animation_finished():
 
 
 func _on_HitArea_area_entered(area):
-	if is_spawning or hp<=0: #break if dead
+	if is_spawning or hp<=0:
 		return
 	
 	if area.is_in_group("monster_deadly"):

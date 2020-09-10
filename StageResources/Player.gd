@@ -14,7 +14,7 @@ const DIR_RIGHT="r"
 const START_HP = 3
 const COINS_TO_COLLECT = 3
 const RELOAD_TIME = 0.3 #sec
-var reload = 0.0
+var reload_val = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
 var coins = 0
@@ -30,8 +30,8 @@ func _physics_process(delta):
 		return
 	
 	reload(delta)
-	if Input.is_action_just_pressed("player_shoot") and reload == 0.0:
-		reload = RELOAD_TIME
+	if Input.is_action_just_pressed("player_shoot") and reload_val == 0.0:
+		reload_val = RELOAD_TIME
 		shoot()
 	var movement = Vector2.ZERO
 	movement.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
@@ -42,12 +42,12 @@ func _physics_process(delta):
 	move_and_collide(movement)
 
 func reload(delta):
-	if reload > 0.0:
+	if reload_val > 0.0:
 		$Pistol/ReloadIndicator.visible=true
-		reload -= delta
-	if reload <= 0:
+		reload_val -= delta
+	if reload_val <= 0:
 		$Pistol/ReloadIndicator.visible=false
-		reload = 0
+		reload_val = 0
 
 func shoot():
 	$Pistol/Animation.play("shoot")
