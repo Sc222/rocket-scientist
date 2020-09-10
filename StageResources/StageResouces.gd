@@ -43,9 +43,11 @@ func _ready():
 	update_ui($Map/Player)
 	spawn_chests(CHESTS_COUNT)
 
+
 func update_ui(player):
 	$Ui/StatsBg/Hp.text=str(player.hp)
 	$Ui/StatsBg/Coins.text=str(player.coins)+"/"+str(player.COINS_TO_COLLECT)
+
 
 func set_player_pos():
 	randomize()
@@ -54,6 +56,7 @@ func set_player_pos():
 	var spawner = $Map/PlayerPositions.get_node("Position"+pos)
 	$Map/Player.global_position.x=spawner.global_position.x
 	$Map/Player.global_position.y=spawner.global_position.y
+
 
 func spawn_chests(chests_count):
 	for _i in range(1, chests_count+1):
@@ -68,6 +71,7 @@ func spawn_chests(chests_count):
 		chest_tasks.remove(task_index)
 		spawn_chest(position, chestInfo)
 	emit_signal("chests_placed")
+
 
 func spawn_chest(pos, chest_info:ChestInfo):
 	var chest = Chest.instance()
@@ -108,12 +112,14 @@ func _on_Chest_send_answer(is_correct):
 func _on_Player_change_hp():
 	update_ui($Map/Player)
 
+
 func _on_Player_die():
 	complete_stage(false)
 
 
 func _on_Player_win():
 	complete_stage(true)
+
 
 func complete_stage(is_success):
 	if is_stage_completed:
@@ -131,8 +137,8 @@ func _on_MonsterSpawnTimer_timeout():
 	if monsters_on_map < MAX_MONSTERS:
 		spawn_monster()
 
+
 func spawn_monster():
-	print("spawn monster")
 	var spawners = get_visible_monster_spawners()
 	randomize()
 	var rand_index = randi()%spawners.size()
@@ -149,8 +155,8 @@ func spawn_monster():
 func _on_Monster_die():
 	monsters_on_map-=1
 
+
 func get_visible_monster_spawners():
-	#todo todo todo dont spawn near player or slow spawn anim
 	var spawners = $Map/MonsterPositions.get_children()
 	var result = []
 	for i in range(0, spawners.size()):

@@ -94,6 +94,7 @@ var tasks_dict_100 = {
 
 
 func _ready():
+	get_tree().paused = false
 	buttonNextStage.visible = false
 	change_ui_visibility(false, false)
 	GeneratePilot()
@@ -202,12 +203,14 @@ func select_pilot(index):
 func _on_LineEdit_text_changed(new_text):
 	user_answer = new_text
 
+
 func win():
 	pilotCoolness.play("coolness_hidden")
 	change_ui_visibility(false, false)
 	pilotName.set_text(WIN)
 	result.set_text(STAGE_FINISHED)
 	buttonNextStage.visible = true
+
 
 func lose():
 	change_ui_visibility(false, false)
