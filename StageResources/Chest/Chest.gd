@@ -2,16 +2,16 @@ extends Node2D
 
 signal send_answer(is_correct)
 
-var is_player_nearby = false
-var chest_state = CHEST_STATE.CLOSED
-var correct_answer = ""
-var answer_variants = []
 const CORRECT_ANSWER = "Правильный ответ!"
 const WRONG_ANSWER = "Вы ошиблись!"
 enum CHEST_STATE { OPENED, CLOSED, WAIT_FOR_ANSWER, EXPLODED } 
 
+var is_player_nearby = false
+var chest_state = CHEST_STATE.CLOSED
+var correct_answer = ""
+var answer_variants = []
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	if is_player_nearby and chest_state == CHEST_STATE.CLOSED:
 		if Input.is_action_just_pressed("player_action"):

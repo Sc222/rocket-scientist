@@ -4,8 +4,7 @@ signal win
 signal die
 signal change_hp
 
-const Bullet = preload("res://StageResources/Bullet.tscn")
-export var speed = 7
+const Bullet = preload("res://StageResources/Player/Bullet.tscn")
 const HALF_WIDTH=6
 const HALF_HEIGHT=9
 const HALF_COLLISION_HEIGHT=2
@@ -13,7 +12,9 @@ const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 3
 const COINS_TO_COLLECT = 3
-const RELOAD_TIME = 0.3 #sec
+const RELOAD_TIME = 0.3  # sec
+
+var speed = 7
 var reload_val = 0.0
 var direction=DIR_RIGHT
 var hp = START_HP
@@ -41,6 +42,7 @@ func _physics_process(delta):
 	update_animation(movement.length()!=0)
 	move_and_collide(movement)
 
+
 func reload(delta):
 	if reload_val > 0.0:
 		$Pistol/ReloadIndicator.visible=true
@@ -49,17 +51,16 @@ func reload(delta):
 		$Pistol/ReloadIndicator.visible=false
 		reload_val = 0
 
+
 func shoot():
 	$Pistol/Animation.play("shoot")
 	$Pistol/Animation.frame=0
 	var bullet = Bullet.instance()
 	get_parent().add_child(bullet)
-	#bullet is added as child of map to make it y-sortable
+	# bullet is added as child of map to make it y-sortable
 	bullet.global_position.x=$Pistol/BulletSpawner.global_position.x
 	bullet.global_position.y=$Pistol/BulletSpawner.global_position.y
 	bullet.global_rotation=$Pistol/BulletSpawner.global_rotation
-	#PLAYER MUST BE CHILD OF "MAP" NODE
-	
 
 
 func update_animation(is_moving):
@@ -73,6 +74,7 @@ func update_animation(is_moving):
 		$Sprite.play("run")
 	else:
 		$Sprite.play("idle")
+
 
 func rotate_pistol(mouse_pos):
 	var angle = (mouse_pos - $Pistol.global_position).angle()
@@ -89,11 +91,13 @@ func rotate_pistol(mouse_pos):
 		dir=DIR_LEFT
 	$Pistol.look_at(mouse_pos)
 	return dir
-	
+
+
 func collect_coin():
 	coins+=1
 	if coins == COINS_TO_COLLECT:
 		emit_signal("win")
+
 
 func hit():
 	if is_vulnerable:
@@ -122,7 +126,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_HitArea_area_entered(area):
 	if area.is_in_group("deadly"):
 		print("hit")
-		#todo better way to send signal FROM dagger
-		#todo what about knockback
+		# todo better way to send signal FROM dagger
+		# todo what about knockback
 		hit()
 

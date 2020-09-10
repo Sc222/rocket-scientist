@@ -9,7 +9,8 @@ const DIR_LEFT = "l"
 const DIR_RIGHT="r"
 const START_HP = 2
 const COINS_TO_COLLECT = 3
-const RELOAD_TIME = 0.65 #sec
+const RELOAD_TIME = 0.65  # sec
+
 var is_visible = false
 var player = null
 var navigation = null
@@ -24,7 +25,7 @@ func init(player_val, navigation_val):
 	self.player = player_val
 	self.navigation = navigation_val
 	randomize()
-	#speed is a bit different for multiple monsters movement look nicer
+	# speed is a bit different for multiple monsters movement look nicer
 	speed = speed + randi()%3*0.1
 
 func _ready():
@@ -43,8 +44,8 @@ func _physics_process(delta):
 	
 	reload(delta)
 	var movement = Vector2.ZERO
-	if true: #todo: use is_visible if there are lots of monsters on the map
-		#todo helper method for shifting position
+	if true:  # todo: use is_visible if there are lots of monsters on the map
+		# todo helper method for shifting position
 		var tmp_pos = position
 		tmp_pos.x += HALF_WIDTH
 		tmp_pos.y -= HALF_COLLISION_HEIGHT
@@ -54,8 +55,10 @@ func _physics_process(delta):
 		
 		var path_to_player = navigation.get_simple_path(tmp_pos, tmp_player_pos)
 		movement = (path_to_player[1] - tmp_pos).normalized()*speed
-
-		# attack_if_close
+		
+		# TODO: DESPAWN MONSTER IF TOO FAR FROM PLAYER
+		
+		# attack if close
 		if path_to_player.size()==2 and (path_to_player[1] - tmp_pos).length()<ATTACK_DISTANCE:
 			movement = Vector2.ZERO
 			if reload_val == 0.0:
@@ -122,7 +125,7 @@ func die():
 	$Dagger.visible=false
 	$DaggerAnimationPlayer.stop()
 	$Dagger/DaggerHitbox.set_deferred("set_disabled",true)
-	$Sprite.play("die") #queue free dagger on animation end
+	$Sprite.play("die")  # queue free dagger on animation end
 	emit_signal("die")
 
 
@@ -132,7 +135,7 @@ func _on_Sprite_animation_finished():
 	if $Sprite.animation=="spawn":
 		print("spawn: ",$Dagger/DaggerHitbox.is_disabled())
 		is_spawning=false
-		$Dagger.visible=true # make dagger visible
+		$Dagger.visible=true  # make dagger visible
 
 
 func _on_HitArea_area_entered(area):

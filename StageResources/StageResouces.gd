@@ -14,9 +14,9 @@ class ChestInfo:
 		self.answer_variants = answer_variants_val
 	
 
-const Player = preload("res://StageResources/Player.tscn")
-const Chest = preload("res://StageResources/Chest.tscn")
-const Monster = preload("res://StageResources/Monster.tscn")
+const Player = preload("res://StageResources/Player/Player.tscn")
+const Chest = preload("res://StageResources/Chest/Chest.tscn")
+const Monster = preload("res://StageResources/Monster/Monster.tscn")
 const CHESTS_COUNT = 5
 const CHESTS_TO_COLLECT = 3
 const MAX_MONSTERS = 3

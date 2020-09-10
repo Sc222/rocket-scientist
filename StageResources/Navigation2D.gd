@@ -14,7 +14,6 @@ const STATIC_OBJECT_GROUPS = [
 	"Buildings/Containers",
 	"Buildings/Tents",
 	"Buildings/Boxes",
-	"Buildings/Fences",
 	"Buildings/Pillars",
 	"Buildings/Other"
 ] 
