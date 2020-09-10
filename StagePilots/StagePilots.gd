@@ -104,7 +104,6 @@ func update_hp(changeValue):
 	$Tries/PilotHpText.set_text(str(pilot_hp))
 	if pilot_hp==0:
 		change_pilots_state(false) #enable pilots select
-		#todo hide task info and clear answer input
 		change_ui_visibility(false, false)
 		$Coolness.play("coolness_hidden")
 		$Name.set_text(NO_PILOT_HP)
@@ -126,7 +125,7 @@ func change_ui_visibility(is_apply_pilot_visible, is_apply_task_visible):
 
 func generate_pilot():
 	randomize()
-	#создаем новое имя и аватар и заносим в словарь пилотов текущей сессии
+	# создаем новое имя и аватар и заносим в словарь пилотов текущей сессии
 	var rand_index = randi()% avatars_dict.size()
 	var new_name = avatars_dict.keys()[rand_index]
 	var new_avatar = avatars_dict.values()[rand_index]
@@ -142,10 +141,8 @@ func generate_pilot():
 
 func select_pilot(index):
 	if not is_task_solved:
-		
-		# pilot was already selected
 		if current_pilot==index and get_node("Pilot"+str(current_pilot+1)).get_frame() ==1:
-			return
+			return  # pilot was already selected
 		change_ui_visibility(true, false)
 		$Name.set_text(current_pilots.keys()[index])
 		$Coolness.play(current_pilots.values()[index][1])
@@ -156,34 +153,24 @@ func select_pilot(index):
 		get_node("Pilot"+str(current_pilot+1)).play()
 
 
-#func win():
-#$Coolness.play("coolness_hidden")
-#change_ui_visibility(false, false)
-#$Name.set_text(WIN)
-#$Result.set_text(STAGE_FINISHED)
-
-
-#func lose():
-#	change_ui_visibility(false, false)
-#	$Name.set_text(FAILURE)
-#	$Result.set_text(NO_HP)
-#	$Tries/PilotHpText.set_text("0")
-
-
 func complete_stage(is_success):
 	if is_stage_completed:
 		return
 	is_stage_completed = true
 	get_tree().paused=true
 	if is_success:
-		$UI/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
+		$Coolness.play("coolness_hidden")
+		change_ui_visibility(false, false)
+		$Name.set_text(WIN)
+		$Result.set_text(STAGE_FINISHED)
+		$UI/NextStageDialog.show_dialog(2, solved_tasks, total_tasks)
 	else:
 		#TODO GAME OVER DIALOG
 		pass
 
 
 func generate_new_task():
-	change_pilots_state(true) #disable pilots select
+	change_pilots_state(true)  # disable pilots select
 	change_ui_visibility(false, true)
 	if not is_task_solved:
 		var current_task_coolness = current_pilots.values()[current_pilot][1]

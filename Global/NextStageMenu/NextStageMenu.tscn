@@ -1,11 +1,12 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Global/NextStageMenu.gd" type="Script" id=1]
+[ext_resource path="res://Global/NextStageMenu/NextStageMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/global/next_scene_menu_bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/global/btn_next.png" type="Texture" id=4]
 [ext_resource path="res://assets/global/btn_next_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/global/btn_next_hover.png" type="Texture" id=6]
+
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
