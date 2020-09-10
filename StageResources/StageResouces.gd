@@ -30,7 +30,9 @@ var chest_tasks = [
 ]
 var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 const PLAYER_POSITIONS = ["1", "2", "3", "4"]
-var is_player_dead = false
+var is_stage_completed = false
+var solved_tasks = 0
+var total_tasks = 0
 
 
 func _ready():
@@ -90,11 +92,13 @@ func _on_Player_change_bullets_count(bullets):
 
 #receive signal from the chest and update player
 func _on_Chest_send_answer(is_correct):
-	if is_player_dead:
+	if is_stage_completed:
 		return
 	
 	print("CHEST SEND ANSWER")
+	total_tasks+=1
 	if is_correct:
+		solved_tasks+=1
 		$Map/Player.collect_coin()
 	else:
 		$Map/Player.hit()
@@ -105,15 +109,22 @@ func _on_Player_change_hp():
 	update_ui($Map/Player)
 
 func _on_Player_die():
-	print("GAME OVER")
-	is_player_dead=true
-	#todo lose
+	complete_stage(false)
 
 
 func _on_Player_win():
-	if not is_player_dead:
-		print("PLAYER WINS")
-	#todo win
+	complete_stage(true)
+
+func complete_stage(is_success):
+	if is_stage_completed:
+		return
+	is_stage_completed = true
+	get_tree().paused=true
+	if is_success:
+		$Ui/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
+	else:
+		#TODO GAME OVER DIALOG
+		pass
 
 
 func _on_MonsterSpawnTimer_timeout():

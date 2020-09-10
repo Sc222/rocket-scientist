@@ -1,34 +1,18 @@
 extends Control
 
-var LAST_TASK=5
-var TASK_HP_BONUS=2
-var WIN="Победа"
-var COMPLETED="Поздравляем, ракета спроектирована"
-var FAILURE="Поражение"
-var NO_HP="Не осталось попыток"
-var PROCESSING=[
+const LAST_TASK=5
+const TASK_HP=2
+const PROCESSING=[
 	"Проектируем первый двигатель...",
 	"Проектируем второй двигатель...",
 	"Проектируем первую ступень ракеты...",
 	"Проектируем кабину...",
 	"Проектируем вторую ступень ракеты..."
 	]
-var TASK="Задача"
-var PROCESS="Проектирование"
-
-var hp = 2
-var currentTask = 1
-var currentTaskText = ""
-var userAnswer = ""
-var isTaskGenerated = true
-onready var taskHeaderLabel = get_node("TaskHeader")
-onready var taskLabel = get_node("TaskContainer/Task")
-onready var hpLabel = get_node("HpBackground/HpText")
-onready var rocket = get_node("Rocket")
-onready var answer = get_node("AnswerContainer/Answer")
-onready var answerContainer = get_node("AnswerContainer")
-onready var buttonNextStage = get_node("ButtonNextStage")
-
+const TASK="Задача"
+const PROCESS="Проектирование"
+const WIN="Победа"
+const COMPLETED="Поздравляем, ракета спроектирована"
 
 var tasks_dict = {
 	"Здесь будет условие задания. Ответ на задание равен 0.":"0",
@@ -38,82 +22,99 @@ var tasks_dict = {
 	"Здесь будет условие задания. Ответ на задание равен 4.":"4"
 }
 
+var hp = 2
+var current_task = 1
+var current_task_text = ""
+var user_answer = ""
+var is_task_generated = true
+var solved_tasks = 0
+var total_attempts = 0
+var is_stage_completed = false
+
+
 func _ready():
-	buttonNextStage.visible = false
-	UpdateHp(0)
-	GenerateNewTask()
+	get_tree().paused = false
+	update_hp(0)
+	generate_next_task()
 
-func _on_Answer_text_changed(new_text):
-	userAnswer = new_text
 
-func _on_rocket_animation_finished():
-	if !isTaskGenerated:
-		GenerateNewTask()
-	if currentTask==LAST_TASK+1:
-		FinishStage()
-		
-
-func UpdateHp(changeValue):
-	hp=hp+changeValue
-	hpLabel.set_text(str(hp))
+func update_hp(change_val):
+	hp=hp+change_val
+	$HpBackground/HpText.set_text(str(hp))
 	if hp==0:
-		answerContainer.visible = false
-		taskHeaderLabel.set_text(FAILURE)
-		taskLabel.set_text(NO_HP)
+		complete_stage(false)
 
-func FinishStage():
-	taskHeaderLabel.set_text(WIN)
-	taskLabel.set_text(COMPLETED)
-	answerContainer.visible = false
-	buttonNextStage.visible = true
-	#todo сделать кнопку "следующий этап" и сделать ее видимой
 
-func GenerateNewTask():
-	isTaskGenerated=true
+func complete_stage(is_success):
+	if is_stage_completed:
+		return
+	is_stage_completed = true
+	get_tree().paused=true
+	if is_success:
+		$TaskHeader.set_text(WIN)
+		$TaskContainer/Task.set_text(COMPLETED)
+		$UI/NextStageDialog.show_dialog(1, solved_tasks, total_attempts)
+	else:
+		#TODO GAME OVER DIALOG
+		pass
+
+
+func generate_next_task():
+	is_task_generated=true
 	randomize()
 	# удаляем предыдущую задачу, чтобы они не повторялись
-	tasks_dict.erase(currentTaskText) 
-	currentTaskText = tasks_dict.keys()[randi()%tasks_dict.size()]
-	taskHeaderLabel.set_text(TASK)
-	taskLabel.set_text(currentTaskText)
+	tasks_dict.erase(current_task_text) 
+	current_task_text = tasks_dict.keys()[randi()%tasks_dict.size()]
+	$TaskHeader.set_text(TASK)
+	$TaskContainer/Task.set_text(current_task_text)
 
-func NextTask():
-		answer.set_text("")
-		get_node("Task"+str(currentTask)).play("complete")
-		get_node("Task"+str(currentTask)+"Line").play("complete")
-		taskLabel.set_text(PROCESSING[currentTask-1])
-		taskHeaderLabel.set_text(PROCESS)
-		if currentTask!=LAST_TASK:
-			isTaskGenerated=false
-			UpdateHp(TASK_HP_BONUS)
-			get_node("Task"+str(currentTask+1)).play("unlock")
-			get_node("Task"+str(currentTask+1)+"Line").play("unlock")
-		rocket.play("task_"+str(currentTask))
-		currentTask=currentTask+1
 
-func SetError():
-	# todo вычитать попытки
-	var taskButton = get_node("Task"+str(currentTask))
-	var taskLine = get_node("Task"+str(currentTask)+"Line")
-	taskButton.frame = 0
-	taskLine.frame = 0
-	taskButton.play("wrong")
-	taskLine.play("wrong")
+func next_task():
+		$AnswerContainer/Answer.set_text("")
+		get_node("Task"+str(current_task)).play("complete")
+		get_node("Task"+str(current_task)+"Line").play("complete")
+		$TaskContainer/Task.set_text(PROCESSING[current_task-1])
+		$TaskHeader.set_text(PROCESS)
+		if current_task!=LAST_TASK:
+			is_task_generated=false
+			update_hp(TASK_HP-hp)
+			get_node("Task"+str(current_task+1)).play("unlock")
+			get_node("Task"+str(current_task+1)+"Line").play("unlock")
+		$Rocket.play("task_"+str(current_task))
+		current_task+=1
+
+
+func show_error():
+	var task_button = get_node("Task"+str(current_task))
+	var task_line = get_node("Task"+str(current_task)+"Line")
+	task_button.frame = 0
+	task_line.frame = 0
+	task_button.play("wrong")
+	task_line.play("wrong")
 	
 
-func CheckAnswer():
-	if isTaskGenerated and currentTask!=LAST_TASK+1 and hp>0:
-		if tasks_dict[currentTaskText] == userAnswer:
-			print("correct")
-			NextTask()
+func check_answer():
+	if is_task_generated and current_task!=LAST_TASK+1 and hp>0:
+		total_attempts+=1
+		if tasks_dict[current_task_text] == user_answer:
+			solved_tasks+=1
+			next_task()
 		else:
-			UpdateHp(-1)
-			SetError()
-
-	
+			update_hp(-1)
+			show_error()
 
 
-func go_to_next_stage():
-	#!!! TODO SAVE CURRENT SCORE TO TEXT FILE OR CREATE GLOBAL SCRIPT!!!
-	# SEE https://godotengine.org/qa/1883/transfering-a-variable-over-to-another-scene
-	get_tree().change_scene("res://StageResources/StageResouces.tscn")
+func _on_ApplyAnswer_pressed():
+	check_answer()
+
+
+func _on_Answer_text_changed(new_text):
+	user_answer = new_text
+
+
+func _on_rocket_animation_finished():
+	if !is_task_generated:
+		generate_next_task()
+	if current_task==LAST_TASK+1:
+		complete_stage(true)
+

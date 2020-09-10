@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Global/NextStageMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/10895.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/global/next_scene_menu_bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/global/btn_next.png" type="Texture" id=4]
+[ext_resource path="res://assets/global/btn_next_pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/global/btn_next_hover.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Animation" id=5]
+resource_name = "overlay_color"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0470588, 0.180392, 0.266667, 0.784314 ), Color( 0.101961, 0.0980392, 0.196078, 0.784314 ), Color( 0.0470588, 0.180392, 0.266667, 0.784314 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 53
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://assets/10895.otf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 3 )
+
+[node name="NextStageDialog" type="PopupDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -487.5
+margin_top = -275.0
+margin_right = 487.5
+margin_bottom = 275.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.0980392, 0.196078, 0.740741 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/overlay_color = SubResource( 5 )
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 300, 145 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Title" type="Label" parent="Bg"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -13.7
+margin_top = 1.0
+margin_right = 157.3
+margin_bottom = 57.0
+rect_scale = Vector2( 0.16, 0.16 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.117647, 0.435294, 0.313726, 1 )
+text = "Победа"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage" type="Label" parent="Bg"]
+margin_left = 6.0
+margin_top = 13.0
+margin_right = 81.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
+text = "Этап:"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StageInfo" type="Label" parent="Bg"]
+margin_left = 22.0
+margin_top = 13.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Bg"]
+margin_left = 6.0
+margin_top = 22.0
+margin_right = 116.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
+text = "Статус:"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatusInfo" type="Label" parent="Bg"]
+margin_left = 29.0
+margin_top = 22.0
+margin_right = 234.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
+text = "завершен"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tasks" type="Label" parent="Bg"]
+margin_left = 6.0
+margin_top = 31.0
+margin_right = 151.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
+text = "Точность:"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TasksInfo" type="Label" parent="Bg"]
+margin_left = 36.0
+margin_top = 31.0
+margin_right = 206.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
+text = "22.2% (2/2)"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextStage" type="TextureButton" parent="Bg"]
+margin_left = 31.0
+margin_top = 40.0
+margin_right = 43.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Bg/NextStage" to="." method="_on_NextStage_pressed"]

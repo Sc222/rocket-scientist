@@ -5,6 +5,7 @@ onready var ParallaxBg = get_node("ParallaxBackground")
 
 
 func _ready():
+	OS.min_window_size = Vector2(975, 550)
 	$Rocket.play("flight")
 	pass # Replace with function body.
 
