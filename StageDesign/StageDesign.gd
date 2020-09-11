@@ -6,6 +6,8 @@ const TASK="Задача"
 const PROCESS="Проектирование"
 const WIN="Победа"
 const COMPLETED="Поздравляем, ракета спроектирована"
+const LOSE="Поражение"
+const NOT_COMPLETED="К сожалению, ракета не удалось спроектировать"
 const PROCESSING=[
 	"Проектируем первый двигатель...",
 	"Проектируем второй двигатель...",
@@ -25,14 +27,13 @@ var current_task = 1
 var current_task_text = ""
 var user_answer = ""
 var is_task_generated = true
-var solved_tasks = 0
-var total_attempts = 0
 var is_stage_completed = false
 
 
 func _ready():
 	get_tree().paused = false
 	update_hp(0)
+	Global.tasks_total+=1
 	generate_next_task()
 
 
@@ -51,10 +52,11 @@ func complete_stage(is_success):
 	if is_success:
 		$TaskHeader.set_text(WIN)
 		$TaskContainer/Task.set_text(COMPLETED)
-		$UI/NextStageDialog.show_dialog(1, solved_tasks, total_attempts)
+		$UI/NextStageDialog.show_dialog(1)
 	else:
-		#TODO GAME OVER DIALOG
-		pass
+		$TaskHeader.set_text(LOSE)
+		$TaskContainer/Task.set_text(NOT_COMPLETED)
+		$UI/GameOverDialog.show_dialog(1, Global.solved_tasks, Global.tasks_total, Global.tries)
 
 
 func generate_next_task():
@@ -93,9 +95,10 @@ func show_error():
 
 func check_answer():
 	if is_task_generated and current_task!=LAST_TASK+1 and hp>0:
-		total_attempts+=1
+		Global.tries+=1
 		if tasks_dict[current_task_text] == user_answer:
-			solved_tasks+=1
+			Global.solved_tasks+=1
+			Global.tasks_total+=1
 			next_task()
 		else:
 			update_hp(-1)

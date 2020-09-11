@@ -31,12 +31,11 @@ var chest_tasks = [
 var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 const PLAYER_POSITIONS = ["1", "2", "3", "4"]
 var is_stage_completed = false
-var solved_tasks = 0
-var total_tasks = 0
 
 
 func _ready():
-	#send signal to navigation2D when chests are added
+	# send signal to navigation2D when chests are added
+	get_tree().paused = false
 	self.connect("chests_placed", $Navigation2D,"on_chests_placed")
 	set_player_pos()
 	update_ui($Map/Player)
@@ -86,14 +85,15 @@ func spawn_chest(pos, chest_info:ChestInfo):
 	chest.global_position.y=spawner.global_position.y
 
 
-#receive signal from the chest and update player
+# receive signal from the chest and update player
 func _on_Chest_send_answer(is_correct):
 	if is_stage_completed:
 		return	
 	print("CHEST SEND ANSWER")
-	total_tasks+=1
+	Global.tries+=1
+	Global.tasks_total+=1
 	if is_correct:
-		solved_tasks+=1
+		Global.solved_tasks+=1
 		$Map/Player.collect_coin()
 	else:
 		$Map/Player.hit()
@@ -118,10 +118,9 @@ func complete_stage(is_success):
 	is_stage_completed = true
 	get_tree().paused=true
 	if is_success:
-		$UI/NextStageDialog.show_dialog(0, solved_tasks, total_tasks)
+		$UI/NextStageDialog.show_dialog(0)
 	else:
-		#TODO GAME OVER DIALOG
-		pass
+		$UI/GameOverDialog.show_dialog(0, Global.solved_tasks, Global.tasks_total, Global.tries)
 
 
 func _on_MonsterSpawnTimer_timeout():

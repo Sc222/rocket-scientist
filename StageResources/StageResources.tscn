@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/stage_resources/bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/stage_resources/player_stats_bg.png" type="Texture" id=2]
@@ -31,10 +31,10 @@
 [ext_resource path="res://StageResources/StaticMapObjects/Box.tscn" type="PackedScene" id=29]
 [ext_resource path="res://StageResources/StaticMapObjects/Fence.tscn" type="PackedScene" id=30]
 [ext_resource path="res://StageResources/StaticMapObjects/Pillar.tscn" type="PackedScene" id=31]
-[ext_resource path="res://StageResources/StageResouces.gd" type="Script" id=32]
+[ext_resource path="res://StageResources/StageResources.gd" type="Script" id=32]
 [ext_resource path="res://StageResources/Navigation2D.gd" type="Script" id=33]
 [ext_resource path="res://Global/NextStageMenu/NextStageMenu.tscn" type="PackedScene" id=34]
-
+[ext_resource path="res://Global/GameOverMenu/GameOverMenu.tscn" type="PackedScene" id=35]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 756, 204, 901, 174, 998, 173, 1024, 173, 1024, 213, 916, 212, 1024, 80, 1024, 166.987, 998, 167, 561, 140, 919, 93, 323, 83, 321, 80, 799, 80, 799, 85, 932, 83, 931, 80, 857, 84, 856, 80, 891, 80, 891, 83, 843, 174, 756, 198, 901, 169, 843, 169, 0, 213, 0, 80, 284, 80, 284, 83, 285, 86, 752, 198, 752, 197, 668, 197, 668, 199, 662, 199, 662, 205, 628, 205, 628, 199, 624, 199, 624, 197, 540, 197, 540, 198, 534, 198, 476, 154, 564, 204, 564, 202, 598, 202, 598, 205, 692, 205, 692, 202, 726, 202, 726, 204, 916, 213, 886, 212, 886, 213, 534, 204, 547, 154, 856, 88, 892, 85, 322, 86, 931, 86, 902, 91, 908, 91, 909, 93, 561, 134, 831, 99, 320, 90, 802, 88, 802, 93, 297, 93, 312.005, 93, 804, 99, 494, 134, 851, 92, 927, 89, 844, 96, 476, 151 )
@@ -819,6 +819,10 @@ __meta__ = {
 }
 
 [node name="NextStageDialog" parent="UI" instance=ExtResource( 34 )]
+visible = false
+
+[node name="GameOverDialog" parent="UI" instance=ExtResource( 35 )]
+visible = false
 
 [node name="MonsterSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0

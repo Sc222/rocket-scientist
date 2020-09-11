@@ -69,11 +69,13 @@ const avatars_dict = {
 	"Стефани Гонзалес" : "pilot_12"
 }
 
-var FAILURE="Поражение"
+
 var NO_PILOT_HP="Выберите другого пилота"
 var NO_HP="Не осталось попыток"
 var STAGE_FINISHED="Пилот успешно нанят"
 var WIN="Победа"
+var STAGE_NOT_FINISHED="Не удалось нанять пилота"
+var LOSE="Поражение"
 
 const PILOTS_COUNT = 4
 var current_pilots = { }
@@ -84,8 +86,6 @@ var pilot_hp = 2
 var hp = 2
 var user_answer = ""
 var is_stage_completed = false
-var solved_tasks = 0
-var total_tasks = 0
 
 onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 
@@ -93,7 +93,7 @@ onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 func _ready():
 	get_tree().paused = false
 	change_ui_visibility(false, false)
-	for i in range(0,PILOTS_COUNT):
+	for _i in range(0,PILOTS_COUNT):
 		generate_pilot()
 	$Tries/PilotHpText.set_text(str(pilot_hp))
 	$Tries/HpText.set_text(str(hp))
@@ -158,18 +158,20 @@ func complete_stage(is_success):
 		return
 	is_stage_completed = true
 	get_tree().paused=true
+	$Coolness.play("coolness_hidden")
+	change_ui_visibility(false, false)
 	if is_success:
-		$Coolness.play("coolness_hidden")
-		change_ui_visibility(false, false)
 		$Name.set_text(WIN)
 		$Result.set_text(STAGE_FINISHED)
-		$UI/NextStageDialog.show_dialog(2, solved_tasks, total_tasks)
+		$UI/NextStageDialog.show_dialog(2)
 	else:
-		#TODO GAME OVER DIALOG
-		pass
+		$Name.set_text(LOSE)
+		$Result.set_text(STAGE_NOT_FINISHED)
+		$UI/GameOverDialog.show_dialog(2,Global.solved_tasks, Global.tasks_total, Global.tries)
 
 
 func generate_new_task():
+	Global.tasks_total+=1
 	change_pilots_state(true)  # disable pilots select
 	change_ui_visibility(false, true)
 	if not is_task_solved:
@@ -191,11 +193,11 @@ func change_pilots_state(is_disabled):
 
 
 func check_answer():
-	total_tasks+=1
+	Global.tries+=1
 	var current_task_coolness = current_pilots.values()[current_pilot][1]
 	var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
 	if tasks_coolness_dict[current_task_text] == user_answer:
-		solved_tasks+=1
+		Global.solved_tasks+=1
 		complete_stage(true)
 	else:
 		update_hp(-1)

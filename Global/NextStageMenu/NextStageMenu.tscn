@@ -7,10 +7,9 @@
 [ext_resource path="res://assets/global/btn_next_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/global/btn_next_hover.png" type="Texture" id=6]
 
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 resource_name = "overlay_color"
 length = 1.5
 loop = true
@@ -27,19 +26,20 @@ tracks/0/keys = {
 "values": [ Color( 0.0470588, 0.180392, 0.266667, 0.784314 ), Color( 0.101961, 0.0980392, 0.196078, 0.784314 ), Color( 0.0470588, 0.180392, 0.266667, 0.784314 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=7]
 size = 53
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=4]
 antialiased = false
 font_path = "res://assets/10895.otf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 32
-font_data = SubResource( 3 )
+font_data = SubResource( 4 )
 
 [node name="NextStageDialog" type="PopupDialog"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -63,10 +63,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/overlay_color = SubResource( 5 )
+anims/overlay_color = SubResource( 6 )
 
 [node name="Bg" type="Sprite" parent="."]
-position = Vector2( 300, 145 )
+position = Vector2( 300, 160 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 centered = false
@@ -79,7 +79,7 @@ margin_top = 1.0
 margin_right = 157.3
 margin_bottom = 57.0
 rect_scale = Vector2( 0.16, 0.16 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.117647, 0.435294, 0.313726, 1 )
 text = "Победа"
 __meta__ = {
@@ -94,7 +94,7 @@ margin_bottom = 48.0
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
 text = "Этап:"
 valign = 1
@@ -111,7 +111,7 @@ margin_bottom = 48.0
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 valign = 1
 clip_text = true
@@ -127,7 +127,7 @@ margin_bottom = 57.0
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
 text = "Статус:"
 valign = 1
@@ -144,7 +144,7 @@ margin_bottom = 57.0
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 text = "завершен"
 valign = 1
@@ -153,45 +153,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tasks" type="Label" parent="Bg"]
-margin_left = 6.0
-margin_top = 31.0
-margin_right = 151.0
-margin_bottom = 66.0
-rect_scale = Vector2( 0.2, 0.2 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.164706, 0.184314, 0.305882, 1 )
-text = "Точность:"
-valign = 1
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TasksInfo" type="Label" parent="Bg"]
-margin_left = 36.0
-margin_top = 31.0
-margin_right = 206.0
-margin_bottom = 66.0
-rect_scale = Vector2( 0.2, 0.2 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
-text = "22.2% (2/2)"
-valign = 1
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="NextStage" type="TextureButton" parent="Bg"]
 margin_left = 31.0
-margin_top = 40.0
+margin_top = 34.0
 margin_right = 43.0
-margin_bottom = 52.0
+margin_bottom = 46.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 6 )
