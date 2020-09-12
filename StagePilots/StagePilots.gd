@@ -72,10 +72,8 @@ const avatars_dict = {
 
 var NO_PILOT_HP="Выберите другого пилота"
 var NO_HP="Не осталось попыток"
-var STAGE_FINISHED="Пилот успешно нанят"
-var WIN="Победа"
-var STAGE_NOT_FINISHED="Не удалось нанять пилота"
 var LOSE="Поражение"
+var WIN="Победа"
 
 const PILOTS_COUNT = 4
 var current_pilots = { }
@@ -106,6 +104,7 @@ func update_hp(changeValue):
 		change_pilots_state(false) #enable pilots select
 		change_ui_visibility(false, false)
 		$Coolness.play("coolness_hidden")
+		$CoolnessInfo.visible=false
 		$Name.set_text(NO_PILOT_HP)
 		$TaskInfo/ApplyTask/AnswerLineEdit.text=""
 		is_task_solved = false
@@ -146,6 +145,7 @@ func select_pilot(index):
 		change_ui_visibility(true, false)
 		$Name.set_text(current_pilots.keys()[index])
 		$Coolness.play(current_pilots.values()[index][1])
+		$CoolnessInfo.visible=true
 		$PilotInfo/Bg/Difficulty.set_text(difficulty_dict[current_pilots.values()[index][1]])
 		get_node("Pilot"+str(current_pilot+1)).stop()
 		get_node("Pilot"+str(current_pilot+1)).set_frame(0)
@@ -159,14 +159,13 @@ func complete_stage(is_success):
 	is_stage_completed = true
 	get_tree().paused=true
 	$Coolness.play("coolness_hidden")
+	$CoolnessInfo.visible=false
 	change_ui_visibility(false, false)
 	if is_success:
 		$Name.set_text(WIN)
-		$Result.set_text(STAGE_FINISHED)
 		$UI/NextStageDialog.show_dialog(2)
 	else:
 		$Name.set_text(LOSE)
-		$Result.set_text(STAGE_NOT_FINISHED)
 		$UI/GameOverDialog.show_dialog(2,Global.solved_tasks, Global.tasks_total, Global.tries)
 
 
