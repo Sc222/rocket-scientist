@@ -34,12 +34,17 @@ var is_stage_completed = false
 
 
 func _ready():
-	# send signal to navigation2D when chests are added
 	get_tree().paused = false
-	self.connect("chests_placed", $Navigation2D,"on_chests_placed")
+	Global.current_stage = Global.STAGE.RESOURCES
+	setup_navigation()
+	
 	set_player_pos()
 	update_ui($Map/Player)
 	spawn_chests(CHESTS_COUNT)
+
+
+func setup_navigation():
+	self.connect("chests_placed", $Navigation2D,"on_chests_placed")
 
 
 func update_ui(player):

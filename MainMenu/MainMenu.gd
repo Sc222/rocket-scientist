@@ -1,8 +1,7 @@
 extends Control
 
 const BG_SPEED = -50
-const FIRST_STAGE_LINK = "res://StageResources/StageResources.tscn"
-onready var ParallaxBg = get_node("ParallaxBackground")
+const FIRST_STAGE_LINK = "res://FirstStageLoad/FirstStageLoad.tscn"
 
 
 func _ready():
@@ -12,7 +11,7 @@ func _ready():
 
 
 func _process(delta):
-	ParallaxBg.scroll_offset.x+=BG_SPEED*delta
+	$ParallaxBackground.scroll_offset.x+=BG_SPEED*delta
 
 
 func launch_game():

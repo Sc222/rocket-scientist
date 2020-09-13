@@ -34,6 +34,7 @@ func _ready():
 	get_tree().paused = false
 	update_hp(0)
 	Global.tasks_total+=1
+	Global.current_stage = Global.STAGE.DESIGN
 	generate_next_task()
 
 

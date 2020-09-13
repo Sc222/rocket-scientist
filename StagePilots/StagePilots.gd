@@ -90,6 +90,7 @@ onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 
 func _ready():
 	get_tree().paused = false
+	Global.current_stage = Global.STAGE.PILOTS
 	change_ui_visibility(false, false)
 	for _i in range(0,PILOTS_COUNT):
 		generate_pilot()

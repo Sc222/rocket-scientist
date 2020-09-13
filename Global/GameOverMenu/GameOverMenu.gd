@@ -2,7 +2,7 @@ extends PopupDialog
 
 
 const MAIN_MENU_LINK = "res://MainMenu/MainMenu.tscn"
-const RESTART_LINK = "res://StageResources/StageResources.tscn"
+const RESTART_LINK = "res://FirstStageLoad/FirstStageLoad.tscn"
 # last stage should not be added here
 var stages = [
 	"сбор ресурсов",
@@ -29,8 +29,10 @@ func show_dialog(index, solved_tasks, tasks_total, tries):
 
 func _on_MainMenu_pressed():
 	get_tree().change_scene(MAIN_MENU_LINK)
+	Global.reset_current_stage()
+	print("go to main menu")
 
 
 func _on_Restart_pressed():
-	get_tree().change_scene(RESTART_LINK)
+	var res = get_tree().change_scene(RESTART_LINK)
 
