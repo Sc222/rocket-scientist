@@ -1,8 +1,11 @@
 extends Area2D
 
+signal planet_dispawned
+
 const SPRITES_COUNT = 9
 #const speed = -0.05
-const speed = -1
+var speed = -0.2
+var SPEED_UP_FACTOR = 6
 const despawn_y_speed = -3
 var is_despawning = false
 var is_exploding = false
@@ -22,6 +25,8 @@ func _physics_process(delta):
 	if is_despawning:
 		position += transform.y * despawn_y_speed 
 
+func speed_up():
+	speed = speed * SPEED_UP_FACTOR
 
 func despawn():
 	is_despawning=true
@@ -29,7 +34,7 @@ func despawn():
 
 
 func _on_ExplosionSprite_animation_finished():
-	print("REMOVE")
+	emit_signal("planet_dispawned")
 	queue_free()
 
 
@@ -41,5 +46,6 @@ func _on_Planet_area_entered(area):
 
 
 func _on_DespawnTimer_timeout():
+	emit_signal("planet_dispawned")
 	queue_free()
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 var BG_SPEED = -50
-var FLIGHT_LENGTH = 10 # sec (60 secs) 
+var FLIGHT_LENGTH = 45 # sec (60 secs) 
 var remaining_time = FLIGHT_LENGTH
 const NO_PLANETS = "Нет планет в зоне видимости."
 const PLANET_APPROACHES = "Тревога.\nПланета надвигается."
@@ -23,13 +23,15 @@ class PlanetTaskInfo:
 
 const Planet = preload("res://StageFlight/Planet.tscn")
 # !!! warning: max flight length = planet_tasks.size() * PlanetSpawnTimer.waittime()
+#todo MORE TASKS
 var planet_tasks = [
 	PlanetTaskInfo.new("Задача с ответом 1","1",["1","2","3"]),
 	PlanetTaskInfo.new("Задача с ответом 4","4",["6","5","4"]),
 	PlanetTaskInfo.new("Задача с ответом 7","7",["7","8","9"]),
 	PlanetTaskInfo.new("Задача с ответом 10","10",["11","10","12"]),
 	PlanetTaskInfo.new("Задача с ответом 13","13",["13","14","15"]),
-	PlanetTaskInfo.new("Задача с ответом 0.5","0.5",["0.5","0.75","0.25"])
+	PlanetTaskInfo.new("Задача с ответом 0.5","0.5",["0.5","0.75","0.25"]),
+	PlanetTaskInfo.new("Задача с ответом 0.1","0.1",["0.2","0.1","0.3"])
 ]
 var current_task = null
 var is_stage_completed = false
@@ -37,7 +39,6 @@ var is_stage_completed = false
 
 func _ready():
 	get_tree().paused = false
-	Global.current_stage = Global.STAGE.FLIGHT
 	$UI/Hp.set_text(str($Rocket.hp))
 	$UI/RemainingTime.set_text(str(remaining_time))
 	$UI/TaskContainer.visible = false
@@ -68,6 +69,7 @@ func spawn_planet():
 	
 	# setup planet
 	var planet = Planet.instance()
+	planet.connect("planet_dispawned",self,"on_planet_dispawn")
 	randomize()
 	var positions_size = $PlanetsPositions.get_children().size()
 	var spawner_index = randi() % positions_size
@@ -88,15 +90,21 @@ func check_answer():
 			if is_correct_answer:
 				Global.solved_tasks+=1
 				print($PlanetContainer.get_child_count())
-				var planet = $PlanetContainer.get_child(0)
 				$UI/TaskContainer/Task.set_text(NO_PLANETS)
-				if planet:
-					planet.despawn()
+				if $PlanetContainer.get_child_count()>0:
+					$PlanetContainer.get_child(0).despawn()
+				
 			else:
 				$UI/TaskContainer/Task.set_text(PLANET_APPROACHES)
+				if $PlanetContainer.get_child_count()>0:
+					$PlanetContainer.get_child(0).speed_up()
 			current_task = null
 			$UI/Variants.visible = false
 			break
+
+func on_planet_dispawn():
+	print("SPAWN NEW")
+	$PlanetSpawnTimer.start()
 
 func _on_SecondTickTimer_timeout():
 	remaining_time-=1
@@ -113,6 +121,13 @@ func _on_SecondTickTimer_timeout():
 
 
 func _on_PlanetSpawnTimer_timeout():
+	$PlanetSpawnTimer.stop()
+	
+	# dont spawn new planet if there is still one on the map
+	if $PlanetContainer.get_child_count()>0:
+		$PlanetSpawnTimer.start()
+		return
+	
 	if remaining_time >= 0:
 		spawn_planet()
 

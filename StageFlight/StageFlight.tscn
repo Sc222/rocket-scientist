@@ -174,8 +174,8 @@ visible = false
 autostart = true
 
 [node name="PlanetSpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+wait_time = 7.0
+one_shot = true
 
 [node name="PlanetsPositions" type="Node2D" parent="."]
 scale = Vector2( 1, 1 )
