@@ -28,7 +28,7 @@ func win():
 	if not is_exploding:
 		is_win = true
 		$HitPolygon.set_disabled(true)
-		emit_signal("win")
+		$WinTimer.start()
 
 
 func hit():
@@ -54,3 +54,7 @@ func _on_Sprite_animation_finished():
 		emit_signal("die")
 		queue_free()
 
+
+
+func _on_WinTimer_timeout():
+		emit_signal("win")

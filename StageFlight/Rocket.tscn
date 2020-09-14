@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://StageFlight/Rocket.gd" type="Script" id=1]
 [ext_resource path="res://assets/stage_flight/rocket_1.png" type="Texture" id=2]
@@ -29,14 +29,6 @@ animations = [ {
 "speed": 9.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "default"
-length = 0.001
-
-[sub_resource type="Animation" id=3]
-length = 0.5
-step = 0.05
-
 [node name="Rocket" type="Area2D" groups=[
 "player",
 ]]
@@ -52,9 +44,8 @@ centered = false
 [node name="HitPolygon" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 7, -14, 29, -14, 33, -10, 56, -10, 61, -3, 61, 2, 56, 10, 33, 10, 29, 14, 7, 14 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
-anims/default = SubResource( 2 )
-anims/hit = SubResource( 3 )
+[node name="WinTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_Rocket_area_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]

@@ -1,10 +1,10 @@
 extends Node2D
 
 var BG_SPEED = -50
-var FLIGHT_LENGTH = 12 # sec (60 secs) 
+var FLIGHT_LENGTH = 10 # sec (60 secs) 
 var remaining_time = FLIGHT_LENGTH
 const NO_PLANETS = "Нет планет в зоне видимости."
-const PLANET_APPROACHES = "Тревога.\nСтолкновение неизбежно."
+const PLANET_APPROACHES = "Тревога.\nПланета надвигается."
 const WIN = "Победа.\nПутешествие завершено."
 const LOSE = "Поражение.\nНе удалось завершить полёт."
 
@@ -32,6 +32,7 @@ var planet_tasks = [
 	PlanetTaskInfo.new("Задача с ответом 0.5","0.5",["0.5","0.75","0.25"])
 ]
 var current_task = null
+var is_stage_completed = false
 
 
 func _ready():
@@ -102,7 +103,13 @@ func _on_SecondTickTimer_timeout():
 	$UI/RemainingTime.set_text(str(remaining_time))
 	if remaining_time == 0:
 		$Rocket.win()
-		print("game finish")
+		$UI/TaskContainer/Task.set_text(NO_PLANETS)
+		
+		# remove planet if exists
+		if $PlanetContainer.get_child_count()>0:
+			$PlanetContainer.get_child(0).despawn()
+		$SecondTickTimer.stop()
+		$PlanetSpawnTimer.stop()
 
 
 func _on_PlanetSpawnTimer_timeout():
@@ -119,10 +126,21 @@ func _on_Rocket_change_hp():
 func _on_Rocket_die():
 	$SecondTickTimer.stop()
 	$PlanetSpawnTimer.stop()
-	$UI/TaskContainer/Task.set_text(LOSE)
+	complete_stage(false)
 
 
 func _on_Rocket_win():
-	$SecondTickTimer.stop()
-	$PlanetSpawnTimer.stop()
-	$UI/TaskContainer/Task.set_text(WIN)
+	complete_stage(true)
+
+
+func complete_stage(is_success):
+	if is_stage_completed:
+		return
+	is_stage_completed = true
+	get_tree().paused=true
+	if is_success:
+		$UI/TaskContainer/Task.set_text(WIN)
+		$UI/WinDialog.show_dialog(Global.solved_tasks, Global.tasks_total, Global.tries)
+	else:
+		$UI/TaskContainer/Task.set_text(LOSE)
+		$UI/GameOverDialog.show_dialog(3, Global.solved_tasks, Global.tasks_total, Global.tries)
