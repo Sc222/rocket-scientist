@@ -41,9 +41,9 @@ const coolness_arr = [
 
 const all_tasks_dict = {
 	coolness_arr[0] : tasks_dict_25,
-	coolness_arr[1] : tasks_dict_25,
-	coolness_arr[2] : tasks_dict_25,
-	coolness_arr[3] : tasks_dict_25
+	coolness_arr[1] : tasks_dict_50,
+	coolness_arr[2] : tasks_dict_75,
+	coolness_arr[3] : tasks_dict_100
 }
 
 const flight_hp_bonus_dict = {

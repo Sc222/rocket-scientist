@@ -178,19 +178,15 @@ wait_time = 7.0
 one_shot = true
 
 [node name="PlanetsPositions" type="Node2D" parent="."]
-scale = Vector2( 1, 1 )
 
 [node name="Position2" type="Position2D" parent="PlanetsPositions"]
 position = Vector2( 195, 75 )
-scale = Vector2( 1, 1 )
 
 [node name="Position3" type="Position2D" parent="PlanetsPositions"]
 position = Vector2( 195, 90 )
-scale = Vector2( 1, 1 )
 
 [node name="Position4" type="Position2D" parent="PlanetsPositions"]
 position = Vector2( 195, 105 )
-scale = Vector2( 1, 1 )
 
 [node name="Rocket" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2, 91 )
@@ -198,7 +194,6 @@ scale = Vector2( 1.2, 1.2 )
 
 [node name="PlanetContainer" type="Node2D" parent="."]
 position = Vector2( 6, 16 )
-scale = Vector2( 1, 1 )
 [connection signal="timeout" from="SecondTickTimer" to="." method="_on_SecondTickTimer_timeout"]
 [connection signal="timeout" from="PlanetSpawnTimer" to="." method="_on_PlanetSpawnTimer_timeout"]
 [connection signal="change_hp" from="Rocket" to="." method="_on_Rocket_change_hp"]
