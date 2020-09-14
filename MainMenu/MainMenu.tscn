@@ -14,7 +14,7 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "flight",
-"speed": 12.0
+"speed": 9.0
 } ]
 
 [sub_resource type="DynamicFont" id=2]

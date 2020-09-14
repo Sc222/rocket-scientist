@@ -7,6 +7,7 @@ const STAGE_DESIGN_TASKS = 5
 var solved_tasks = 0
 var tasks_total = 0
 var tries = 0
+var final_stage_hp = 0  # depends on pilot difficulty
 
 # scene should be reloaded on game over if current scene is resources
 var current_stage = STAGE.UNDEFINED
@@ -17,6 +18,7 @@ func game_over():
 	solved_tasks = 0
 	tasks_total = 0
 	tries = 0
+	final_stage_hp = 0
 
 
 func reset_current_stage():

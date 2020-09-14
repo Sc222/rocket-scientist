@@ -94,8 +94,8 @@ visible = false
 [node name="Text" type="Label" parent="UI/Task"]
 margin_left = -23.0
 margin_top = -29.0
-margin_right = 93.0
-margin_bottom = -17.0
+margin_right = 207.0
+margin_bottom = -3.0
 rect_scale = Vector2( 0.2, 0.2 )
 custom_fonts/font = SubResource( 3 )
 text = "Задача с ответом 1"

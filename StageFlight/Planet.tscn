@@ -1,0 +1,109 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/stage_flight/planet_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/stage_flight/planet_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/stage_flight/planet_5.png" type="Texture" id=3]
+[ext_resource path="res://assets/stage_flight/planet_7.png" type="Texture" id=4]
+[ext_resource path="res://assets/stage_flight/planet_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/stage_flight/planet_6.png" type="Texture" id=6]
+[ext_resource path="res://assets/stage_flight/planet_4.png" type="Texture" id=7]
+[ext_resource path="res://assets/stage_flight/planet_8.png" type="Texture" id=8]
+[ext_resource path="res://assets/stage_flight/planet_9.png" type="Texture" id=9]
+[ext_resource path="res://StageFlight/Planet.gd" type="Script" id=10]
+[ext_resource path="res://assets/stage_flight/explosion_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/stage_flight/explosion_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/stage_flight/explosion_8.png" type="Texture" id=13]
+[ext_resource path="res://assets/stage_flight/explosion_6.png" type="Texture" id=14]
+[ext_resource path="res://assets/stage_flight/explosion_4.png" type="Texture" id=15]
+[ext_resource path="res://assets/stage_flight/explosion_7.png" type="Texture" id=16]
+[ext_resource path="res://assets/stage_flight/explosion_3.png" type="Texture" id=17]
+[ext_resource path="res://assets/stage_flight/explosion_5.png" type="Texture" id=18]
+[ext_resource path="res://assets/stage_flight/explosion_9.png" type="Texture" id=19]
+[ext_resource path="res://assets/stage_flight/explosion_10.png" type="Texture" id=20]
+[ext_resource path="res://assets/stage_flight/explosion_11.png" type="Texture" id=21]
+[ext_resource path="res://assets/stage_flight/explosion_0.png" type="Texture" id=22]
+[ext_resource path="res://assets/stage_flight/explosion_12.png" type="Texture" id=23]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "planet_8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "planet_9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "planet_6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "planet_1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "planet_2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "planet_3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "planet_7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "planet_5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "planet_4",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 35.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "explode",
+"speed": 12.0
+} ]
+
+[node name="Planet" type="Area2D" groups=[
+"deadly",
+]]
+script = ExtResource( 10 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 35, 0 )
+frames = SubResource( 1 )
+animation = "planet_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 35, 0 )
+shape = SubResource( 2 )
+
+[node name="ExplosionSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 35, -30 )
+frames = SubResource( 3 )
+animation = "explode"
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="area_entered" from="." to="." method="_on_Planet_area_entered"]
+[connection signal="animation_finished" from="ExplosionSprite" to="." method="_on_ExplosionSprite_animation_finished"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]

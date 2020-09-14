@@ -46,6 +46,13 @@ const all_tasks_dict = {
 	coolness_arr[3] : tasks_dict_25
 }
 
+const flight_hp_bonus_dict = {
+	coolness_arr[0] : 1,
+	coolness_arr[1] : 2,
+	coolness_arr[2] : 3,
+	coolness_arr[3] : 4
+}
+
 const difficulty_dict = {
 	coolness_arr[0] : "Простая",
 	coolness_arr[1] : "Средняя",
@@ -70,11 +77,10 @@ const avatars_dict = {
 }
 
 
-var NO_PILOT_HP="Выберите другого пилота"
-var NO_HP="Не осталось попыток"
-var LOSE="Поражение"
-var WIN="Победа"
-
+const NO_PILOT_HP="Выберите другого пилота"
+const NO_HP="Не осталось попыток"
+const LOSE="Поражение"
+const WIN="Победа"
 const PILOTS_COUNT = 4
 var current_pilots = { }
 var current_pilot = 0
@@ -84,7 +90,6 @@ var pilot_hp = 2
 var hp = 2
 var user_answer = ""
 var is_stage_completed = false
-
 onready var pilot_photo = get_node("Pilot"+str(current_pilot+1))
 
 
@@ -164,6 +169,7 @@ func complete_stage(is_success):
 	change_ui_visibility(false, false)
 	if is_success:
 		$Name.set_text(WIN)
+		
 		$UI/NextStageDialog.show_dialog(2)
 	else:
 		$Name.set_text(LOSE)
@@ -176,6 +182,7 @@ func generate_new_task():
 	change_ui_visibility(false, true)
 	if not is_task_solved:
 		var current_task_coolness = current_pilots.values()[current_pilot][1]
+		
 		var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
 		
 		# словарь - ссылочный тип данных, поэтому tasks_dict_** тоже очищается
@@ -198,6 +205,7 @@ func check_answer():
 	var tasks_coolness_dict = all_tasks_dict[current_task_coolness]
 	if tasks_coolness_dict[current_task_text] == user_answer:
 		Global.solved_tasks+=1
+		Global.final_stage_hp = flight_hp_bonus_dict[current_task_coolness]
 		complete_stage(true)
 	else:
 		update_hp(-1)

@@ -12,7 +12,7 @@ class ChestInfo:
 		self.task = task_val
 		self.answer = answer_val
 		self.answer_variants = answer_variants_val
-	
+
 
 const Player = preload("res://StageResources/Player/Player.tscn")
 const Chest = preload("res://StageResources/Chest/Chest.tscn")
@@ -20,7 +20,8 @@ const Monster = preload("res://StageResources/Monster/Monster.tscn")
 const CHESTS_COUNT = 5
 const CHESTS_TO_COLLECT = 3
 const MAX_MONSTERS = 3
-var monsters_on_map = 0
+const PLAYER_POSITIONS = ["1", "2", "3", "4"]
+var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 var chest_tasks = [
 	ChestInfo.new("Задача с ответом 1","1",["1","2","3"]),
 	ChestInfo.new("Задача с ответом 4","4",["6","5","4"]),
@@ -28,8 +29,7 @@ var chest_tasks = [
 	ChestInfo.new("Задача с ответом 10","10",["11","10","12"]),
 	ChestInfo.new("Задача с ответом 13","13",["13","14","15"])
 ]
-var chest_positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-const PLAYER_POSITIONS = ["1", "2", "3", "4"]
+var monsters_on_map = 0
 var is_stage_completed = false
 
 

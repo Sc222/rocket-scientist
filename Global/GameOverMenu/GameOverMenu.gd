@@ -30,7 +30,6 @@ func show_dialog(index, solved_tasks, tasks_total, tries):
 func _on_MainMenu_pressed():
 	get_tree().change_scene(MAIN_MENU_LINK)
 	Global.reset_current_stage()
-	print("go to main menu")
 
 
 func _on_Restart_pressed():
