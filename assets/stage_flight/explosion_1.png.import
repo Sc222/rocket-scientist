@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket.png-2f0d0807dd64877a3e4f32eeb490d8b1.stex"
+path="res://.import/explosion_1.png-90e4c50a9832587c2794c8a7720f6307.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage_design/rocket.png"
-dest_files=[ "res://.import/rocket.png-2f0d0807dd64877a3e4f32eeb490d8b1.stex" ]
+source_file="res://assets/stage_flight/explosion_1.png"
+dest_files=[ "res://.import/explosion_1.png-90e4c50a9832587c2794c8a7720f6307.stex" ]
 
 [params]
 
@@ -20,15 +20,15 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

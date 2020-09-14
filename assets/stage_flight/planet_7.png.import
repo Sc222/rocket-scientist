@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket_side_fire.png-b4fe225ad5f09855a74337910300cec1.stex"
+path="res://.import/planet_7.png-08a38b1cb3657dc8a8e09c9676168d4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage_flight/rocket_side_fire.png"
-dest_files=[ "res://.import/rocket_side_fire.png-b4fe225ad5f09855a74337910300cec1.stex" ]
+source_file="res://assets/stage_flight/planet_7.png"
+dest_files=[ "res://.import/planet_7.png-08a38b1cb3657dc8a8e09c9676168d4e.stex" ]
 
 [params]
 

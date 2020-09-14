@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket_center_fire.png-0c2537bffeb83f803589ee000e49d25d.stex"
+path="res://.import/key_1.png-9c66c9b2045157917b8b3edd89aa79d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage_flight/rocket_center_fire.png"
-dest_files=[ "res://.import/rocket_center_fire.png-0c2537bffeb83f803589ee000e49d25d.stex" ]
+source_file="res://assets/stage_flight/key_1.png"
+dest_files=[ "res://.import/key_1.png-9c66c9b2045157917b8b3edd89aa79d8.stex" ]
 
 [params]
 
