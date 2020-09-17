@@ -75,6 +75,11 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ), ExtResource( 58 ), ExtResource( 43 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 60 ), ExtResource( 42 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "coolness_100",
+"speed": 80.0
+}, {
 "frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ) ],
 "loop": false,
 "name": "coolness_75",
@@ -94,11 +99,6 @@ animations = [ {
 "loop": false,
 "name": "coolness_50",
 "speed": 40.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 57 ), ExtResource( 54 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 61 ), ExtResource( 52 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 46 ), ExtResource( 63 ), ExtResource( 59 ), ExtResource( 51 ), ExtResource( 58 ), ExtResource( 43 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 60 ), ExtResource( 42 ), ExtResource( 62 ) ],
-"loop": false,
-"name": "coolness_100",
-"speed": 80.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -120,11 +120,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 19 ) ],
-"loop": false,
-"name": "pilot_6",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "pilot_7",
@@ -138,6 +133,11 @@ animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 25 ) ],
 "loop": false,
 "name": "pilot_10",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "pilot_6",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],

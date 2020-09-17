@@ -1,7 +1,7 @@
 extends Node2D
 
 var BG_SPEED = -50
-var FLIGHT_LENGTH = 45 # sec (60 secs) 
+var FLIGHT_LENGTH = 20 # sec (60 secs) 
 var remaining_time = FLIGHT_LENGTH
 const NO_PLANETS = "Нет планет в зоне видимости."
 const PLANET_APPROACHES = "Тревога.\nПланета надвигается."

@@ -93,7 +93,7 @@ __meta__ = {
 margin_left = 45.0
 margin_top = 80.0
 margin_right = 526.0
-margin_bottom = 324.0
+margin_bottom = 330.0
 rect_scale = Vector2( 0.8, 0.8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,7 +101,7 @@ __meta__ = {
 
 [node name="Task" type="Label" parent="UI/TaskContainer"]
 margin_right = 481.0
-margin_bottom = 244.0
+margin_bottom = 250.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 7
@@ -175,7 +175,7 @@ visible = false
 autostart = true
 
 [node name="PlanetSpawnTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 2.0
 one_shot = true
 
 [node name="PlanetsPositions" type="Node2D" parent="."]
