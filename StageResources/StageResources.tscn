@@ -36,13 +36,13 @@
 [ext_resource path="res://Global/NextStageMenu/NextStageMenu.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Global/GameOverMenu/GameOverMenu.tscn" type="PackedScene" id=35]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=1]
 antialiased = false
 font_path = "res://assets/10895.otf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 52
-font_data = SubResource( 2 )
+font_data = SubResource( 1 )
 
 [node name="StageResouces" type="Node2D"]
 scale = Vector2( 5, 5 )
@@ -788,7 +788,7 @@ margin_top = 1.0
 margin_right = 113.0
 margin_bottom = 56.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "0/3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -800,7 +800,7 @@ margin_top = 1.0
 margin_right = 41.0
 margin_bottom = 56.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false

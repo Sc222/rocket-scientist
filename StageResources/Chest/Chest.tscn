@@ -35,7 +35,7 @@ font_data = SubResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 26
 outline_size = 2
-outline_color = Color( 0.882353, 0.196078, 0.235294, 1 )
+outline_color = Color( 0.768627, 0.141176, 0.188235, 1 )
 extra_spacing_top = -1
 extra_spacing_bottom = -1
 font_data = SubResource( 1 )
@@ -92,14 +92,16 @@ __meta__ = {
 visible = false
 
 [node name="Text" type="Label" parent="UI/Task"]
-margin_left = -23.0
-margin_top = -29.0
-margin_right = 207.0
-margin_bottom = -3.0
-rect_scale = Vector2( 0.2, 0.2 )
+margin_left = -34.6423
+margin_top = -51.8735
+margin_right = 361.358
+margin_bottom = 108.126
+rect_scale = Vector2( 0.175, 0.175 )
 custom_fonts/font = SubResource( 3 )
 text = "Задача с ответом 1"
 align = 1
+valign = 2
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -107,7 +109,7 @@ __meta__ = {
 [node name="Node" type="Node2D" parent="UI/Task"]
 
 [node name="VariantKey1" type="Sprite" parent="UI/Task/Node"]
-position = Vector2( -26, -23 )
+position = Vector2( -26, -22.823 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 8 )
 centered = false

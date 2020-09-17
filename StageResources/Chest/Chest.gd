@@ -13,13 +13,8 @@ var answer_variants = []
 
 
 func _process(_delta):
-	if is_player_nearby and chest_state == CHEST_STATE.CLOSED:
-		if Input.is_action_just_pressed("player_action"):
-			$UI/Info.visible = false
-			$UI/Task.visible = true
-			chest_state = CHEST_STATE.WAIT_FOR_ANSWER
-	
 	if is_player_nearby and chest_state == CHEST_STATE.WAIT_FOR_ANSWER:
+		print("Checking")
 		check_answer()
 
 
@@ -54,8 +49,10 @@ func show_result_message(is_correct):
 func _on_ChestArea_body_entered(body):
 	if body.is_in_group("player") and chest_state == CHEST_STATE.CLOSED:
 		is_player_nearby = true
-		$UI/Info.visible = is_player_nearby
+		$UI/Task.visible = is_player_nearby
+		$UI/Info.visible = false
 		$Sprite.play("selected")
+		chest_state = CHEST_STATE.WAIT_FOR_ANSWER
 
 
 func _on_ChestArea_body_exited(body):

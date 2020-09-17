@@ -10,7 +10,7 @@ const HALF_HEIGHT=9
 const HALF_COLLISION_HEIGHT=2
 const DIR_LEFT = "l"
 const DIR_RIGHT="r"
-const START_HP = 3
+const START_HP = 4
 const COINS_TO_COLLECT = 3
 const RELOAD_TIME = 0.3  # sec
 
